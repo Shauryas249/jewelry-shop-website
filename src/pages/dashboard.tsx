@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Filter, Grid, List, Heart, Eye, X, ChevronDown, ChevronUp, SlidersHorizontal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -127,6 +128,7 @@ const occasions = ['Daily wear', 'Bridal', 'Festive', 'Traditional'];
 const jewelryTypes = ['Traditional', 'Modern', 'Antique'];
 
 const Dashboard = () => {
+  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedMetalTypes, setSelectedMetalTypes] = useState<string[]>([]);
@@ -494,9 +496,10 @@ const Dashboard = () => {
         <div className="flex items-center justify-between">
           <Button
             size="sm"
+            onClick={() => router.push(`/product/${item.id}`)}
             className="bg-burgundy hover:bg-burgundy/90 text-cream"
           >
-            Inquire Now
+            View Details
           </Button>
           
           <button
