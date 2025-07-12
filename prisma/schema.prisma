@@ -12,4 +12,58 @@ model User {
   id         String   @id @db.Uuid
   email      String   @unique
   createdAt  DateTime @default(now())
+  inquiries  Inquiry[]
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  description String?
+  slug        String    @unique
+  imageUrl    String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  jewelry     Jewelry[]
+}
+
+model Jewelry {
+  id          String    @id @default(cuid())
+  name        String
+  description String?
+  price       Decimal?
+  weight      Decimal?
+  purity      String?   // e.g., "22K", "18K", "925 Silver"
+  material    String    // e.g., "Gold", "Diamond", "Silver", "Platinum"
+  type        String    // e.g., "Ring", "Necklace", "Earrings", "Bracelet"
+  imageUrls   String[]  // Array of image URLs
+  isAvailable Boolean   @default(true)
+  isFeatured  Boolean   @default(false)
+  categoryId  String
+  category    Category  @relation(fields: [categoryId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  inquiries   Inquiry[]
+  
+  @@index([categoryId])
+  @@index([material])
+  @@index([type])
+  @@index([isFeatured])
+}
+
+model Inquiry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  message   String
+  jewelryId String?
+  jewelry   Jewelry? @relation(fields: [jewelryId], references: [id])
+  userId    String?  @db.Uuid
+  user      User?    @relation(fields: [userId], references: [id])
+  status    String   @default("pending") // pending, contacted, closed
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([status])
+  @@index([createdAt])
 }
