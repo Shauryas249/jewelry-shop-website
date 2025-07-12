@@ -164,9 +164,12 @@ const Dashboard = () => {
         .map(item => item.title)
         .slice(0, 5);
       
-      setSearchSuggestions([...new Set([...suggestions, ...popularSearches.filter(p => 
+      const filteredPopularSearches = popularSearches.filter(p => 
         p.toLowerCase().includes(searchTerm.toLowerCase())
-      )])]);
+      );
+      const allSuggestions = suggestions.concat(filteredPopularSearches);
+      const uniqueSuggestions = Array.from(new Set(allSuggestions));
+      setSearchSuggestions(uniqueSuggestions);
       setShowSuggestions(true);
     } else {
       setShowSuggestions(false);
