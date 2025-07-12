@@ -132,8 +132,9 @@ const ProductPage = () => {
   });
 
   useEffect(() => {
-    if (id) {
-      const productData = mockProducts[id as keyof typeof mockProducts];
+    if (id && typeof id === 'string') {
+      const productId = parseInt(id, 10);
+      const productData = mockProducts[productId as keyof typeof mockProducts];
       setProduct(productData || null);
     }
   }, [id]);
@@ -359,7 +360,7 @@ const ProductPage = () => {
                         <TableCell className="font-medium text-charcoal capitalize">
                           {key.replace(/([A-Z])/g, ' $1').trim()}
                         </TableCell>
-                        <TableCell className="text-charcoal/80">{value}</TableCell>
+                        <TableCell className="text-charcoal/80">{String(value)}</TableCell>
                       </TableRow>
                     ))}
                   </TableBody>
