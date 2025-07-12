@@ -5,7 +5,24 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Gem, Crown, Star, Heart, ArrowRight, Phone, Mail, MapPin } from "lucide-react";
+import Navigation from "@/components/Navigation";
+import HeroSlider from "@/components/HeroSlider";
+import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import { 
+  Crown, 
+  Gem, 
+  Heart, 
+  Star, 
+  Shield, 
+  Award, 
+  Users, 
+  Sparkles,
+  ArrowRight,
+  CheckCircle,
+  MapPin,
+  Phone,
+  Mail
+} from "lucide-react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -31,98 +48,21 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Maharaja Jewels - Exquisite Indian Jewelry Collection</title>
-        <meta name="description" content="Discover our heritage collection of handcrafted gold, diamond, and precious stone jewelry. Traditional Indian craftsmanship meets timeless elegance." />
+        <title>Heritage Jewels - Exquisite Traditional Indian Jewelry Since 1952</title>
+        <meta name="description" content="Discover our heritage collection of handcrafted gold, diamond, and precious stone jewelry. Traditional Indian craftsmanship meets timeless elegance. Trusted for over 70 years." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="min-h-screen bg-background">
         {/* Navigation */}
-        <motion.nav 
-          className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-rose-gold/20"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="max-w-7xl mx-auto px-6 py-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <Crown className="h-8 w-8 text-burgundy" />
-                <span className="text-2xl font-playfair font-bold text-burgundy">Maharaja Jewels</span>
-              </div>
-              <div className="hidden md:flex items-center space-x-8">
-                <Link href="#collections" className="text-charcoal hover:text-burgundy transition-colors">Collections</Link>
-                <Link href="#heritage" className="text-charcoal hover:text-burgundy transition-colors">Heritage</Link>
-                <Link href="#contact" className="text-charcoal hover:text-burgundy transition-colors">Contact</Link>
-                <Link href="/dashboard">
-                  <Button className="bg-burgundy hover:bg-burgundy/90 text-cream">
-                    View Catalog
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </motion.nav>
+        <Navigation />
 
-        {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img 
-              src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-              alt="Luxury Indian Jewelry"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-burgundy/80 via-burgundy/60 to-transparent"></div>
-          </div>
-          
-          <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-            <motion.div
-              variants={staggerContainer}
-              initial="initial"
-              animate="animate"
-              className="space-y-8"
-            >
-              <motion.h1 
-                variants={fadeInUp}
-                className="text-5xl md:text-7xl font-playfair font-bold text-cream leading-tight"
-              >
-                Timeless
-                <span className="block text-gold">Elegance</span>
-              </motion.h1>
-              
-              <motion.p 
-                variants={fadeInUp}
-                className="text-xl md:text-2xl text-cream/90 max-w-3xl mx-auto leading-relaxed"
-              >
-                Discover our heritage collection of handcrafted gold, diamond, and precious stone jewelry. 
-                Where traditional Indian craftsmanship meets contemporary sophistication.
-              </motion.p>
-              
-              <motion.div 
-                variants={fadeInUp}
-                className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-              >
-                <Link href="/dashboard">
-                  <Button size="lg" className="bg-gold hover:bg-gold/90 text-charcoal font-semibold px-8 py-4 text-lg">
-                    Explore Collection
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
-                </Link>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-cream text-cream hover:bg-cream hover:text-charcoal px-8 py-4 text-lg"
-                >
-                  Book Consultation
-                </Button>
-              </motion.div>
-            </motion.div>
-          </div>
-        </section>
+        {/* Hero Section with Slider */}
+        <HeroSlider />
 
-        {/* Featured Categories */}
-        <section id="collections" className="py-20 bg-white">
+        {/* Featured Collections Grid */}
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -132,10 +72,10 @@ export default function Home() {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-playfair font-bold text-burgundy mb-4">
-                Our Collections
+                Featured Collections
               </h2>
               <p className="text-xl text-charcoal/80 max-w-2xl mx-auto">
-                Each piece tells a story of heritage, craftsmanship, and timeless beauty
+                Discover our most cherished jewelry collections, each piece crafted with love and tradition
               </p>
             </motion.div>
 
@@ -144,57 +84,64 @@ export default function Home() {
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
             >
               {[
                 {
                   title: "Bridal Collection",
-                  description: "Exquisite pieces for your special day",
+                  description: "Complete bridal sets for your most precious moments",
                   image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                   icon: Heart,
-                  badge: "Most Popular"
+                  lifestyle: true
+                },
+                {
+                  title: "Gold Jewelry",
+                  description: "Traditional and contemporary gold designs",
+                  image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                  icon: Crown,
+                  lifestyle: true
                 },
                 {
                   title: "Diamond Jewelry",
-                  description: "Brilliant diamonds in stunning settings",
+                  description: "Brilliant diamonds in exquisite settings",
                   image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                   icon: Gem,
-                  badge: "Premium"
-                },
-                {
-                  title: "Gold Ornaments",
-                  description: "Traditional and contemporary gold designs",
-                  image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                  icon: Star,
-                  badge: "Heritage"
+                  lifestyle: true
                 }
-              ].map((category, index) => (
+              ].map((collection, index) => (
                 <motion.div key={index} variants={scaleIn}>
-                  <Card className="jewelry-card group cursor-pointer h-full">
-                    <div className="relative overflow-hidden">
+                  <Card className="jewelry-card group cursor-pointer h-full overflow-hidden">
+                    <div className="relative overflow-hidden h-80">
                       <img 
-                        src={category.image}
-                        alt={category.title}
-                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                        src={collection.image}
+                        alt={collection.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute top-4 left-4">
-                        <Badge className="bg-burgundy text-cream">
-                          {category.badge}
-                        </Badge>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                      
+                      {/* Hover Overlay */}
+                      <div className="absolute inset-0 bg-burgundy/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <Button 
+                          className="bg-gold hover:bg-gold/90 text-charcoal font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                        >
+                          View Collection
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
                       </div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                      {/* Content Overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                        <div className="flex items-center space-x-3 mb-3">
+                          <collection.icon className="h-6 w-6 text-gold" />
+                          <h3 className="text-2xl font-playfair font-bold">
+                            {collection.title}
+                          </h3>
+                        </div>
+                        <p className="text-cream/90 leading-relaxed">
+                          {collection.description}
+                        </p>
+                      </div>
                     </div>
-                    <CardContent className="luxury-spacing">
-                      <div className="flex items-center space-x-3 mb-3">
-                        <category.icon className="h-6 w-6 text-burgundy" />
-                        <h3 className="text-xl font-playfair font-semibold text-charcoal">
-                          {category.title}
-                        </h3>
-                      </div>
-                      <p className="text-charcoal/70 leading-relaxed">
-                        {category.description}
-                      </p>
-                    </CardContent>
                   </Card>
                 </motion.div>
               ))}
@@ -202,66 +149,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Heritage Section */}
-        <section id="heritage" className="py-20 luxury-gradient">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -60 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="text-4xl md:text-5xl font-playfair font-bold text-cream mb-6">
-                  Three Generations of Excellence
-                </h2>
-                <p className="text-xl text-cream/90 leading-relaxed mb-8">
-                  Since 1952, our family has been crafting jewelry that celebrates India's rich heritage. 
-                  Each piece is meticulously handcrafted by master artisans who have inherited techniques 
-                  passed down through generations.
-                </p>
-                <div className="space-y-4">
-                  {[
-                    "Certified authentic materials",
-                    "Traditional craftsmanship techniques",
-                    "Lifetime authenticity guarantee",
-                    "Custom design services"
-                  ].map((feature, index) => (
-                    <motion.div 
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="flex items-center space-x-3"
-                    >
-                      <div className="w-2 h-2 bg-gold rounded-full"></div>
-                      <span className="text-cream/90">{feature}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, x: 60 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
-                className="relative"
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Master Craftsman"
-                  className="w-full rounded-2xl"
-                />
-                <div className="absolute inset-0 rounded-2xl border-2 border-gold/30"></div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Contact Section */}
-        <section id="contact" className="py-20 bg-white">
+        {/* Trust Indicators */}
+        <section className="py-20 bg-cream/20">
           <div className="max-w-7xl mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -271,10 +160,207 @@ export default function Home() {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-playfair font-bold text-burgundy mb-4">
-                Visit Our Showroom
+                Why Choose Heritage Jewels
               </h2>
               <p className="text-xl text-charcoal/80 max-w-2xl mx-auto">
-                Experience our collection in person and receive personalized consultation
+                Seven decades of trust, quality, and exceptional craftsmanship
+              </p>
+            </motion.div>
+
+            {/* Trust Badges */}
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16"
+            >
+              {[
+                {
+                  icon: Award,
+                  title: "70+ Years",
+                  subtitle: "of Excellence",
+                  color: "text-burgundy"
+                },
+                {
+                  icon: Shield,
+                  title: "BIS Hallmark",
+                  subtitle: "Certified",
+                  color: "text-gold"
+                },
+                {
+                  icon: Users,
+                  title: "10,000+",
+                  subtitle: "Happy Customers",
+                  color: "text-burgundy"
+                },
+                {
+                  icon: Sparkles,
+                  title: "Handcrafted",
+                  subtitle: "Excellence",
+                  color: "text-gold"
+                }
+              ].map((badge, index) => (
+                <motion.div key={index} variants={scaleIn}>
+                  <Card className="jewelry-card text-center h-full">
+                    <CardContent className="luxury-spacing">
+                      <badge.icon className={`h-12 w-12 ${badge.color} mx-auto mb-4`} />
+                      <h3 className="text-2xl font-playfair font-bold text-charcoal mb-1">
+                        {badge.title}
+                      </h3>
+                      <p className="text-charcoal/70 font-medium">
+                        {badge.subtitle}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Handcrafted Excellence Promise */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-8 md:p-12 jewelry-card"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                  <div className="flex items-center space-x-3 mb-6">
+                    <Sparkles className="h-8 w-8 text-burgundy" />
+                    <h3 className="text-3xl font-playfair font-bold text-burgundy">
+                      Handcrafted Excellence Promise
+                    </h3>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    {[
+                      "100% authentic materials with certification",
+                      "Traditional techniques passed down through generations",
+                      "Lifetime authenticity and quality guarantee",
+                      "Custom design services for unique pieces",
+                      "Expert consultation and after-sales support"
+                    ].map((promise, index) => (
+                      <motion.div 
+                        key={index}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        className="flex items-center space-x-3"
+                      >
+                        <CheckCircle className="h-5 w-5 text-gold flex-shrink-0" />
+                        <span className="text-charcoal/80">{promise}</span>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="relative">
+                  <img 
+                    src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                    alt="Master Craftsman at Work"
+                    className="w-full rounded-xl"
+                  />
+                  <div className="absolute inset-0 rounded-xl border-2 border-gold/30"></div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Customer Testimonials */}
+        <TestimonialsCarousel />
+
+        {/* About Preview */}
+        <section className="py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+                className="relative"
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Heritage Jewels Legacy"
+                  className="w-full rounded-2xl"
+                />
+                <div className="absolute inset-0 rounded-2xl border-2 border-gold/30"></div>
+                
+                {/* Floating Badge */}
+                <div className="absolute -bottom-6 -right-6 bg-burgundy text-cream p-6 rounded-2xl">
+                  <div className="text-center">
+                    <div className="text-3xl font-playfair font-bold">1952</div>
+                    <div className="text-sm">Established</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ once: true }}
+              >
+                <h2 className="text-4xl md:text-5xl font-playfair font-bold text-burgundy mb-6">
+                  A Legacy of Excellence
+                </h2>
+                
+                <div className="space-y-6 text-lg text-charcoal/80 leading-relaxed">
+                  <p>
+                    For over seven decades, Heritage Jewels has been synonymous with exceptional 
+                    craftsmanship and authentic Indian jewelry. Founded in 1952, our family business 
+                    has preserved traditional techniques while embracing contemporary elegance.
+                  </p>
+                  
+                  <p>
+                    Each piece in our collection tells a story of heritage, passion, and meticulous 
+                    attention to detail. From bridal sets that celebrate life's most precious moments 
+                    to everyday elegance that enhances your natural beauty.
+                  </p>
+                  
+                  <p>
+                    Our master craftsmen, trained in age-old techniques, ensure that every piece 
+                    meets the highest standards of quality and authenticity that our customers 
+                    have trusted for generations.
+                  </p>
+                </div>
+
+                <div className="mt-8">
+                  <Link href="/about">
+                    <Button 
+                      size="lg" 
+                      className="bg-burgundy hover:bg-burgundy/90 text-cream px-8"
+                    >
+                      Learn More About Our Heritage
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="py-20 bg-charcoal text-cream">
+          <div className="max-w-7xl mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-4">
+                Visit Our Heritage Showroom
+              </h2>
+              <p className="text-xl text-cream/80 max-w-2xl mx-auto">
+                Experience our collection in person and receive personalized consultation from our experts
               </p>
             </motion.div>
 
@@ -282,18 +368,18 @@ export default function Home() {
               {[
                 {
                   icon: MapPin,
-                  title: "Location",
-                  details: ["123 Jewelry Street", "Mumbai, Maharashtra", "India - 400001"]
+                  title: "Showroom Location",
+                  details: ["123 Heritage Street", "Jewelry District, Mumbai", "Maharashtra - 400001"]
                 },
                 {
                   icon: Phone,
-                  title: "Phone",
-                  details: ["+91 98765 43210", "+91 98765 43211", "Mon-Sat: 10AM-8PM"]
+                  title: "Contact Numbers",
+                  details: ["+91 98765 43210", "+91 98765 43211", "Mon-Sat: 10:00 AM - 8:00 PM"]
                 },
                 {
                   icon: Mail,
-                  title: "Email",
-                  details: ["info@maharajajewels.com", "custom@maharajajewels.com", "We reply within 24 hours"]
+                  title: "Email & Support",
+                  details: ["info@heritagejewels.com", "custom@heritagejewels.com", "Response within 24 hours"]
                 }
               ].map((contact, index) => (
                 <motion.div
@@ -303,15 +389,15 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="jewelry-card text-center h-full">
+                  <Card className="bg-cream/10 border-cream/20 text-center h-full">
                     <CardContent className="luxury-spacing">
-                      <contact.icon className="h-12 w-12 text-burgundy mx-auto mb-4" />
-                      <h3 className="text-xl font-playfair font-semibold text-charcoal mb-4">
+                      <contact.icon className="h-12 w-12 text-gold mx-auto mb-4" />
+                      <h3 className="text-xl font-playfair font-semibold mb-4">
                         {contact.title}
                       </h3>
                       <div className="space-y-2">
                         {contact.details.map((detail, idx) => (
-                          <p key={idx} className="text-charcoal/70">
+                          <p key={idx} className="text-cream/80">
                             {detail}
                           </p>
                         ))}
@@ -321,20 +407,53 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="text-center mt-12"
+            >
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link href="/dashboard">
+                  <Button 
+                    size="lg" 
+                    className="bg-gold hover:bg-gold/90 text-charcoal font-semibold px-8"
+                  >
+                    Browse Our Catalog
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    className="border-cream text-cream hover:bg-cream hover:text-charcoal px-8"
+                  >
+                    Schedule Consultation
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Footer */}
-        <footer className="bg-charcoal text-cream py-12">
+        <footer className="bg-burgundy text-cream py-12">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <div className="flex items-center space-x-2 mb-4 md:mb-0">
-                <Crown className="h-8 w-8 text-gold" />
-                <span className="text-2xl font-playfair font-bold">Maharaja Jewels</span>
+              <div className="flex items-center space-x-3 mb-4 md:mb-0">
+                <Crown className="h-10 w-10 text-gold" />
+                <div>
+                  <span className="text-2xl font-playfair font-bold block leading-tight">
+                    Heritage Jewels
+                  </span>
+                  <span className="text-sm text-cream/70">Since 1952</span>
+                </div>
               </div>
               <div className="text-center md:text-right">
-                <p className="text-cream/80">© 2024 Maharaja Jewels. All rights reserved.</p>
-                <p className="text-cream/60 text-sm mt-1">Crafting dreams since 1952</p>
+                <p className="text-cream/90">© 2024 Heritage Jewels. All rights reserved.</p>
+                <p className="text-cream/70 text-sm mt-1">Crafting dreams for over seven decades</p>
               </div>
             </div>
           </div>
