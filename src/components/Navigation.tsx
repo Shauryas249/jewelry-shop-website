@@ -104,7 +104,10 @@ export default function Navigation() {
                         
                         {Object.entries(megaMenuData).map(([category, data]) => (
                           <div key={category}>
-                            <div className="p-4 rounded-lg hover:bg-cream/50 transition-colors group">
+                            <Link 
+                              href={`/collections/${category.toLowerCase().replace(' ', '-')}`}
+                              className="block p-4 rounded-lg hover:bg-cream/50 transition-colors group"
+                            >
                               <data.icon className="h-6 w-6 text-burgundy mb-2" />
                               <h3 className="font-playfair font-semibold text-charcoal group-hover:text-burgundy mb-3">
                                 {category}
@@ -112,16 +115,13 @@ export default function Navigation() {
                               <ul className="space-y-2">
                                 {data.items.map((item) => (
                                   <li key={item}>
-                                    <Link 
-                                      href={`/collections/${category.toLowerCase().replace(' ', '-')}/${item.toLowerCase().replace(' ', '-')}`}
-                                      className="text-sm text-charcoal/70 hover:text-burgundy transition-colors"
-                                    >
+                                    <span className="text-sm text-charcoal/70">
                                       {item}
-                                    </Link>
+                                    </span>
                                   </li>
                                 ))}
                               </ul>
-                            </div>
+                            </Link>
                           </div>
                         ))}
                       </div>
@@ -221,16 +221,20 @@ export default function Navigation() {
 
                       {Object.entries(megaMenuData).map(([category, data]) => (
                         <div key={category} className="space-y-2">
-                          <h4 className="pl-4 font-medium text-charcoal">{category}</h4>
+                          <Link 
+                            href={`/collections/${category.toLowerCase().replace(' ', '-')}`}
+                            className="block pl-4 font-medium text-charcoal hover:text-burgundy transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {category}
+                          </Link>
                           {data.items.map((item) => (
-                            <Link 
+                            <span 
                               key={item}
-                              href={`/collections/${category.toLowerCase().replace(' ', '-')}/${item.toLowerCase().replace(' ', '-')}`}
-                              className="block pl-8 text-sm text-charcoal/70 hover:text-burgundy transition-colors"
-                              onClick={() => setMobileMenuOpen(false)}
+                              className="block pl-8 text-sm text-charcoal/70"
                             >
                               {item}
-                            </Link>
+                            </span>
                           ))}
                         </div>
                       ))}
