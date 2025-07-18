@@ -162,21 +162,21 @@ export default function About() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-20">
               {/* Left Side - Fixed Width Image */}
               <motion.div
                 initial={{ opacity: 0, x: -60 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="lg:sticky lg:top-8"
+                className="lg:sticky lg:top-8 mb-12 lg:mb-0 relative z-10"
               >
                 <OptimizedImage
                   src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                   alt="Bawa Jewellers founder working on traditional jewelry"
                   width={800}
                   height={600}
-                  className="rounded-2xl w-full"
+                  className="rounded-2xl w-full shadow-lg"
                 />
               </motion.div>
 
@@ -186,7 +186,7 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="space-y-8"
+                className="space-y-10 relative z-20"
               >
                 {[
                   {
