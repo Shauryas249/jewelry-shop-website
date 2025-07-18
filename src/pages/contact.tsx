@@ -83,14 +83,14 @@ const ContactPage = () => {
       icon: Phone,
       title: 'Phone',
       primary: '+91 98765 43210',
-      secondary: '+91 11 2345 6789',
+      secondary: '+91 98765 43211',
       description: 'Call us for immediate assistance'
     },
     {
       icon: Mail,
       title: 'Email',
-      primary: 'info@heritagejewels.com',
-      secondary: 'sales@heritagejewels.com',
+      primary: 'info@bawajewellers.com',
+      secondary: 'custom@bawajewellers.com',
       description: 'Send us your inquiries anytime'
     },
     {
@@ -133,61 +133,16 @@ const ContactPage = () => {
           className="text-center mb-8"
         >
           <h1 className="font-playfair text-3xl font-bold text-charcoal mb-3">
-            Contact Heritage Jewels
+            Contact Bawa Jewellers
           </h1>
           <p className="text-base text-charcoal/80 max-w-2xl mx-auto">
-            Visit our showroom or get in touch with our jewelry experts. We're here to help you find the perfect piece for your special moments.
+            Get in touch with our jewelry experts. We're here to help you find the perfect piece for your special moments.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Left Column - Store Information */}
+          {/* Left Column - Contact Information */}
           <div className="space-y-6">
-            {/* Store Location */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <Card>
-                <CardHeader className="pb-4">
-                  <CardTitle className="font-playfair text-xl text-charcoal flex items-center gap-2">
-                    <MapPin className="h-5 w-5 text-rose-gold" />
-                    Our Showroom
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div>
-                    <h3 className="font-semibold text-charcoal mb-1">Heritage Jewels</h3>
-                    <p className="text-charcoal/80 text-sm leading-relaxed">
-                      123 Jewelry Street, Karol Bagh<br />
-                      New Delhi - 110005<br />
-                      India
-                    </p>
-                  </div>
-
-                  {/* Google Maps Embed */}
-                  <div className="h-64 md:h-80 rounded-lg overflow-hidden bg-charcoal/10 border-2 border-rose-gold">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.674665!2d77.1906!3d28.6519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM5JzA2LjgiTiA3N8KwMTEnMjYuMiJF!5e0!3m2!1sen!2sin!4v1234567890"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Heritage Jewels Location"
-                    />
-                  </div>
-
-                  <Button className="w-full bg-rose-gold hover:bg-rose-gold/90 text-white min-h-[44px]">
-                    <NavigationIcon className="h-4 w-4 mr-2" />
-                    Get Directions
-                  </Button>
-                </CardContent>
-              </Card>
-            </motion.div>
-
             {/* Business Hours & Contact Methods Combined */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}

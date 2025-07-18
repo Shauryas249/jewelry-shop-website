@@ -260,7 +260,7 @@ const AllJewelryPage = () => {
     <div className="space-y-3">
       <button
         onClick={() => onToggle(filterType)}
-        className="flex items-center justify-between w-full text-left font-medium text-charcoal hover:text-burgundy transition-colors"
+        className="flex items-center justify-between w-full text-left font-medium text-charcoal hover:text-rose-gold transition-colors"
       >
         {title}
         {expanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
@@ -280,11 +280,11 @@ const AllJewelryPage = () => {
                   id={`${filterType}-${item}`}
                   checked={selectedItems.includes(item)}
                   onCheckedChange={() => toggleFilter(filterType, item)}
-                  className="border-charcoal data-[state=checked]:bg-burgundy data-[state=checked]:border-burgundy"
+                  className="border-charcoal data-[state=checked]:bg-rose-gold data-[state=checked]:border-rose-gold"
                 />
                 <label
                   htmlFor={`${filterType}-${item}`}
-                  className="text-sm text-charcoal cursor-pointer hover:text-burgundy transition-colors"
+                  className="text-sm text-charcoal cursor-pointer hover:text-rose-gold transition-colors"
                 >
                   {item}
                 </label>
@@ -304,7 +304,7 @@ const AllJewelryPage = () => {
           variant="ghost"
           size="sm"
           onClick={clearAllFilters}
-          className="text-burgundy hover:text-burgundy/80 hover:bg-burgundy/10"
+          className="text-rose-gold hover:text-rose-gold/80 hover:bg-rose-gold/10"
         >
           Clear All
         </Button>
@@ -325,8 +325,8 @@ const AllJewelryPage = () => {
               size="sm"
               onClick={() => setQuickFilter(quickFilter === filter.key ? null : filter.key)}
               className={quickFilter === filter.key 
-                ? "bg-burgundy hover:bg-burgundy/90 text-cream" 
-                : "border-charcoal text-charcoal hover:bg-burgundy/10"
+                ? "bg-rose-gold hover:bg-rose-gold/90 text-white" 
+                : "border-charcoal text-charcoal hover:bg-rose-gold/10"
               }
             >
               {filter.label}
@@ -385,7 +385,7 @@ const AllJewelryPage = () => {
       <div className="space-y-3">
         <button
           onClick={() => setExpandedFilters(prev => ({ ...prev, price: !prev.price }))}
-          className="flex items-center justify-between w-full text-left font-medium text-charcoal hover:text-burgundy transition-colors"
+          className="flex items-center justify-between w-full text-left font-medium text-charcoal hover:text-rose-gold transition-colors"
         >
           Price Range (Optional)
           {expandedFilters.price ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
@@ -424,7 +424,7 @@ const AllJewelryPage = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.3 }}
-      className={`group relative bg-cream rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 ${
+      className={`group relative bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 ${
         viewMode === 'list' ? 'flex' : ''
       }`}
     >
@@ -436,7 +436,7 @@ const AllJewelryPage = () => {
         />
         
         {/* Item Code Badge */}
-        <div className="absolute top-2 right-2 bg-burgundy text-cream px-2 py-1 rounded text-xs font-mono">
+        <div className="absolute top-2 right-2 bg-rose-gold text-white px-2 py-1 rounded text-xs font-mono">
           {item.code}
         </div>
 
@@ -446,18 +446,18 @@ const AllJewelryPage = () => {
             <Badge className="bg-gold text-charcoal text-xs">New</Badge>
           )}
           {item.isPopular && (
-            <Badge className="bg-rose-gold text-charcoal text-xs">Popular</Badge>
+            <Badge className="bg-rose-gold text-white text-xs">Popular</Badge>
           )}
         </div>
 
         {/* Wishlist Button */}
         <button
           onClick={() => toggleWishlist(item.id)}
-          className="absolute top-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-cream/90 p-2 rounded-full hover:bg-cream"
+          className="absolute top-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 p-2 rounded-full hover:bg-white"
         >
           <Heart
             className={`h-4 w-4 ${
-              wishlist.includes(item.id) ? 'fill-burgundy text-burgundy' : 'text-charcoal'
+              wishlist.includes(item.id) ? 'fill-rose-gold text-rose-gold' : 'text-charcoal'
             }`}
           />
         </button>
@@ -469,7 +469,7 @@ const AllJewelryPage = () => {
               <Button
                 variant="secondary"
                 size="sm"
-                className="bg-cream/90 text-charcoal hover:bg-cream"
+                className="bg-white/90 text-charcoal hover:bg-white"
                 onClick={() => setSelectedItem(item)}
               >
                 <Eye className="h-4 w-4 mr-2" />
@@ -481,7 +481,7 @@ const AllJewelryPage = () => {
       </div>
 
       <div className={`p-4 ${viewMode === 'list' ? 'flex-1' : ''}`}>
-        <h3 className="font-playfair text-lg font-semibold text-charcoal mb-2 group-hover:text-burgundy transition-colors">
+        <h3 className="font-playfair text-lg font-semibold text-charcoal mb-2 group-hover:text-rose-gold transition-colors">
           {item.title}
         </h3>
         
@@ -498,18 +498,18 @@ const AllJewelryPage = () => {
           <Button
             size="sm"
             onClick={() => router.push(`/product/${item.id}`)}
-            className="bg-burgundy hover:bg-burgundy/90 text-cream"
+            className="bg-rose-gold hover:bg-rose-gold/90 text-white"
           >
             View Details
           </Button>
           
           <button
             onClick={() => toggleWishlist(item.id)}
-            className="p-2 hover:bg-burgundy/10 rounded-full transition-colors"
+            className="p-2 hover:bg-rose-gold/10 rounded-full transition-colors"
           >
             <Heart
               className={`h-4 w-4 ${
-                wishlist.includes(item.id) ? 'fill-burgundy text-burgundy' : 'text-charcoal'
+                wishlist.includes(item.id) ? 'fill-rose-gold text-rose-gold' : 'text-charcoal'
               }`}
             />
           </button>
@@ -521,9 +521,9 @@ const AllJewelryPage = () => {
   return (
     <>
       <SEO
-        title="All Jewelry Collection - Heritage Jewels"
+        title="All Jewelry Collection - Bawa Jewellers"
         description="Browse our complete collection of traditional Indian jewelry including gold, diamond, and precious stone pieces. Exquisite craftsmanship since 1952."
-        keywords="indian jewelry, gold jewelry, diamond jewelry, traditional jewelry, bridal jewelry, heritage jewels"
+        keywords="indian jewelry, gold jewelry, diamond jewelry, traditional jewelry, bridal jewelry, bawa jewellers"
         canonical="/collections"
       />
       
@@ -534,7 +534,7 @@ const AllJewelryPage = () => {
         <div className="bg-white border-b border-rose-gold/20">
           <div className="container mx-auto px-4 py-8">
             <div className="text-center">
-              <h1 className="font-playfair text-4xl font-bold text-burgundy mb-4">
+              <h1 className="font-playfair text-4xl font-bold text-rose-gold mb-4">
                 All Jewelry Collection
               </h1>
               <p className="text-charcoal/70 max-w-2xl mx-auto">
@@ -567,7 +567,7 @@ const AllJewelryPage = () => {
                         placeholder="Search by item code, type, or metal..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="pl-10 border-charcoal/20 focus:border-burgundy"
+                        className="pl-10 border-charcoal/20 focus:border-rose-gold"
                       />
                     </div>
                     
@@ -587,7 +587,7 @@ const AllJewelryPage = () => {
                                 setSearchTerm(suggestion);
                                 setShowSuggestions(false);
                               }}
-                              className="w-full text-left px-4 py-2 hover:bg-burgundy/10 text-charcoal transition-colors"
+                              className="w-full text-left px-4 py-2 hover:bg-rose-gold/10 text-charcoal transition-colors"
                             >
                               {suggestion}
                             </button>
@@ -635,7 +635,7 @@ const AllJewelryPage = () => {
                         variant={viewMode === 'grid' ? 'default' : 'ghost'}
                         size="sm"
                         onClick={() => setViewMode('grid')}
-                        className={viewMode === 'grid' ? 'bg-burgundy text-cream' : 'text-charcoal hover:bg-burgundy/10'}
+                        className={viewMode === 'grid' ? 'bg-rose-gold text-white' : 'text-charcoal hover:bg-rose-gold/10'}
                       >
                         <Grid className="h-4 w-4" />
                       </Button>
@@ -643,7 +643,7 @@ const AllJewelryPage = () => {
                         variant={viewMode === 'list' ? 'default' : 'ghost'}
                         size="sm"
                         onClick={() => setViewMode('list')}
-                        className={viewMode === 'list' ? 'bg-burgundy text-cream' : 'text-charcoal hover:bg-burgundy/10'}
+                        className={viewMode === 'list' ? 'bg-rose-gold text-white' : 'text-charcoal hover:bg-rose-gold/10'}
                       >
                         <List className="h-4 w-4" />
                       </Button>
@@ -660,33 +660,33 @@ const AllJewelryPage = () => {
                 {(selectedCategories.length > 0 || selectedMetalTypes.length > 0 || selectedOccasions.length > 0 || selectedTypes.length > 0 || quickFilter) && (
                   <div className="mt-4 flex flex-wrap gap-2">
                     {selectedCategories.map(category => (
-                      <Badge key={category} variant="secondary" className="bg-burgundy/10 text-burgundy">
+                      <Badge key={category} variant="secondary" className="bg-rose-gold/10 text-rose-gold">
                         {category}
                         <button
                           onClick={() => toggleFilter('category', category)}
-                          className="ml-2 hover:text-burgundy/70"
+                          className="ml-2 hover:text-rose-gold/70"
                         >
                           <X className="h-3 w-3" />
                         </button>
                       </Badge>
                     ))}
                     {selectedMetalTypes.map(metal => (
-                      <Badge key={metal} variant="secondary" className="bg-burgundy/10 text-burgundy">
+                      <Badge key={metal} variant="secondary" className="bg-rose-gold/10 text-rose-gold">
                         {metal}
                         <button
                           onClick={() => toggleFilter('metalType', metal)}
-                          className="ml-2 hover:text-burgundy/70"
+                          className="ml-2 hover:text-rose-gold/70"
                         >
                           <X className="h-3 w-3" />
                         </button>
                       </Badge>
                     ))}
                     {quickFilter && (
-                      <Badge variant="secondary" className="bg-burgundy/10 text-burgundy">
+                      <Badge variant="secondary" className="bg-rose-gold/10 text-rose-gold">
                         {quickFilter === 'new' ? 'New Arrivals' : quickFilter === 'popular' ? 'Most Popular' : 'Bridal'}
                         <button
                           onClick={() => setQuickFilter(null)}
-                          className="ml-2 hover:text-burgundy/70"
+                          className="ml-2 hover:text-rose-gold/70"
                         >
                           <X className="h-3 w-3" />
                         </button>
@@ -741,7 +741,7 @@ const AllJewelryPage = () => {
                                 setSelectedCategories([category]);
                                 setSearchTerm('');
                               }}
-                              className="border-charcoal text-charcoal hover:bg-burgundy/10"
+                              className="border-charcoal text-charcoal hover:bg-rose-gold/10"
                             >
                               {category}
                             </Button>
@@ -777,7 +777,7 @@ const AllJewelryPage = () => {
                   <div className="space-y-4">
                     <div>
                       <p className="text-sm text-charcoal/70">Item Code</p>
-                      <p className="font-mono text-lg font-semibold text-burgundy">
+                      <p className="font-mono text-lg font-semibold text-rose-gold">
                         {selectedItem.code}
                       </p>
                     </div>
@@ -802,17 +802,17 @@ const AllJewelryPage = () => {
                     </div>
 
                     <div className="flex gap-3 pt-4">
-                      <Button className="flex-1 bg-burgundy hover:bg-burgundy/90 text-cream">
+                      <Button className="flex-1 bg-rose-gold hover:bg-rose-gold/90 text-white">
                         Inquire Now
                       </Button>
                       <Button
                         variant="outline"
                         onClick={() => toggleWishlist(selectedItem.id)}
-                        className="border-charcoal text-charcoal hover:bg-burgundy/10"
+                        className="border-charcoal text-charcoal hover:bg-rose-gold/10"
                       >
                         <Heart
                           className={`h-4 w-4 ${
-                            wishlist.includes(selectedItem.id) ? 'fill-burgundy text-burgundy' : ''
+                            wishlist.includes(selectedItem.id) ? 'fill-rose-gold text-rose-gold' : ''
                           }`}
                         />
                       </Button>

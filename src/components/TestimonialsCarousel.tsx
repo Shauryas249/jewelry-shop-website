@@ -8,7 +8,7 @@ const testimonials = [
     name: "Mrs. Priya Sharma",
     location: "Mumbai",
     rating: 5,
-    text: "Exquisite craftsmanship and beautiful traditional designs. Heritage Jewels created the perfect bridal set for my daughter's wedding.",
+    text: "Exquisite craftsmanship and beautiful traditional designs. Bawa Jewellers created the perfect bridal set for my daughter's wedding.",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
   },
   {
