@@ -63,7 +63,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-[60vh] overflow-hidden">
       {/* Background Pattern */}
       <div 
         className="absolute inset-0 opacity-10"
@@ -95,47 +95,47 @@ export default function HeroSlider() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 h-full flex items-center">
+            <div className="relative z-10 h-full flex items-center py-10">
               <div className="max-w-7xl mx-auto px-6 w-full">
                 <div className="max-w-2xl">
                   <motion.div
-                    initial={{ opacity: 0, y: 60 }}
+                    initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="space-y-6"
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="space-y-4"
                   >
-                    <h1 className="text-5xl md:text-7xl font-playfair font-bold text-white leading-tight">
+                    <h1 className="text-4xl md:text-6xl font-playfair font-bold text-white leading-tight">
                       Heritage Jewels
                     </h1>
                     
-                    <p className="text-xl md:text-2xl text-white/90 font-inter">
+                    <p className="text-lg md:text-xl text-white/90 font-inter">
                       Exquisite Traditional Indian Jewelry Since 1952
                     </p>
                     
                     <motion.div
-                      initial={{ opacity: 0, y: 30 }}
+                      initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.4 }}
-                      className="space-y-4"
+                      transition={{ duration: 0.6, delay: 0.2 }}
+                      className="space-y-2"
                     >
-                      <h2 className="text-2xl md:text-3xl font-playfair font-semibold text-gold">
+                      <h2 className="text-xl md:text-2xl font-playfair font-semibold text-gold">
                         {heroSlides[currentSlide].title}
                       </h2>
-                      <p className="text-lg text-white/80">
+                      <p className="text-base text-white/80">
                         {heroSlides[currentSlide].subtitle}
                       </p>
                     </motion.div>
 
                     <motion.div
-                      initial={{ opacity: 0, y: 30 }}
+                      initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.6 }}
-                      className="flex flex-col sm:flex-row gap-4"
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      className="flex flex-col sm:flex-row gap-3 pt-2"
                     >
                       <Link href="/dashboard">
                         <Button 
-                          size="lg" 
-                          className="bg-rose-gold hover:bg-rose-gold/90 text-white font-semibold px-8 py-4 text-lg"
+                          size="default" 
+                          className="bg-rose-gold hover:bg-rose-gold/90 text-white font-semibold px-6 py-3"
                         >
                           Explore Our Collection
                         </Button>
@@ -143,8 +143,8 @@ export default function HeroSlider() {
                       <Link href="/store-location">
                         <Button 
                           variant="outline" 
-                          size="lg" 
-                          className="border-white text-white hover:bg-white hover:text-rose-gold px-8 py-4 text-lg"
+                          size="default" 
+                          className="border-white text-white hover:bg-white hover:text-rose-gold px-6 py-3"
                         >
                           Visit Our Store
                         </Button>

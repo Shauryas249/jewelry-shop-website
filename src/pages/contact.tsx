@@ -124,25 +124,25 @@ const ContactPage = () => {
     <div className="min-h-screen bg-cream">
       <Navigation />
       
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <h1 className="font-playfair text-4xl font-bold text-charcoal mb-4">
+          <h1 className="font-playfair text-3xl font-bold text-charcoal mb-3">
             Contact Heritage Jewels
           </h1>
-          <p className="text-lg text-charcoal/80 max-w-2xl mx-auto">
+          <p className="text-base text-charcoal/80 max-w-2xl mx-auto">
             Visit our showroom or get in touch with our jewelry experts. We're here to help you find the perfect piece for your special moments.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column - Store Information */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {/* Store Location */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -150,16 +150,16 @@ const ContactPage = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <Card>
-                <CardHeader>
-                  <CardTitle className="font-playfair text-2xl text-charcoal flex items-center gap-3">
-                    <MapPin className="h-6 w-6 text-rose-gold" />
+                <CardHeader className="pb-4">
+                  <CardTitle className="font-playfair text-xl text-charcoal flex items-center gap-2">
+                    <MapPin className="h-5 w-5 text-rose-gold" />
                     Our Showroom
                   </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-6">
+                <CardContent className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-charcoal mb-2">Heritage Jewels</h3>
-                    <p className="text-charcoal/80 leading-relaxed">
+                    <h3 className="font-semibold text-charcoal mb-1">Heritage Jewels</h3>
+                    <p className="text-charcoal/80 text-sm leading-relaxed">
                       123 Jewelry Street, Karol Bagh<br />
                       New Delhi - 110005<br />
                       India
@@ -167,7 +167,7 @@ const ContactPage = () => {
                   </div>
 
                   {/* Google Maps Embed */}
-                  <div className="aspect-video rounded-lg overflow-hidden bg-charcoal/10">
+                  <div className="h-80 rounded-lg overflow-hidden bg-charcoal/10 border-2 border-rose-gold">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.674665!2d77.1906!3d28.6519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM5JzA2LjgiTiA3N8KwMTEnMjYuMiJF!5e0!3m2!1sen!2sin!4v1234567890"
                       width="100%"
@@ -188,63 +188,49 @@ const ContactPage = () => {
               </Card>
             </motion.div>
 
-            {/* Business Hours */}
+            {/* Business Hours & Contact Methods Combined */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <Card>
-                <CardHeader>
-                  <CardTitle className="font-playfair text-xl text-charcoal flex items-center gap-3">
-                    <Clock className="h-5 w-5 text-rose-gold" />
-                    Business Hours
+                <CardHeader className="pb-3">
+                  <CardTitle className="font-playfair text-lg text-charcoal flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-rose-gold" />
+                    Hours & Contact
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
+                <CardContent className="space-y-4">
+                  {/* Business Hours */}
+                  <div className="space-y-2">
                     {businessHours.map((schedule, index) => (
-                      <div key={index} className="flex justify-between items-center">
+                      <div key={index} className="flex justify-between items-center text-sm">
                         <span className="text-charcoal font-medium">{schedule.day}</span>
                         <span className="text-charcoal/80">{schedule.hours}</span>
                       </div>
                     ))}
+                    <div className="text-center pt-2">
+                      <Badge className="bg-gold text-charcoal text-xs">
+                        <CheckCircle className="h-3 w-3 mr-1" />
+                        Open Now
+                      </Badge>
+                    </div>
                   </div>
-                  <Separator className="my-4" />
-                  <div className="text-center">
-                    <Badge className="bg-gold text-charcoal">
-                      <CheckCircle className="h-3 w-3 mr-1" />
-                      Open Now
-                    </Badge>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
 
-            {/* Contact Methods */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <Card>
-                <CardHeader>
-                  <CardTitle className="font-playfair text-xl text-charcoal">
-                    Get In Touch
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-6">
+                  <Separator />
+
+                  {/* Contact Methods */}
+                  <div className="space-y-3">
                     {contactMethods.map((method, index) => (
-                      <div key={index} className="flex items-start gap-4">
-                        <div className="bg-rose-gold/10 p-3 rounded-lg">
-                          <method.icon className="h-5 w-5 text-rose-gold" />
+                      <div key={index} className="flex items-start gap-3">
+                        <div className="bg-rose-gold/10 p-2 rounded-lg">
+                          <method.icon className="h-4 w-4 text-rose-gold" />
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-charcoal mb-1">{method.title}</h4>
-                          <p className="text-charcoal font-medium">{method.primary}</p>
-                          <p className="text-charcoal/70 text-sm">{method.secondary}</p>
-                          <p className="text-charcoal/60 text-sm mt-1">{method.description}</p>
+                          <h4 className="font-semibold text-charcoal text-sm mb-0.5">{method.title}</h4>
+                          <p className="text-charcoal font-medium text-sm">{method.primary}</p>
+                          <p className="text-charcoal/70 text-xs">{method.secondary}</p>
                         </div>
                       </div>
                     ))}
@@ -257,22 +243,22 @@ const ContactPage = () => {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
             >
               <Card>
-                <CardHeader>
-                  <CardTitle className="font-playfair text-xl text-charcoal">
+                <CardHeader className="pb-3">
+                  <CardTitle className="font-playfair text-lg text-charcoal">
                     Our Certifications
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="grid grid-cols-1 gap-4">
+                  <div className="grid grid-cols-1 gap-3">
                     {certifications.map((cert, index) => (
-                      <div key={index} className="flex items-center gap-4 p-3 bg-cream rounded-lg">
-                        <cert.icon className="h-6 w-6 text-rose-gold" />
+                      <div key={index} className="flex items-center gap-3 p-2 bg-cream rounded-lg">
+                        <cert.icon className="h-5 w-5 text-rose-gold" />
                         <div>
-                          <h4 className="font-semibold text-charcoal">{cert.title}</h4>
-                          <p className="text-sm text-charcoal/70">{cert.description}</p>
+                          <h4 className="font-semibold text-charcoal text-sm">{cert.title}</h4>
+                          <p className="text-xs text-charcoal/70">{cert.description}</p>
                         </div>
                       </div>
                     ))}
@@ -283,7 +269,7 @@ const ContactPage = () => {
           </div>
 
           {/* Right Column - Contact Forms */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {/* General Inquiry Form */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -291,43 +277,43 @@ const ContactPage = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <Card>
-                <CardHeader>
-                  <CardTitle className="font-playfair text-2xl text-charcoal">
+                <CardHeader className="pb-3">
+                  <CardTitle className="font-playfair text-xl text-charcoal">
                     General Inquiry
                   </CardTitle>
-                  <p className="text-charcoal/70">
+                  <p className="text-charcoal/70 text-sm">
                     Have questions about our jewelry or services? Send us a message.
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleInquirySubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <form onSubmit={handleInquirySubmit} className="space-y-3">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       <div>
-                        <Label htmlFor="inquiry-name">Full Name *</Label>
+                        <Label htmlFor="inquiry-name" className="text-sm">Full Name *</Label>
                         <Input
                           id="inquiry-name"
                           value={inquiryForm.name}
                           onChange={(e) => setInquiryForm({...inquiryForm, name: e.target.value})}
                           placeholder="Your full name"
                           required
-                          className="border-charcoal/20 focus:border-burgundy"
+                          className="border-charcoal/20 focus:border-rose-gold h-9"
                         />
                       </div>
                       <div>
-                        <Label htmlFor="inquiry-phone">Phone Number *</Label>
+                        <Label htmlFor="inquiry-phone" className="text-sm">Phone Number *</Label>
                         <Input
                           id="inquiry-phone"
                           value={inquiryForm.phone}
                           onChange={(e) => setInquiryForm({...inquiryForm, phone: e.target.value})}
                           placeholder="+91 98765 43210"
                           required
-                          className="border-charcoal/20 focus:border-burgundy"
+                          className="border-charcoal/20 focus:border-rose-gold h-9"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <Label htmlFor="inquiry-email">Email Address *</Label>
+                      <Label htmlFor="inquiry-email" className="text-sm">Email Address *</Label>
                       <Input
                         id="inquiry-email"
                         type="email"
@@ -335,64 +321,65 @@ const ContactPage = () => {
                         onChange={(e) => setInquiryForm({...inquiryForm, email: e.target.value})}
                         placeholder="your.email@example.com"
                         required
-                        className="border-charcoal/20 focus:border-burgundy"
+                        className="border-charcoal/20 focus:border-rose-gold h-9"
                       />
                     </div>
 
-                    <div>
-                      <Label htmlFor="inquiry-subject">Subject</Label>
-                      <Select
-                        value={inquiryForm.subject}
-                        onValueChange={(value) => setInquiryForm({...inquiryForm, subject: value})}
-                      >
-                        <SelectTrigger className="border-charcoal/20 focus:border-rose-gold">
-                          <SelectValue placeholder="Select inquiry type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="general">General Information</SelectItem>
-                          <SelectItem value="custom">Custom Jewelry</SelectItem>
-                          <SelectItem value="repair">Jewelry Repair</SelectItem>
-                          <SelectItem value="certification">Certification</SelectItem>
-                          <SelectItem value="pricing">Pricing Inquiry</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      <div>
+                        <Label htmlFor="inquiry-subject" className="text-sm">Subject</Label>
+                        <Select
+                          value={inquiryForm.subject}
+                          onValueChange={(value) => setInquiryForm({...inquiryForm, subject: value})}
+                        >
+                          <SelectTrigger className="border-charcoal/20 focus:border-rose-gold h-9">
+                            <SelectValue placeholder="Select inquiry type" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="general">General Information</SelectItem>
+                            <SelectItem value="custom">Custom Jewelry</SelectItem>
+                            <SelectItem value="repair">Jewelry Repair</SelectItem>
+                            <SelectItem value="certification">Certification</SelectItem>
+                            <SelectItem value="pricing">Pricing Inquiry</SelectItem>
+                            <SelectItem value="other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div>
+                        <Label htmlFor="inquiry-time" className="text-sm">Preferred Contact Time</Label>
+                        <Select
+                          value={inquiryForm.preferredTime}
+                          onValueChange={(value) => setInquiryForm({...inquiryForm, preferredTime: value})}
+                        >
+                          <SelectTrigger className="border-charcoal/20 focus:border-rose-gold h-9">
+                            <SelectValue placeholder="When should we contact you?" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="morning">Morning (10 AM - 12 PM)</SelectItem>
+                            <SelectItem value="afternoon">Afternoon (12 PM - 4 PM)</SelectItem>
+                            <SelectItem value="evening">Evening (4 PM - 8 PM)</SelectItem>
+                            <SelectItem value="anytime">Anytime</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
                     </div>
 
                     <div>
-                      <Label htmlFor="inquiry-time">Preferred Contact Time</Label>
-                      <Select
-                        value={inquiryForm.preferredTime}
-                        onValueChange={(value) => setInquiryForm({...inquiryForm, preferredTime: value})}
-                      >
-                        <SelectTrigger className="border-charcoal/20 focus:border-burgundy">
-                          <SelectValue placeholder="When should we contact you?" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="morning">Morning (10 AM - 12 PM)</SelectItem>
-                          <SelectItem value="afternoon">Afternoon (12 PM - 4 PM)</SelectItem>
-                          <SelectItem value="evening">Evening (4 PM - 8 PM)</SelectItem>
-                          <SelectItem value="anytime">Anytime</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="inquiry-message">Message *</Label>
+                      <Label htmlFor="inquiry-message" className="text-sm">Message *</Label>
                       <Textarea
                         id="inquiry-message"
                         value={inquiryForm.message}
                         onChange={(e) => setInquiryForm({...inquiryForm, message: e.target.value})}
                         placeholder="Please describe your inquiry in detail..."
-                        rows={4}
+                        rows={3}
                         required
-                        className="border-charcoal/20 focus:border-burgundy"
+                        className="border-charcoal/20 focus:border-rose-gold"
                       />
                     </div>
 
                     <Button
                       type="submit"
-                      className="w-full bg-burgundy hover:bg-burgundy/90 text-cream"
+                      className="w-full bg-rose-gold hover:bg-rose-gold/90 text-white"
                     >
                       Send Inquiry
                     </Button>
@@ -408,44 +395,44 @@ const ContactPage = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <Card>
-                <CardHeader>
-                  <CardTitle className="font-playfair text-2xl text-charcoal flex items-center gap-3">
-                    <Calendar className="h-6 w-6 text-burgundy" />
+                <CardHeader className="pb-3">
+                  <CardTitle className="font-playfair text-xl text-charcoal flex items-center gap-2">
+                    <Calendar className="h-5 w-5 text-rose-gold" />
                     Book an Appointment
                   </CardTitle>
-                  <p className="text-charcoal/70">
+                  <p className="text-charcoal/70 text-sm">
                     Schedule a personal consultation with our jewelry experts.
                   </p>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleAppointmentSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <form onSubmit={handleAppointmentSubmit} className="space-y-3">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       <div>
-                        <Label htmlFor="appointment-name">Full Name *</Label>
+                        <Label htmlFor="appointment-name" className="text-sm">Full Name *</Label>
                         <Input
                           id="appointment-name"
                           value={appointmentForm.name}
                           onChange={(e) => setAppointmentForm({...appointmentForm, name: e.target.value})}
                           placeholder="Your full name"
                           required
-                          className="border-charcoal/20 focus:border-burgundy"
+                          className="border-charcoal/20 focus:border-rose-gold h-9"
                         />
                       </div>
                       <div>
-                        <Label htmlFor="appointment-phone">Phone Number *</Label>
+                        <Label htmlFor="appointment-phone" className="text-sm">Phone Number *</Label>
                         <Input
                           id="appointment-phone"
                           value={appointmentForm.phone}
                           onChange={(e) => setAppointmentForm({...appointmentForm, phone: e.target.value})}
                           placeholder="+91 98765 43210"
                           required
-                          className="border-charcoal/20 focus:border-burgundy"
+                          className="border-charcoal/20 focus:border-rose-gold h-9"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <Label htmlFor="appointment-email">Email Address *</Label>
+                      <Label htmlFor="appointment-email" className="text-sm">Email Address *</Label>
                       <Input
                         id="appointment-email"
                         type="email"
@@ -453,29 +440,29 @@ const ContactPage = () => {
                         onChange={(e) => setAppointmentForm({...appointmentForm, email: e.target.value})}
                         placeholder="your.email@example.com"
                         required
-                        className="border-charcoal/20 focus:border-burgundy"
+                        className="border-charcoal/20 focus:border-rose-gold h-9"
                       />
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       <div>
-                        <Label htmlFor="appointment-date">Preferred Date *</Label>
+                        <Label htmlFor="appointment-date" className="text-sm">Preferred Date *</Label>
                         <Input
                           id="appointment-date"
                           type="date"
                           value={appointmentForm.date}
                           onChange={(e) => setAppointmentForm({...appointmentForm, date: e.target.value})}
                           required
-                          className="border-charcoal/20 focus:border-burgundy"
+                          className="border-charcoal/20 focus:border-rose-gold h-9"
                         />
                       </div>
                       <div>
-                        <Label htmlFor="appointment-time">Preferred Time *</Label>
+                        <Label htmlFor="appointment-time" className="text-sm">Preferred Time *</Label>
                         <Select
                           value={appointmentForm.time}
                           onValueChange={(value) => setAppointmentForm({...appointmentForm, time: value})}
                         >
-                          <SelectTrigger className="border-charcoal/20 focus:border-burgundy">
+                          <SelectTrigger className="border-charcoal/20 focus:border-rose-gold h-9">
                             <SelectValue placeholder="Select time" />
                           </SelectTrigger>
                           <SelectContent>
@@ -493,12 +480,12 @@ const ContactPage = () => {
                     </div>
 
                     <div>
-                      <Label htmlFor="appointment-type">Appointment Type *</Label>
+                      <Label htmlFor="appointment-type" className="text-sm">Appointment Type *</Label>
                       <Select
                         value={appointmentForm.type}
                         onValueChange={(value) => setAppointmentForm({...appointmentForm, type: value})}
                       >
-                        <SelectTrigger className="border-charcoal/20 focus:border-burgundy">
+                        <SelectTrigger className="border-charcoal/20 focus:border-rose-gold h-9">
                           <SelectValue placeholder="Select appointment type" />
                         </SelectTrigger>
                         <SelectContent>
@@ -513,20 +500,20 @@ const ContactPage = () => {
                     </div>
 
                     <div>
-                      <Label htmlFor="appointment-message">Additional Notes</Label>
+                      <Label htmlFor="appointment-message" className="text-sm">Additional Notes</Label>
                       <Textarea
                         id="appointment-message"
                         value={appointmentForm.message}
                         onChange={(e) => setAppointmentForm({...appointmentForm, message: e.target.value})}
                         placeholder="Any specific requirements or questions..."
-                        rows={3}
-                        className="border-charcoal/20 focus:border-burgundy"
+                        rows={2}
+                        className="border-charcoal/20 focus:border-rose-gold"
                       />
                     </div>
 
                     <Button
                       type="submit"
-                      className="w-full bg-burgundy hover:bg-burgundy/90 text-cream"
+                      className="w-full bg-rose-gold hover:bg-rose-gold/90 text-white"
                     >
                       Book Appointment
                     </Button>
@@ -542,50 +529,50 @@ const ContactPage = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-16"
+          className="mt-10"
         >
           <Card className="bg-white">
-            <CardContent className="p-8">
-              <div className="text-center mb-8">
-                <h2 className="font-playfair text-2xl font-bold text-charcoal mb-4">
+            <CardContent className="p-6">
+              <div className="text-center mb-6">
+                <h2 className="font-playfair text-xl font-bold text-charcoal mb-3">
                   Your Trust, Our Priority
                 </h2>
-                <p className="text-charcoal/70 max-w-2xl mx-auto">
+                <p className="text-charcoal/70 text-sm max-w-2xl mx-auto">
                   We ensure the highest standards of security and authenticity in all our jewelry pieces and customer interactions.
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div className="text-center">
-                  <div className="bg-burgundy/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Shield className="h-8 w-8 text-burgundy" />
+                  <div className="bg-rose-gold/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Shield className="h-6 w-6 text-rose-gold" />
                   </div>
-                  <h3 className="font-semibold text-charcoal mb-2">SSL Secured</h3>
-                  <p className="text-sm text-charcoal/70">All communications encrypted</p>
+                  <h3 className="font-semibold text-charcoal mb-1 text-sm">SSL Secured</h3>
+                  <p className="text-xs text-charcoal/70">All communications encrypted</p>
                 </div>
                 
                 <div className="text-center">
-                  <div className="bg-burgundy/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Award className="h-8 w-8 text-burgundy" />
+                  <div className="bg-rose-gold/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Award className="h-6 w-6 text-rose-gold" />
                   </div>
-                  <h3 className="font-semibold text-charcoal mb-2">Certified Jewelry</h3>
-                  <p className="text-sm text-charcoal/70">BIS & GIA authenticated</p>
+                  <h3 className="font-semibold text-charcoal mb-1 text-sm">Certified Jewelry</h3>
+                  <p className="text-xs text-charcoal/70">BIS & GIA authenticated</p>
                 </div>
                 
                 <div className="text-center">
-                  <div className="bg-burgundy/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Star className="h-8 w-8 text-burgundy" />
+                  <div className="bg-rose-gold/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Star className="h-6 w-6 text-rose-gold" />
                   </div>
-                  <h3 className="font-semibold text-charcoal mb-2">Quality Guarantee</h3>
-                  <p className="text-sm text-charcoal/70">Lifetime craftsmanship warranty</p>
+                  <h3 className="font-semibold text-charcoal mb-1 text-sm">Quality Guarantee</h3>
+                  <p className="text-xs text-charcoal/70">Lifetime craftsmanship warranty</p>
                 </div>
                 
                 <div className="text-center">
-                  <div className="bg-burgundy/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <CheckCircle className="h-8 w-8 text-burgundy" />
+                  <div className="bg-rose-gold/10 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <CheckCircle className="h-6 w-6 text-rose-gold" />
                   </div>
-                  <h3 className="font-semibold text-charcoal mb-2">Trusted Since 1985</h3>
-                  <p className="text-sm text-charcoal/70">Three generations of excellence</p>
+                  <h3 className="font-semibold text-charcoal mb-1 text-sm">Trusted Since 1952</h3>
+                  <p className="text-xs text-charcoal/70">Three generations of excellence</p>
                 </div>
               </div>
             </CardContent>

@@ -424,10 +424,10 @@ const Dashboard = () => {
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.3 }}
       className={`group relative bg-cream rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 ${
-        viewMode === 'list' ? 'flex' : ''
+        viewMode === 'list' ? 'flex h-40' : 'h-80'
       }`}
     >
-      <div className={`relative overflow-hidden ${viewMode === 'list' ? 'w-48 h-48' : 'aspect-square'}`}>
+      <div className={`relative overflow-hidden ${viewMode === 'list' ? 'w-40 h-40' : 'h-56'}`}>
         <img
           src={item.image}
           alt={item.title}
@@ -435,27 +435,27 @@ const Dashboard = () => {
         />
         
         {/* Item Code Badge */}
-        <div className="absolute top-2 right-2 bg-burgundy text-cream px-2 py-1 rounded text-xs font-mono">
+        <div className="absolute top-1 right-1 bg-burgundy text-cream px-1.5 py-0.5 rounded text-xs font-mono">
           {item.code}
         </div>
 
         {/* Status Badges */}
-        <div className="absolute top-2 left-2 flex flex-col gap-1">
+        <div className="absolute top-1 left-1 flex flex-col gap-0.5">
           {item.isNew && (
-            <Badge className="bg-gold text-charcoal text-xs">New</Badge>
+            <Badge className="bg-gold text-charcoal text-xs px-1.5 py-0.5">New</Badge>
           )}
           {item.isPopular && (
-            <Badge className="bg-rose-gold text-charcoal text-xs">Popular</Badge>
+            <Badge className="bg-rose-gold text-charcoal text-xs px-1.5 py-0.5">Popular</Badge>
           )}
         </div>
 
         {/* Wishlist Button */}
         <button
           onClick={() => toggleWishlist(item.id)}
-          className="absolute top-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-cream/90 p-2 rounded-full hover:bg-cream"
+          className="absolute top-1 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-cream/90 p-1.5 rounded-full hover:bg-cream"
         >
           <Heart
-            className={`h-4 w-4 ${
+            className={`h-3 w-3 ${
               wishlist.includes(item.id) ? 'fill-burgundy text-burgundy' : 'text-charcoal'
             }`}
           />
@@ -468,10 +468,10 @@ const Dashboard = () => {
               <Button
                 variant="secondary"
                 size="sm"
-                className="bg-cream/90 text-charcoal hover:bg-cream"
+                className="bg-cream/90 text-charcoal hover:bg-cream text-xs px-2 py-1"
                 onClick={() => setSelectedItem(item)}
               >
-                <Eye className="h-4 w-4 mr-2" />
+                <Eye className="h-3 w-3 mr-1" />
                 View Details
               </Button>
             </DialogTrigger>
@@ -479,16 +479,16 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className={`p-4 ${viewMode === 'list' ? 'flex-1' : ''}`}>
-        <h3 className="font-playfair text-lg font-semibold text-charcoal mb-2 group-hover:text-burgundy transition-colors">
+      <div className={`p-2 ${viewMode === 'list' ? 'flex-1' : 'h-24'}`}>
+        <h3 className="font-playfair text-sm font-semibold text-charcoal mb-1 group-hover:text-burgundy transition-colors line-clamp-2">
           {item.title}
         </h3>
         
-        <div className="flex flex-wrap gap-2 mb-3">
-          <Badge variant="outline" className="text-xs border-charcoal text-charcoal">
+        <div className="flex flex-wrap gap-1 mb-2">
+          <Badge variant="outline" className="text-xs border-charcoal text-charcoal px-1 py-0">
             {item.category}
           </Badge>
-          <Badge variant="outline" className="text-xs border-charcoal text-charcoal">
+          <Badge variant="outline" className="text-xs border-charcoal text-charcoal px-1 py-0">
             {item.metalType}
           </Badge>
         </div>
@@ -497,17 +497,17 @@ const Dashboard = () => {
           <Button
             size="sm"
             onClick={() => router.push(`/product/${item.id}`)}
-            className="bg-burgundy hover:bg-burgundy/90 text-cream"
+            className="bg-burgundy hover:bg-burgundy/90 text-cream text-xs px-2 py-1 h-6"
           >
             View Details
           </Button>
           
           <button
             onClick={() => toggleWishlist(item.id)}
-            className="p-2 hover:bg-burgundy/10 rounded-full transition-colors"
+            className="p-1 hover:bg-burgundy/10 rounded-full transition-colors"
           >
             <Heart
-              className={`h-4 w-4 ${
+              className={`h-3 w-3 ${
                 wishlist.includes(item.id) ? 'fill-burgundy text-burgundy' : 'text-charcoal'
               }`}
             />
@@ -682,8 +682,8 @@ const Dashboard = () => {
                   exit={{ opacity: 0 }}
                   className={
                     viewMode === 'grid'
-                      ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'
-                      : 'space-y-4'
+                      ? 'grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2'
+                      : 'space-y-2'
                   }
                 >
                   {filteredJewelry.map(item => (

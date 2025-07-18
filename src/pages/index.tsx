@@ -98,19 +98,19 @@ export default function Home() {
         <HeroSlider />
 
         {/* Featured Collections Grid */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="py-10 bg-white">
+          <div className="max-w-7xl mx-auto px-5">
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-10"
             >
-              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-rose-gold mb-4">
+              <h2 className="text-3xl md:text-4xl font-playfair font-bold text-rose-gold mb-3">
                 Featured Collections
               </h2>
-              <p className="text-xl text-charcoal/80 max-w-2xl mx-auto">
+              <p className="text-lg text-charcoal/80 max-w-2xl mx-auto">
                 Discover our most cherished jewelry collections, each piece crafted with love and tradition
               </p>
             </motion.div>
@@ -120,7 +120,7 @@ export default function Home() {
               initial="initial"
               whileInView="animate"
               viewport={{ once: true }}
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              className="grid grid-cols-1 md:grid-cols-3 gap-2.5"
             >
               {[
                 {
@@ -146,8 +146,8 @@ export default function Home() {
                 }
               ].map((collection, index) => (
                 <motion.div key={index} variants={scaleIn}>
-                  <Card className="jewelry-card group cursor-pointer h-full overflow-hidden">
-                    <div className="relative overflow-hidden h-80">
+                  <Card className="jewelry-card group cursor-pointer h-[300px] overflow-hidden">
+                    <div className="relative overflow-hidden h-full">
                       <OptimizedImage
                         src={collection.image}
                         alt={`${collection.title} - Traditional Indian jewelry collection featuring authentic handcrafted pieces`}
@@ -170,14 +170,14 @@ export default function Home() {
                       </div>
 
                       {/* Content Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                        <div className="flex items-center space-x-3 mb-3">
-                          <collection.icon className="h-6 w-6 text-gold" />
-                          <h3 className="text-2xl font-playfair font-bold">
+                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                        <div className="flex items-center space-x-2 mb-2">
+                          <collection.icon className="h-5 w-5 text-gold" />
+                          <h3 className="text-xl font-playfair font-bold">
                             {collection.title}
                           </h3>
                         </div>
-                        <p className="text-cream/90 leading-relaxed">
+                        <p className="text-cream/90 text-sm leading-snug">
                           {collection.description}
                         </p>
                       </div>
@@ -189,137 +189,129 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Trust Indicators */}
-        <section className="py-20" style={{ background: 'linear-gradient(135deg, hsl(350, 35%, 95%) 0%, hsl(45, 95%, 96%) 100%)' }}>
-          <div className="max-w-7xl mx-auto px-6">
+        {/* Trust Indicators & Testimonials Combined */}
+        <section className="py-10" style={{ background: 'linear-gradient(135deg, hsl(350, 35%, 95%) 0%, hsl(45, 95%, 96%) 100%)' }}>
+          <div className="max-w-7xl mx-auto px-5">
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-8"
             >
-              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-rose-gold mb-4">
+              <h2 className="text-3xl md:text-4xl font-playfair font-bold text-rose-gold mb-3">
                 Why Choose Heritage Jewels
               </h2>
-              <p className="text-xl text-charcoal/80 max-w-2xl mx-auto">
+              <p className="text-lg text-charcoal/80 max-w-2xl mx-auto">
                 Seven decades of trust, quality, and exceptional craftsmanship
               </p>
             </motion.div>
 
-            {/* Trust Badges */}
+            {/* Horizontal Scrolling Trust Badges */}
             <motion.div 
-              variants={staggerContainer}
-              initial="initial"
-              whileInView="animate"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16"
+              className="mb-8"
             >
-              {[
-                {
-                  icon: Award,
-                  title: "70+ Years",
-                  subtitle: "of Excellence",
-                  color: "text-rose-gold"
-                },
-                {
-                  icon: Shield,
-                  title: "BIS Hallmark",
-                  subtitle: "Certified",
-                  color: "text-gold"
-                },
-                {
-                  icon: Users,
-                  title: "10,000+",
-                  subtitle: "Happy Customers",
-                  color: "text-rose-gold"
-                },
-                {
-                  icon: Sparkles,
-                  title: "Handcrafted",
-                  subtitle: "Excellence",
-                  color: "text-gold"
-                }
-              ].map((badge, index) => (
-                <motion.div key={index} variants={scaleIn}>
-                  <Card className="jewelry-card text-center h-full">
-                    <CardContent className="luxury-spacing">
-                      <badge.icon className={`h-12 w-12 ${badge.color} mx-auto mb-4`} />
-                      <h3 className="text-2xl font-playfair font-bold text-charcoal mb-1">
+              <div className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide">
+                {[
+                  {
+                    icon: Award,
+                    title: "70+ Years",
+                    subtitle: "of Excellence",
+                    color: "text-rose-gold"
+                  },
+                  {
+                    icon: Shield,
+                    title: "BIS Hallmark",
+                    subtitle: "Certified",
+                    color: "text-gold"
+                  },
+                  {
+                    icon: Users,
+                    title: "10,000+",
+                    subtitle: "Happy Customers",
+                    color: "text-rose-gold"
+                  },
+                  {
+                    icon: Sparkles,
+                    title: "Handcrafted",
+                    subtitle: "Excellence",
+                    color: "text-gold"
+                  },
+                  {
+                    icon: Star,
+                    title: "Premium",
+                    subtitle: "Quality",
+                    color: "text-rose-gold"
+                  }
+                ].map((badge, index) => (
+                  <Card key={index} className="jewelry-card text-center flex-shrink-0 w-48">
+                    <CardContent className="p-4">
+                      <badge.icon className={`h-8 w-8 ${badge.color} mx-auto mb-2`} />
+                      <h3 className="text-lg font-playfair font-bold text-charcoal mb-1">
                         {badge.title}
                       </h3>
-                      <p className="text-charcoal/70 font-medium">
+                      <p className="text-charcoal/70 text-sm font-medium">
                         {badge.subtitle}
                       </p>
                     </CardContent>
                   </Card>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {/* Handcrafted Excellence Promise */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 md:p-12 jewelry-card"
-            >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                  <div className="flex items-center space-x-3 mb-6">
-                    <Sparkles className="h-8 w-8 text-rose-gold" />
-                    <h3 className="text-3xl font-playfair font-bold text-rose-gold">
-                      Handcrafted Excellence Promise
-                    </h3>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    {[
-                      "100% authentic materials with certification",
-                      "Traditional techniques passed down through generations",
-                      "Lifetime authenticity and quality guarantee",
-                      "Custom design services for unique pieces",
-                      "Expert consultation and after-sales support"
-                    ].map((promise, index) => (
-                      <motion.div 
-                        key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        viewport={{ once: true }}
-                        className="flex items-center space-x-3"
-                      >
-                        <CheckCircle className="h-5 w-5 text-rose-gold flex-shrink-0" />
-                        <span className="text-charcoal/80">{promise}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="relative">
-                  <OptimizedImage
-                    src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                    alt="Master craftsman at Heritage Jewels working on traditional Indian jewelry with precision and care"
-                    width={600}
-                    height={450}
-                    className="w-full rounded-xl"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 rounded-xl border-2 border-rose-gold/30"></div>
-                </div>
+                ))}
               </div>
             </motion.div>
+
+            {/* Compact Testimonials & Excellence Promise */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {/* Testimonials */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <TestimonialsCarousel />
+              </motion.div>
+
+              {/* Excellence Promise */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl p-6 jewelry-card"
+              >
+                <div className="flex items-center space-x-3 mb-4">
+                  <Sparkles className="h-6 w-6 text-rose-gold" />
+                  <h3 className="text-xl font-playfair font-bold text-rose-gold">
+                    Excellence Promise
+                  </h3>
+                </div>
+                
+                <div className="space-y-3">
+                  {[
+                    "100% authentic materials with certification",
+                    "Traditional techniques passed down through generations",
+                    "Lifetime authenticity and quality guarantee",
+                    "Custom design services for unique pieces"
+                  ].map((promise, index) => (
+                    <div key={index} className="flex items-center space-x-3">
+                      <CheckCircle className="h-4 w-4 text-rose-gold flex-shrink-0" />
+                      <span className="text-charcoal/80 text-sm">{promise}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
-        {/* Customer Testimonials */}
-        <TestimonialsCarousel />
-
         {/* About Preview */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <section className="py-10 bg-white">
+          <div className="max-w-7xl mx-auto px-5">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -60 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -352,11 +344,11 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl md:text-5xl font-playfair font-bold text-rose-gold mb-6">
+                <h2 className="text-3xl md:text-4xl font-playfair font-bold text-rose-gold mb-4">
                   A Legacy of Excellence
                 </h2>
                 
-                <div className="space-y-6 text-lg text-charcoal/80 leading-relaxed">
+                <div className="space-y-4 text-base text-charcoal/80 leading-relaxed">
                   <p>
                     For over seven decades, Heritage Jewels has been synonymous with exceptional 
                     craftsmanship and authentic Indian jewelry. Founded in 1952, our family business 
@@ -368,22 +360,16 @@ export default function Home() {
                     attention to detail. From bridal sets that celebrate life's most precious moments 
                     to everyday elegance that enhances your natural beauty.
                   </p>
-                  
-                  <p>
-                    Our master craftsmen, trained in age-old techniques, ensure that every piece 
-                    meets the highest standards of quality and authenticity that our customers 
-                    have trusted for generations.
-                  </p>
                 </div>
 
-                <div className="mt-8">
+                <div className="mt-6">
                   <Link href="/about">
                     <Button 
-                      size="lg" 
-                      className="bg-rose-gold hover:bg-rose-gold/90 text-white px-8"
+                      size="default" 
+                      className="bg-rose-gold hover:bg-rose-gold/90 text-white px-6"
                     >
                       Learn More About Our Heritage
-                      <ArrowRight className="ml-2 h-5 w-5" />
+                      <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
                 </div>
@@ -393,24 +379,24 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section className="py-20 bg-charcoal text-cream">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="py-10 bg-charcoal text-cream">
+          <div className="max-w-7xl mx-auto px-5">
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="text-center mb-16"
+              className="text-center mb-8"
             >
-              <h2 className="text-4xl md:text-5xl font-playfair font-bold mb-4">
+              <h2 className="text-3xl md:text-4xl font-playfair font-bold mb-3">
                 Visit Our Heritage Showroom
               </h2>
-              <p className="text-xl text-cream/80 max-w-2xl mx-auto">
+              <p className="text-lg text-cream/80 max-w-2xl mx-auto">
                 Experience our collection in person and receive personalized consultation from our experts
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
                   icon: MapPin,
@@ -432,18 +418,18 @@ export default function Home() {
                   key={index}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
                   <Card className="bg-cream/10 border-rose-gold text-center h-full">
-                    <CardContent className="luxury-spacing">
-                      <contact.icon className="h-12 w-12 text-rose-gold mx-auto mb-4" />
-                      <h3 className="text-xl font-playfair font-semibold mb-4">
+                    <CardContent className="p-6">
+                      <contact.icon className="h-10 w-10 text-rose-gold mx-auto mb-3" />
+                      <h3 className="text-lg font-playfair font-semibold mb-3">
                         {contact.title}
                       </h3>
-                      <div className="space-y-2">
+                      <div className="space-y-1">
                         {contact.details.map((detail, idx) => (
-                          <p key={idx} className="text-cream/80">
+                          <p key={idx} className="text-cream/80 text-sm">
                             {detail}
                           </p>
                         ))}
@@ -457,15 +443,15 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-center mt-12"
+              className="text-center mt-8"
             >
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <Link href="/dashboard">
                   <Button 
-                    size="lg" 
-                    className="bg-gold hover:bg-gold/90 text-charcoal font-semibold px-8"
+                    size="default" 
+                    className="bg-gold hover:bg-gold/90 text-charcoal font-semibold px-6"
                   >
                     Browse Our Catalog
                   </Button>
@@ -473,8 +459,8 @@ export default function Home() {
                 <Link href="/contact">
                   <Button 
                     variant="outline" 
-                    size="lg" 
-                    className="border-cream text-cream hover:bg-cream hover:text-charcoal px-8"
+                    size="default" 
+                    className="border-cream text-cream hover:bg-cream hover:text-charcoal px-6"
                   >
                     Schedule Consultation
                   </Button>
