@@ -49,12 +49,12 @@ export default function About() {
     "@type": "AboutPage",
     "mainEntity": {
       "@type": "JewelryStore",
-      "name": "Heritage Jewels",
+      "name": "Bawa Jewellers",
       "description": "A family-owned jewelry business established in 1952, specializing in traditional Indian jewelry with over 70 years of craftsmanship excellence.",
       "foundingDate": "1952",
       "founder": {
         "@type": "Person",
-        "name": "Heritage Jewels Founder"
+        "name": "Bawa Jewellers Founder"
       },
       "address": {
         "@type": "PostalAddress",
@@ -65,15 +65,15 @@ export default function About() {
         "addressCountry": "IN"
       },
       "telephone": "+91-98765-43210",
-      "email": "info@heritagejewels.com",
-      "url": "https://heritagejewels.com",
+      "email": "info@bawajewellers.com",
+      "url": "https://bawajewellers.com",
       "sameAs": [
-        "https://www.facebook.com/heritagejewels",
-        "https://www.instagram.com/heritagejewels"
+        "https://www.facebook.com/bawajewellers",
+        "https://www.instagram.com/bawajewellers"
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Heritage Jewels Collection",
+        "name": "Bawa Jewellers Collection",
         "itemListElement": [
           {
             "@type": "Offer",
@@ -107,9 +107,9 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About Heritage Jewels - 70+ Years of Traditional Indian Jewelry Excellence"
-        description="Learn about Heritage Jewels' rich history since 1952. Discover our commitment to traditional Indian craftsmanship, quality, and authentic jewelry making. Family-owned business with over 70 years of excellence."
-        keywords="heritage jewels history, traditional indian jewelry, family jewelry business, handcrafted jewelry mumbai, jewelry craftsmanship, BIS certified jewelry, authentic indian jewelry"
+        title="About Bawa Jewellers - 70+ Years of Traditional Indian Jewelry Excellence"
+        description="Learn about Bawa Jewellers' rich history since 1952. Discover our commitment to traditional Indian craftsmanship, quality, and authentic jewelry making. Family-owned business with over 70 years of excellence."
+        keywords="bawa jewellers history, traditional indian jewelry, family jewelry business, handcrafted jewelry mumbai, jewelry craftsmanship, BIS certified jewelry, authentic indian jewelry"
         structuredData={structuredData}
       />
 
@@ -117,7 +117,7 @@ export default function About() {
         <Navigation />
 
         {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-br from-burgundy via-burgundy/90 to-burgundy/80 text-cream overflow-hidden">
+        <section className="relative py-20 bg-gradient-to-br from-rose-gold via-rose-gold/90 to-rose-gold/80 text-white overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <div className="w-full h-full" style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FFD700' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
@@ -154,7 +154,7 @@ export default function About() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-burgundy mb-4">
+              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-rose-gold mb-4">
                 A Journey Through Time
               </h2>
               <p className="text-xl text-charcoal/80 max-w-2xl mx-auto">
@@ -162,22 +162,25 @@ export default function About() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-20">
+              {/* Left Side - Fixed Width Image */}
               <motion.div
                 initial={{ opacity: 0, x: -60 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
+                className="lg:sticky lg:top-8"
               >
                 <OptimizedImage
                   src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Heritage Jewels founder working on traditional jewelry"
+                  alt="Bawa Jewellers founder working on traditional jewelry"
                   width={800}
                   height={600}
-                  className="rounded-2xl"
+                  className="rounded-2xl w-full"
                 />
               </motion.div>
 
+              {/* Right Side - Timeline Content with Fixed Width */}
               <motion.div
                 initial={{ opacity: 0, x: 60 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -185,55 +188,50 @@ export default function About() {
                 viewport={{ once: true }}
                 className="space-y-8"
               >
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-burgundy text-cream rounded-full p-3 flex-shrink-0">
-                      <Clock className="h-6 w-6" />
+                {[
+                  {
+                    icon: Clock,
+                    year: "1952 - The Beginning",
+                    description: "Founded by a master craftsman with a vision to preserve traditional Indian jewelry techniques. Started with a small workshop in Mumbai's jewelry district, focusing on authentic handcrafted pieces.",
+                    bgColor: "bg-rose-gold",
+                    textColor: "text-white"
+                  },
+                  {
+                    icon: Award,
+                    year: "1970s - Recognition",
+                    description: "Gained recognition for exceptional craftsmanship and authentic designs. Became the preferred choice for traditional bridal jewelry among Mumbai's families.",
+                    bgColor: "bg-gold",
+                    textColor: "text-charcoal"
+                  },
+                  {
+                    icon: Crown,
+                    year: "1990s - Expansion",
+                    description: "Expanded our collection to include contemporary designs while maintaining traditional roots. Introduced diamond jewelry and precious stone collections.",
+                    bgColor: "bg-rose-gold",
+                    textColor: "text-white"
+                  },
+                  {
+                    icon: Sparkles,
+                    year: "2020s - Digital Heritage",
+                    description: "Embraced digital transformation while preserving our heritage values. Now serving customers worldwide with the same commitment to quality and authenticity.",
+                    bgColor: "bg-gold",
+                    textColor: "text-charcoal"
+                  }
+                ].map((timeline, index) => (
+                  <div key={index} className="flex items-start space-x-4 pb-6">
+                    <div className={`${timeline.bgColor} ${timeline.textColor} rounded-full p-3 flex-shrink-0 shadow-lg`}>
+                      <timeline.icon className="h-6 w-6" />
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-playfair font-bold text-burgundy mb-2">1952 - The Beginning</h3>
-                      <p className="text-charcoal/80 leading-relaxed">
-                        Founded by a master craftsman with a vision to preserve traditional Indian jewelry techniques. Started with a small workshop in Mumbai's jewelry district, focusing on authentic handcrafted pieces.
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-xl font-playfair font-bold text-rose-gold mb-3">
+                        {timeline.year}
+                      </h3>
+                      <p className="text-charcoal/80 leading-relaxed text-base">
+                        {timeline.description}
                       </p>
                     </div>
                   </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-gold text-charcoal rounded-full p-3 flex-shrink-0">
-                      <Award className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-playfair font-bold text-burgundy mb-2">1970s - Recognition</h3>
-                      <p className="text-charcoal/80 leading-relaxed">
-                        Gained recognition for exceptional craftsmanship and authentic designs. Became the preferred choice for traditional bridal jewelry among Mumbai's families.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-burgundy text-cream rounded-full p-3 flex-shrink-0">
-                      <Crown className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-playfair font-bold text-burgundy mb-2">1990s - Expansion</h3>
-                      <p className="text-charcoal/80 leading-relaxed">
-                        Expanded our collection to include contemporary designs while maintaining traditional roots. Introduced diamond jewelry and precious stone collections.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-4">
-                    <div className="bg-gold text-charcoal rounded-full p-3 flex-shrink-0">
-                      <Sparkles className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-playfair font-bold text-burgundy mb-2">2020s - Digital Heritage</h3>
-                      <p className="text-charcoal/80 leading-relaxed">
-                        Embraced digital transformation while preserving our heritage values. Now serving customers worldwide with the same commitment to quality and authenticity.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </motion.div>
             </div>
           </div>
@@ -249,7 +247,7 @@ export default function About() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-burgundy mb-4">
+              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-rose-gold mb-4">
                 Our Core Values
               </h2>
               <p className="text-xl text-charcoal/80 max-w-2xl mx-auto">
@@ -269,7 +267,7 @@ export default function About() {
                   icon: Shield,
                   title: "Authenticity",
                   description: "Every piece is genuine, certified, and crafted with authentic materials and traditional techniques.",
-                  color: "text-burgundy"
+                  color: "text-rose-gold"
                 },
                 {
                   icon: Heart,
@@ -281,7 +279,7 @@ export default function About() {
                   icon: Eye,
                   title: "Quality",
                   description: "Uncompromising attention to detail and quality in every aspect of our jewelry creation process.",
-                  color: "text-burgundy"
+                  color: "text-rose-gold"
                 },
                 {
                   icon: Users,
@@ -318,73 +316,81 @@ export default function About() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-burgundy mb-4">
+              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-rose-gold mb-4">
                 The Art of Creation
               </h2>
               <p className="text-xl text-charcoal/80 max-w-2xl mx-auto">
-                Discover the meticulous process behind every Heritage Jewels masterpiece
+                Discover the meticulous process behind every Bawa Jewellers masterpiece
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* 3-Column Grid with Proper Layout */}
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            >
               {[
                 {
                   step: "01",
-                  title: "Design & Conceptualization",
-                  description: "Our master designers create unique pieces inspired by traditional Indian motifs and contemporary aesthetics. Each design is carefully planned to ensure perfect proportions and cultural authenticity.",
+                  title: "Design & Sketching",
+                  description: "Our master designers create unique pieces inspired by traditional Indian motifs and contemporary aesthetics.",
                   image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                   icon: Eye
                 },
                 {
-                  step: "02",
-                  title: "Handcrafted Excellence",
-                  description: "Skilled artisans with decades of experience bring each design to life using time-honored techniques passed down through generations. Every detail is meticulously crafted by hand.",
+                  step: "02", 
+                  title: "Crafting Excellence",
+                  description: "Skilled artisans bring each design to life using time-honored techniques passed down through generations.",
                   image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                   icon: Hammer
                 },
                 {
                   step: "03",
-                  title: "Quality Assurance",
-                  description: "Each piece undergoes rigorous quality checks and certification processes. We ensure every item meets our exacting standards before it reaches our valued customers.",
+                  title: "Quality Assurance", 
+                  description: "Each piece undergoes rigorous quality checks and certification processes before reaching our customers.",
                   image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
                   icon: CheckCircle
                 }
               ].map((process, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.2 }}
-                  viewport={{ once: true }}
+                  variants={scaleIn}
+                  className="flex flex-col"
                 >
-                  <Card className="jewelry-card h-full overflow-hidden">
-                    <div className="relative h-64">
+                  <Card className="jewelry-card h-full overflow-hidden flex flex-col">
+                    {/* Image Section - Fixed Height */}
+                    <div className="relative h-48 flex-shrink-0">
                       <OptimizedImage
                         src={process.image}
-                        alt={process.title}
+                        alt={`${process.title} - Bawa Jewellers craftsmanship process`}
                         width={600}
                         height={400}
-                        className="w-full h-full"
+                        className="w-full h-full object-cover"
                       />
-                      <div className="absolute top-4 left-4 bg-burgundy text-cream rounded-full w-12 h-12 flex items-center justify-center font-playfair font-bold text-lg">
+                      <div className="absolute top-4 left-4 bg-rose-gold text-white rounded-full w-10 h-10 flex items-center justify-center font-playfair font-bold text-sm shadow-lg">
                         {process.step}
                       </div>
                     </div>
-                    <CardContent className="luxury-spacing">
-                      <div className="flex items-center space-x-3 mb-4">
-                        <process.icon className="h-8 w-8 text-gold" />
-                        <h3 className="text-2xl font-playfair font-bold text-charcoal">
+                    
+                    {/* Content Section - Flexible Height */}
+                    <CardContent className="p-6 flex-1 flex flex-col">
+                      <div className="flex items-center space-x-3 mb-3">
+                        <process.icon className="h-6 w-6 text-rose-gold flex-shrink-0" />
+                        <h3 className="text-lg font-playfair font-bold text-charcoal">
                           {process.title}
                         </h3>
                       </div>
-                      <p className="text-charcoal/70 leading-relaxed">
+                      <p className="text-charcoal/70 leading-relaxed text-sm flex-1">
                         {process.description}
                       </p>
                     </CardContent>
                   </Card>
                 </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -465,7 +471,7 @@ export default function About() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-burgundy mb-6">
+              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-rose-gold mb-6">
                 Experience Our Heritage
               </h2>
               <p className="text-xl text-charcoal/80 mb-8 leading-relaxed">
@@ -477,7 +483,7 @@ export default function About() {
                 <Link href="/dashboard">
                   <Button 
                     size="lg" 
-                    className="bg-burgundy hover:bg-burgundy/90 text-cream px-8"
+                    className="bg-rose-gold hover:bg-rose-gold/90 text-white px-8"
                   >
                     Browse Our Collection
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -487,9 +493,9 @@ export default function About() {
                   <Button 
                     variant="outline" 
                     size="lg" 
-                    className="border-burgundy text-burgundy hover:bg-burgundy hover:text-cream px-8"
+                    className="border-rose-gold text-rose-gold hover:bg-rose-gold hover:text-white px-8"
                   >
-                    Visit Our Showroom
+                    Contact Us
                   </Button>
                 </Link>
               </div>
@@ -498,21 +504,21 @@ export default function About() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-burgundy text-cream py-12">
+        <footer className="bg-rose-gold text-white py-12">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="flex items-center space-x-3 mb-4 md:mb-0">
                 <Crown className="h-10 w-10 text-gold" />
                 <div>
                   <span className="text-2xl font-playfair font-bold block leading-tight">
-                    Heritage Jewels
+                    Bawa Jewellers
                   </span>
-                  <span className="text-sm text-cream/70">Since 1952</span>
+                  <span className="text-sm text-white/70">Since 1952</span>
                 </div>
               </div>
               <div className="text-center md:text-right">
-                <p className="text-cream/90">© 2024 Heritage Jewels. All rights reserved.</p>
-                <p className="text-cream/70 text-sm mt-1">Crafting dreams for over seven decades</p>
+                <p className="text-white/90">© 2024 Bawa Jewellers. All rights reserved.</p>
+                <p className="text-white/70 text-sm mt-1">Crafting dreams for over seven decades</p>
               </div>
             </div>
           </div>

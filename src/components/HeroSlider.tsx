@@ -9,28 +9,28 @@ const heroSlides = [
     id: 1,
     title: "Royal Bridal Collection",
     subtitle: "Exquisite pieces for your special day",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=95&sharp=10",
     cta: "Explore Bridal Sets"
   },
   {
     id: 2,
     title: "Diamond Elegance",
     subtitle: "Brilliant diamonds in timeless settings",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=95&sharp=10",
     cta: "View Diamond Collection"
   },
   {
     id: 3,
     title: "Heritage Gold Jewelry",
     subtitle: "Traditional craftsmanship meets modern design",
-    image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=95&sharp=10",
     cta: "Discover Gold Pieces"
   },
   {
     id: 4,
     title: "Precious Stone Collection",
     subtitle: "Ruby, emerald, and sapphire masterpieces",
-    image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80",
+    image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=95&sharp=10",
     cta: "View Precious Stones"
   }
 ];
@@ -90,8 +90,9 @@ export default function HeroSlider() {
                 src={heroSlides[currentSlide].image}
                 alt={heroSlides[currentSlide].title}
                 className="w-full h-full object-cover"
+                style={{ imageRendering: 'crisp-edges' }}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-rose-gold/80 via-rose-gold/60 to-transparent" />
+              <div className="absolute inset-0 bg-rose-gold/70" />
             </div>
 
             {/* Content */}

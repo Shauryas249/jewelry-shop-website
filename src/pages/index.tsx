@@ -262,48 +262,85 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Compact Testimonials & Excellence Promise */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Testimonials */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <TestimonialsCarousel />
-              </motion.div>
+            {/* Testimonials */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mb-12"
+            >
+              <TestimonialsCarousel />
+            </motion.div>
+          </div>
+        </section>
 
-              {/* Excellence Promise */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-xl p-6 jewelry-card"
-              >
-                <div className="flex items-center space-x-3 mb-4">
-                  <Sparkles className="h-6 w-6 text-rose-gold" />
-                  <h3 className="text-xl font-playfair font-bold text-rose-gold">
-                    Excellence Promise
-                  </h3>
-                </div>
-                
-                <div className="space-y-3">
-                  {[
-                    "100% authentic materials with certification",
-                    "Traditional techniques passed down through generations",
-                    "Lifetime authenticity and quality guarantee",
-                    "Custom design services for unique pieces"
-                  ].map((promise, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <CheckCircle className="h-4 w-4 text-rose-gold flex-shrink-0" />
-                      <span className="text-charcoal/80 text-sm">{promise}</span>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
+        {/* Excellence Promise Section - Separate Section */}
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-5">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center mb-12"
+            >
+              <div className="flex items-center justify-center space-x-3 mb-4">
+                <Sparkles className="h-8 w-8 text-rose-gold" />
+                <h2 className="text-3xl md:text-4xl font-playfair font-bold text-rose-gold">
+                  Our Excellence Promise
+                </h2>
+              </div>
+              <p className="text-lg text-charcoal/80 max-w-2xl mx-auto">
+                Four pillars of quality that define every piece we create
+              </p>
+            </motion.div>
+
+            {/* 4-Column Grid for Promise Cards */}
+            <motion.div 
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+            >
+              {[
+                {
+                  icon: Shield,
+                  title: "100% Authentic Materials",
+                  description: "Every piece crafted with certified authentic materials and proper documentation"
+                },
+                {
+                  icon: Users,
+                  title: "Traditional Techniques",
+                  description: "Time-honored craftsmanship methods passed down through generations"
+                },
+                {
+                  icon: Award,
+                  title: "Lifetime Guarantee",
+                  description: "Comprehensive authenticity and quality guarantee for complete peace of mind"
+                },
+                {
+                  icon: Sparkles,
+                  title: "Custom Design Services",
+                  description: "Bespoke jewelry creation tailored to your unique vision and requirements"
+                }
+              ].map((promise, index) => (
+                <motion.div key={index} variants={scaleIn}>
+                  <Card className="jewelry-card text-center h-full">
+                    <CardContent className="p-6">
+                      <promise.icon className="h-12 w-12 text-rose-gold mx-auto mb-4" />
+                      <h3 className="text-lg font-playfair font-bold text-charcoal mb-3">
+                        {promise.title}
+                      </h3>
+                      <p className="text-charcoal/70 text-sm leading-relaxed">
+                        {promise.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </section>
 
