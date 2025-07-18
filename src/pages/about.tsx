@@ -124,20 +124,23 @@ export default function About() {
             }}></div>
           </div>
           
-          <div className="max-w-7xl mx-auto px-6 relative">
+          {/* Dark overlay for better text contrast */}
+          <div className="absolute inset-0 bg-black/20"></div>
+          
+          <div className="max-w-7xl mx-auto px-6 relative z-30">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <Badge className="bg-gold/20 text-gold border-gold/30 mb-6 text-lg px-6 py-2">
+              <Badge className="bg-white/20 text-white border-white/30 mb-6 text-lg px-6 py-2 shadow-lg backdrop-blur-sm">
                 Established 1952
               </Badge>
-              <h1 className="text-5xl md:text-7xl font-playfair font-bold mb-6">
+              <h1 className="text-5xl md:text-7xl font-playfair font-bold mb-6 text-white drop-shadow-lg">
                 Our Heritage Story
               </h1>
-              <p className="text-xl md:text-2xl text-cream/90 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
                 Seven decades of preserving traditional Indian jewelry craftsmanship while creating timeless pieces that celebrate life's most precious moments
               </p>
             </motion.div>
