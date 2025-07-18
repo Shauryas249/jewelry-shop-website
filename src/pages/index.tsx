@@ -1,5 +1,4 @@
 import React from "react";
-import Head from "next/head";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -8,6 +7,8 @@ import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import HeroSlider from "@/components/HeroSlider";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel";
+import SEO from "@/components/SEO";
+import OptimizedImage from "@/components/OptimizedImage";
 import { 
   Crown, 
   Gem, 
@@ -45,14 +46,49 @@ const scaleIn = {
 };
 
 export default function Home() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Heritage Jewels - Traditional Indian Jewelry",
+    "description": "Discover our heritage collection of handcrafted gold, diamond, and precious stone jewelry. Traditional Indian craftsmanship meets timeless elegance.",
+    "url": "https://heritagejewels.com",
+    "mainEntity": {
+      "@type": "JewelryStore",
+      "name": "Heritage Jewels",
+      "image": "https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Heritage Street",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "postalCode": "400001",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-98765-43210",
+      "openingHours": "Mo-Sa 10:00-20:00",
+      "priceRange": "₹₹₹"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://heritagejewels.com"
+        }
+      ]
+    }
+  };
+
   return (
     <>
-      <Head>
-        <title>Heritage Jewels - Exquisite Traditional Indian Jewelry Since 1952</title>
-        <meta name="description" content="Discover our heritage collection of handcrafted gold, diamond, and precious stone jewelry. Traditional Indian craftsmanship meets timeless elegance. Trusted for over 70 years." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <SEO
+        title="Heritage Jewels - Exquisite Traditional Indian Jewelry Since 1952"
+        description="Discover our heritage collection of handcrafted gold, diamond, and precious stone jewelry. Traditional Indian craftsmanship meets timeless elegance. Trusted for over 70 years."
+        keywords="heritage jewels, indian jewelry, gold jewelry, diamond jewelry, bridal jewelry, traditional jewelry, handcrafted jewelry, mumbai jewelry store, BIS hallmark jewelry"
+        structuredData={structuredData}
+      />
 
       <div className="min-h-screen bg-background">
         {/* Navigation */}
@@ -112,10 +148,14 @@ export default function Home() {
                 <motion.div key={index} variants={scaleIn}>
                   <Card className="jewelry-card group cursor-pointer h-full overflow-hidden">
                     <div className="relative overflow-hidden h-80">
-                      <img 
+                      <OptimizedImage
                         src={collection.image}
-                        alt={collection.title}
+                        alt={`${collection.title} - Traditional Indian jewelry collection featuring authentic handcrafted pieces`}
+                        width={800}
+                        height={600}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        priority={index === 0}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                       
@@ -258,10 +298,13 @@ export default function Home() {
                 </div>
                 
                 <div className="relative">
-                  <img 
+                  <OptimizedImage
                     src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                    alt="Master Craftsman at Work"
+                    alt="Master craftsman at Heritage Jewels working on traditional Indian jewelry with precision and care"
+                    width={600}
+                    height={450}
                     className="w-full rounded-xl"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 rounded-xl border-2 border-gold/30"></div>
                 </div>
@@ -284,10 +327,13 @@ export default function Home() {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <img 
+                <OptimizedImage
                   src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Heritage Jewels Legacy"
+                  alt="Heritage Jewels legacy - Traditional Indian gold jewelry showcasing 70+ years of craftsmanship excellence"
+                  width={800}
+                  height={600}
                   className="w-full rounded-2xl"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 rounded-2xl border-2 border-gold/30"></div>
                 
