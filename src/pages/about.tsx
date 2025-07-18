@@ -165,14 +165,14 @@ export default function About() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-20">
-              {/* Left Side - Fixed Width Image */}
+            <div className="flex flex-col lg:flex-row gap-12 items-start mb-20">
+              {/* Left Side - Image Container */}
               <motion.div
                 initial={{ opacity: 0, x: -60 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="lg:sticky lg:top-8 mb-12 lg:mb-0 relative z-10"
+                className="w-full lg:w-1/2 mb-8 lg:mb-0"
               >
                 <OptimizedImage
                   src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
@@ -183,58 +183,64 @@ export default function About() {
                 />
               </motion.div>
 
-              {/* Right Side - Timeline Content with Fixed Width */}
+              {/* Right Side - Timeline Content in Box */}
               <motion.div
                 initial={{ opacity: 0, x: 60 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="space-y-10 relative z-20"
+                className="w-full lg:w-1/2"
               >
-                {[
-                  {
-                    icon: Clock,
-                    year: "1952 - The Beginning",
-                    description: "Founded by a master craftsman with a vision to preserve traditional Indian jewelry techniques. Started with a small workshop in Mumbai's jewelry district, focusing on authentic handcrafted pieces.",
-                    bgColor: "bg-rose-gold",
-                    textColor: "text-white"
-                  },
-                  {
-                    icon: Award,
-                    year: "1970s - Recognition",
-                    description: "Gained recognition for exceptional craftsmanship and authentic designs. Became the preferred choice for traditional bridal jewelry among Mumbai's families.",
-                    bgColor: "bg-gold",
-                    textColor: "text-charcoal"
-                  },
-                  {
-                    icon: Crown,
-                    year: "1990s - Expansion",
-                    description: "Expanded our collection to include contemporary designs while maintaining traditional roots. Introduced diamond jewelry and precious stone collections.",
-                    bgColor: "bg-rose-gold",
-                    textColor: "text-white"
-                  },
-                  {
-                    icon: Sparkles,
-                    year: "2020s - Digital Heritage",
-                    description: "Embraced digital transformation while preserving our heritage values. Now serving customers worldwide with the same commitment to quality and authenticity.",
-                    bgColor: "bg-gold",
-                    textColor: "text-charcoal"
-                  }
-                ].map((timeline, index) => (
-                  <div key={index} className="flex items-start space-x-4 pb-6">
-                    <div className={`${timeline.bgColor} ${timeline.textColor} rounded-full p-3 flex-shrink-0 shadow-lg`}>
-                      <timeline.icon className="h-6 w-6" />
+                <Card className="bg-white border border-rose-gold/20 shadow-xl">
+                  <CardContent className="p-8">
+                    <div className="space-y-8">
+                      {[
+                        {
+                          icon: Clock,
+                          year: "1952 - The Beginning",
+                          description: "Founded by a master craftsman with a vision to preserve traditional Indian jewelry techniques. Started with a small workshop in Mumbai's jewelry district, focusing on authentic handcrafted pieces.",
+                          bgColor: "bg-rose-gold",
+                          textColor: "text-white"
+                        },
+                        {
+                          icon: Award,
+                          year: "1970s - Recognition",
+                          description: "Gained recognition for exceptional craftsmanship and authentic designs. Became the preferred choice for traditional bridal jewelry among Mumbai's families.",
+                          bgColor: "bg-gold",
+                          textColor: "text-charcoal"
+                        },
+                        {
+                          icon: Crown,
+                          year: "1990s - Expansion",
+                          description: "Expanded our collection to include contemporary designs while maintaining traditional roots. Introduced diamond jewelry and precious stone collections.",
+                          bgColor: "bg-rose-gold",
+                          textColor: "text-white"
+                        },
+                        {
+                          icon: Sparkles,
+                          year: "2020s - Digital Heritage",
+                          description: "Embraced digital transformation while preserving our heritage values. Now serving customers worldwide with the same commitment to quality and authenticity.",
+                          bgColor: "bg-gold",
+                          textColor: "text-charcoal"
+                        }
+                      ].map((timeline, index) => (
+                        <div key={index} className="flex items-start space-x-4 pb-4 border-b border-rose-gold/10 last:border-b-0 last:pb-0">
+                          <div className={`${timeline.bgColor} ${timeline.textColor} rounded-full p-3 flex-shrink-0 shadow-lg`}>
+                            <timeline.icon className="h-6 w-6" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="text-lg font-playfair font-bold text-rose-gold mb-2">
+                              {timeline.year}
+                            </h3>
+                            <p className="text-charcoal/80 leading-relaxed text-sm">
+                              {timeline.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-xl font-playfair font-bold text-rose-gold mb-3">
-                        {timeline.year}
-                      </h3>
-                      <p className="text-charcoal/80 leading-relaxed text-base">
-                        {timeline.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+                  </CardContent>
+                </Card>
               </motion.div>
             </div>
           </div>
