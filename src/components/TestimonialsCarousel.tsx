@@ -5,42 +5,34 @@ import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Priya Sharma",
+    name: "Mrs. Priya Sharma",
     location: "Mumbai",
     rating: 5,
-    text: "The bridal jewelry set I purchased for my wedding was absolutely stunning. The craftsmanship and attention to detail exceeded my expectations. Heritage Jewels made my special day even more memorable.",
+    text: "Exquisite craftsmanship and beautiful traditional designs. Heritage Jewels created the perfect bridal set for my daughter's wedding.",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
   },
   {
     id: 2,
-    name: "Rajesh Patel",
+    name: "Mr. Rajesh Gupta",
     location: "Delhi",
     rating: 5,
-    text: "I've been buying jewelry from Heritage Jewels for over 10 years. Their gold purity is unmatched, and the traditional designs are authentic. The family has maintained their quality standards across generations.",
+    text: "Outstanding quality and genuine certifications. Trusted them for over 20 years for all our jewelry needs.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
   },
   {
     id: 3,
-    name: "Anita Reddy",
+    name: "Ms. Kavitha Reddy",
     location: "Bangalore",
     rating: 5,
-    text: "The diamond necklace I bought for my anniversary is breathtaking. The staff was knowledgeable and helped me choose the perfect piece. The certification and quality assurance gave me complete confidence.",
+    text: "Beautiful collection of gold jewelry. The intricate work and attention to detail is remarkable.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
   },
   {
     id: 4,
-    name: "Vikram Singh",
-    location: "Jaipur",
+    name: "Mrs. Sunita Agarwal",
+    location: "Pune",
     rating: 5,
-    text: "Heritage Jewels combines traditional Rajasthani craftsmanship with modern elegance. The kundan jewelry I purchased reflects the rich heritage of Indian artistry. Truly exceptional work.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
-  },
-  {
-    id: 5,
-    name: "Meera Iyer",
-    location: "Chennai",
-    rating: 5,
-    text: "The temple jewelry collection is authentic and beautifully crafted. Each piece tells a story of South Indian tradition. The gold work is intricate and the finishing is flawless.",
+    text: "The diamond earrings I purchased are absolutely stunning. The quality and service exceeded all expectations.",
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
   }
 ];
@@ -76,7 +68,7 @@ export default function TestimonialsCarousel() {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
         key={i}
-        className={`h-5 w-5 ${
+        className={`h-3 w-3 ${
           i < rating ? 'text-gold fill-gold' : 'text-charcoal/20'
         }`}
       />
@@ -84,134 +76,107 @@ export default function TestimonialsCarousel() {
   };
 
   return (
-    <div className="relative bg-cream/30 py-16">
-      <div className="max-w-6xl mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-playfair font-bold text-burgundy mb-4">
-            What Our Customers Say
-          </h2>
-          <p className="text-xl text-charcoal/80 max-w-2xl mx-auto">
-            Trusted by thousands of families across India for over 70 years
-          </p>
-        </motion.div>
+    <div className="bg-white rounded-xl p-6 jewelry-card">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="mb-4"
+      >
+        <h3 className="text-xl font-playfair font-bold text-rose-gold mb-2">
+          Customer Testimonials
+        </h3>
+        <p className="text-sm text-charcoal/70">
+          Trusted by thousands across India
+        </p>
+      </motion.div>
 
-        <div className="relative">
-          {/* Main Testimonial Display */}
-          <div 
-            className="overflow-hidden"
-            onMouseEnter={() => setIsAutoPlaying(false)}
-            onMouseLeave={() => setIsAutoPlaying(true)}
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentTestimonial}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="bg-white rounded-2xl p-8 md:p-12 jewelry-card max-w-4xl mx-auto"
-              >
-                <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
-                  {/* Customer Image */}
-                  <div className="flex-shrink-0">
-                    <img
-                      src={testimonials[currentTestimonial].image}
-                      alt={testimonials[currentTestimonial].name}
-                      className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover border-4 border-gold/20"
-                    />
+      <div className="relative">
+        {/* Main Testimonial Display */}
+        <div 
+          className="overflow-hidden"
+          onMouseEnter={() => setIsAutoPlaying(false)}
+          onMouseLeave={() => setIsAutoPlaying(true)}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentTestimonial}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="p-4"
+            >
+              <div className="flex items-start space-x-3">
+                {/* Customer Image */}
+                <div className="flex-shrink-0">
+                  <img
+                    src={testimonials[currentTestimonial].image}
+                    alt={testimonials[currentTestimonial].name}
+                    className="w-12 h-12 rounded-full object-cover border-2 border-rose-gold/20"
+                  />
+                </div>
+
+                {/* Testimonial Content */}
+                <div className="flex-1">
+                  {/* Quote Icon */}
+                  <Quote className="h-4 w-4 text-rose-gold/30 mb-2" />
+                  
+                  {/* Rating */}
+                  <div className="flex space-x-1 mb-2">
+                    {renderStars(testimonials[currentTestimonial].rating)}
                   </div>
 
-                  {/* Testimonial Content */}
-                  <div className="flex-1 text-center md:text-left">
-                    {/* Quote Icon */}
-                    <Quote className="h-8 w-8 text-burgundy/20 mb-4 mx-auto md:mx-0" />
-                    
-                    {/* Rating */}
-                    <div className="flex justify-center md:justify-start space-x-1 mb-4">
-                      {renderStars(testimonials[currentTestimonial].rating)}
-                    </div>
+                  {/* Testimonial Text */}
+                  <blockquote className="text-sm text-charcoal leading-relaxed mb-3">
+                    "{testimonials[currentTestimonial].text}"
+                  </blockquote>
 
-                    {/* Testimonial Text */}
-                    <blockquote className="text-lg md:text-xl text-charcoal leading-relaxed mb-6 font-inter">
-                      "{testimonials[currentTestimonial].text}"
-                    </blockquote>
-
-                    {/* Customer Info */}
-                    <div>
-                      <h4 className="text-xl font-playfair font-semibold text-burgundy">
-                        {testimonials[currentTestimonial].name}
-                      </h4>
-                      <p className="text-charcoal/70">
-                        {testimonials[currentTestimonial].location}
-                      </p>
-                    </div>
+                  {/* Customer Info */}
+                  <div>
+                    <h4 className="text-sm font-playfair font-semibold text-rose-gold">
+                      {testimonials[currentTestimonial].name}
+                    </h4>
+                    <p className="text-xs text-charcoal/60">
+                      {testimonials[currentTestimonial].location}
+                    </p>
                   </div>
                 </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 p-3 rounded-full bg-white border border-rose-gold/20 hover:bg-cream/50 transition-colors group"
-          >
-            <ChevronLeft className="h-6 w-6 text-burgundy group-hover:scale-110 transition-transform" />
-          </button>
-
-          <button
-            onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 p-3 rounded-full bg-white border border-rose-gold/20 hover:bg-cream/50 transition-colors group"
-          >
-            <ChevronRight className="h-6 w-6 text-burgundy group-hover:scale-110 transition-transform" />
-          </button>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
-        {/* Testimonial Indicators */}
-        <div className="flex justify-center space-x-3 mt-8">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToTestimonial(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentTestimonial
-                  ? 'bg-burgundy scale-125'
-                  : 'bg-charcoal/20 hover:bg-charcoal/40'
-              }`}
-            />
-          ))}
-        </div>
-
-        {/* Customer Count */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevTestimonial}
+          className="absolute left-0 top-1/2 transform -translate-y-1/2 p-1 rounded-full bg-rose-gold/10 hover:bg-rose-gold/20 transition-colors"
         >
-          <div className="inline-flex items-center space-x-2 bg-white rounded-full px-6 py-3 border border-rose-gold/20">
-            <div className="flex -space-x-2">
-              {testimonials.slice(0, 4).map((testimonial, index) => (
-                <img
-                  key={testimonial.id}
-                  src={testimonial.image}
-                  alt=""
-                  className="w-8 h-8 rounded-full border-2 border-white object-cover"
-                />
-              ))}
-            </div>
-            <span className="text-charcoal/70 font-medium">
-              Trusted by 10,000+ happy customers
-            </span>
-          </div>
-        </motion.div>
+          <ChevronLeft className="h-4 w-4 text-rose-gold" />
+        </button>
+
+        <button
+          onClick={nextTestimonial}
+          className="absolute right-0 top-1/2 transform -translate-y-1/2 p-1 rounded-full bg-rose-gold/10 hover:bg-rose-gold/20 transition-colors"
+        >
+          <ChevronRight className="h-4 w-4 text-rose-gold" />
+        </button>
+      </div>
+
+      {/* Testimonial Indicators */}
+      <div className="flex justify-center space-x-2 mt-4">
+        {testimonials.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToTestimonial(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentTestimonial
+                ? 'bg-rose-gold scale-125'
+                : 'bg-charcoal/20 hover:bg-charcoal/40'
+            }`}
+          />
+        ))}
       </div>
     </div>
   );

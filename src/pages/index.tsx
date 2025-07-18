@@ -125,64 +125,69 @@ export default function Home() {
               {[
                 {
                   title: "Bridal Collection",
-                  description: "Complete bridal sets for your most precious moments",
+                  description: "Complete bridal sets for your special day",
                   image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                   icon: Heart,
-                  lifestyle: true
+                  link: "/collections/bridal-collection",
+                  buttonText: "View Bridal Jewelry"
                 },
                 {
                   title: "Gold Jewelry",
-                  description: "Traditional and contemporary gold designs",
+                  description: "22K & 18K gold pieces crafted with precision",
                   image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                   icon: Crown,
-                  lifestyle: true
+                  link: "/collections/gold-jewelry",
+                  buttonText: "Explore Gold Collection"
                 },
                 {
                   title: "Diamond Jewelry",
-                  description: "Brilliant diamonds in exquisite settings",
+                  description: "Certified diamonds in elegant settings",
                   image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                   icon: Gem,
-                  lifestyle: true
+                  link: "/collections/diamond-jewelry",
+                  buttonText: "View Diamonds"
                 }
               ].map((collection, index) => (
                 <motion.div key={index} variants={scaleIn}>
-                  <Card className="jewelry-card group cursor-pointer h-[300px] overflow-hidden">
-                    <div className="relative overflow-hidden h-full">
-                      <OptimizedImage
-                        src={collection.image}
-                        alt={`${collection.title} - Traditional Indian jewelry collection featuring authentic handcrafted pieces`}
-                        width={800}
-                        height={600}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        priority={index === 0}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                      
-                      {/* Hover Overlay */}
-                      <div className="absolute inset-0 bg-rose-gold/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                        <Button 
-                          className="bg-white hover:bg-white/90 text-rose-gold border border-rose-gold font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
-                        >
-                          View Collection
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </div>
-
-                      {/* Content Overlay */}
-                      <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                        <div className="flex items-center space-x-2 mb-2">
-                          <collection.icon className="h-5 w-5 text-gold" />
-                          <h3 className="text-xl font-playfair font-bold">
-                            {collection.title}
-                          </h3>
+                  <Link href={collection.link}>
+                    <Card className="jewelry-card group cursor-pointer h-[300px] overflow-hidden">
+                      <div className="relative overflow-hidden h-full">
+                        <OptimizedImage
+                          src={collection.image}
+                          alt={`${collection.title} - Traditional Indian jewelry collection featuring authentic handcrafted pieces`}
+                          width={800}
+                          height={600}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          priority={index === 0}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                        
+                        {/* Hover Overlay */}
+                        <div className="absolute inset-0 bg-rose-gold/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <Button 
+                            className="bg-white hover:bg-white/90 text-rose-gold border border-rose-gold font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                          >
+                            {collection.buttonText}
+                            <ArrowRight className="ml-2 h-4 w-4" />
+                          </Button>
                         </div>
-                        <p className="text-cream/90 text-sm leading-snug">
-                          {collection.description}
-                        </p>
+
+                        {/* Content Overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+                          <div className="flex items-center space-x-2 mb-2">
+                            <collection.icon className="h-5 w-5 text-gold" />
+                            <h3 className="text-xl font-playfair font-bold">
+                              {collection.title}
+                            </h3>
+                          </div>
+                          <p className="text-cream/90 text-sm leading-snug">
+                            {collection.description}
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  </Card>
+                    </Card>
+                  </Link>
                 </motion.div>
               ))}
             </motion.div>
@@ -207,55 +212,49 @@ export default function Home() {
               </p>
             </motion.div>
 
-            {/* Horizontal Scrolling Trust Badges */}
+            {/* Why Choose Heritage Jewels - 4 Key Points */}
             <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               className="mb-8"
             >
-              <div className="flex overflow-x-auto gap-4 pb-4 scrollbar-hide">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {[
                   {
                     icon: Award,
-                    title: "70+ Years",
-                    subtitle: "of Excellence",
+                    title: "70+ Years Experience",
+                    description: "Seven decades of traditional craftsmanship",
                     color: "text-rose-gold"
                   },
                   {
                     icon: Shield,
-                    title: "BIS Hallmark",
-                    subtitle: "Certified",
+                    title: "BIS Hallmarked Gold",
+                    description: "All gold jewelry is BIS hallmark certified",
                     color: "text-gold"
                   },
                   {
-                    icon: Users,
-                    title: "10,000+",
-                    subtitle: "Happy Customers",
+                    icon: Gem,
+                    title: "GIA Certified Diamonds",
+                    description: "Authentic diamonds with GIA certification",
                     color: "text-rose-gold"
                   },
                   {
                     icon: Sparkles,
-                    title: "Handcrafted",
-                    subtitle: "Excellence",
+                    title: "Custom Designs",
+                    description: "Bespoke jewelry tailored to your vision",
                     color: "text-gold"
-                  },
-                  {
-                    icon: Star,
-                    title: "Premium",
-                    subtitle: "Quality",
-                    color: "text-rose-gold"
                   }
-                ].map((badge, index) => (
-                  <Card key={index} className="jewelry-card text-center flex-shrink-0 w-48">
-                    <CardContent className="p-4">
-                      <badge.icon className={`h-8 w-8 ${badge.color} mx-auto mb-2`} />
-                      <h3 className="text-lg font-playfair font-bold text-charcoal mb-1">
-                        {badge.title}
+                ].map((item, index) => (
+                  <Card key={index} className="jewelry-card text-center h-full">
+                    <CardContent className="p-6">
+                      <item.icon className={`h-10 w-10 ${item.color} mx-auto mb-3`} />
+                      <h3 className="text-lg font-playfair font-bold text-charcoal mb-2">
+                        {item.title}
                       </h3>
-                      <p className="text-charcoal/70 text-sm font-medium">
-                        {badge.subtitle}
+                      <p className="text-charcoal/70 text-sm leading-relaxed">
+                        {item.description}
                       </p>
                     </CardContent>
                   </Card>
