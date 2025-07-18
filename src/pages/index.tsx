@@ -345,31 +345,33 @@ export default function Home() {
         </section>
 
         {/* About Preview */}
-        <section className="py-10 bg-white">
+        <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-5">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -60 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="relative"
+                className="relative mb-8 lg:mb-0"
               >
-                <OptimizedImage
-                  src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Heritage Jewels legacy - Traditional Indian gold jewelry showcasing 70+ years of craftsmanship excellence"
-                  width={800}
-                  height={600}
-                  className="w-full rounded-2xl"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-                <div className="absolute inset-0 rounded-2xl border-2 border-rose-gold/30"></div>
+                <div className="relative">
+                  <OptimizedImage
+                    src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Bawa Jewellers legacy - Traditional Indian gold jewelry showcasing 70+ years of craftsmanship excellence"
+                    width={800}
+                    height={600}
+                    className="w-full rounded-2xl shadow-lg"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 rounded-2xl border-2 border-rose-gold/30"></div>
+                </div>
                 
-                {/* Floating Badge */}
-                <div className="absolute -bottom-6 -right-6 bg-rose-gold text-white p-6 rounded-2xl">
+                {/* Floating Badge - Fixed positioning */}
+                <div className="absolute -bottom-4 -right-4 bg-rose-gold text-white p-4 rounded-xl shadow-lg z-10">
                   <div className="text-center">
-                    <div className="text-3xl font-playfair font-bold">1952</div>
-                    <div className="text-sm">Established</div>
+                    <div className="text-2xl font-playfair font-bold">1952</div>
+                    <div className="text-xs">Established</div>
                   </div>
                 </div>
               </motion.div>
@@ -379,12 +381,13 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
+                className="relative z-20"
               >
-                <h2 className="text-3xl md:text-4xl font-playfair font-bold text-rose-gold mb-4">
+                <h2 className="text-3xl md:text-4xl font-playfair font-bold text-rose-gold mb-6">
                   A Legacy of Excellence
                 </h2>
                 
-                <div className="space-y-4 text-base text-charcoal/80 leading-relaxed">
+                <div className="space-y-4 text-base text-charcoal/80 leading-relaxed mb-8">
                   <p>
                     For over seven decades, Bawa Jewellers has been synonymous with exceptional 
                     craftsmanship and authentic Indian jewelry. Founded in 1952, our family business 
@@ -398,11 +401,11 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="mt-6">
+                <div>
                   <Link href="/about">
                     <Button 
                       size="default" 
-                      className="bg-rose-gold hover:bg-rose-gold/90 text-white px-6"
+                      className="bg-rose-gold hover:bg-rose-gold/90 text-white px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300"
                     >
                       Learn More About Our Heritage
                       <ArrowRight className="ml-2 h-4 w-4" />
