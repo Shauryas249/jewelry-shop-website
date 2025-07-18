@@ -49,12 +49,12 @@ export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Heritage Jewels - Traditional Indian Jewelry",
+    "name": "Bawa Jewellers - Traditional Indian Jewelry",
     "description": "Discover our heritage collection of handcrafted gold, diamond, and precious stone jewelry. Traditional Indian craftsmanship meets timeless elegance.",
-    "url": "https://heritagejewels.com",
+    "url": "https://bawajewellers.com",
     "mainEntity": {
       "@type": "JewelryStore",
-      "name": "Heritage Jewels",
+      "name": "Bawa Jewellers",
       "image": "https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "address": {
         "@type": "PostalAddress",
@@ -75,7 +75,7 @@ export default function Home() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://heritagejewels.com"
+          "item": "https://bawajewellers.com"
         }
       ]
     }
@@ -84,9 +84,9 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Heritage Jewels - Exquisite Traditional Indian Jewelry Since 1952"
+        title="Bawa Jewellers - Exquisite Traditional Indian Jewelry Since 1952"
         description="Discover our heritage collection of handcrafted gold, diamond, and precious stone jewelry. Traditional Indian craftsmanship meets timeless elegance. Trusted for over 70 years."
-        keywords="heritage jewels, indian jewelry, gold jewelry, diamond jewelry, bridal jewelry, traditional jewelry, handcrafted jewelry, mumbai jewelry store, BIS hallmark jewelry"
+        keywords="bawa jewellers, indian jewelry, gold jewelry, diamond jewelry, bridal jewelry, traditional jewelry, handcrafted jewelry, mumbai jewelry store, BIS hallmark jewelry"
         structuredData={structuredData}
       />
 
@@ -205,7 +205,7 @@ export default function Home() {
               className="text-center mb-8"
             >
               <h2 className="text-3xl md:text-4xl font-playfair font-bold text-rose-gold mb-3">
-                Why Choose Heritage Jewels
+                Why Choose Bawa Jewellers
               </h2>
               <p className="text-lg text-charcoal/80 max-w-2xl mx-auto">
                 Seven decades of trust, quality, and exceptional craftsmanship
@@ -349,7 +349,7 @@ export default function Home() {
                 
                 <div className="space-y-4 text-base text-charcoal/80 leading-relaxed">
                   <p>
-                    For over seven decades, Heritage Jewels has been synonymous with exceptional 
+                    For over seven decades, Bawa Jewellers has been synonymous with exceptional 
                     craftsmanship and authentic Indian jewelry. Founded in 1952, our family business 
                     has preserved traditional techniques while embracing contemporary elegance.
                   </p>
@@ -410,7 +410,7 @@ export default function Home() {
                 {
                   icon: Mail,
                   title: "Email & Support",
-                  details: ["info@heritagejewels.com", "custom@heritagejewels.com", "Response within 24 hours"]
+                  details: ["info@bawajewellers.com", "custom@bawajewellers.com", "Response within 24 hours"]
                 }
               ].map((contact, index) => (
                 <motion.div
@@ -477,13 +477,13 @@ export default function Home() {
                 <Crown className="h-10 w-10 text-gold" />
                 <div>
                   <span className="text-2xl font-playfair font-bold block leading-tight">
-                    Heritage Jewels
+                    Bawa Jewellers
                   </span>
                   <span className="text-sm text-white/70">Since 1952</span>
                 </div>
               </div>
               <div className="text-center md:text-right">
-                <p className="text-white/90">© 2024 Heritage Jewels. All rights reserved.</p>
+                <p className="text-white/90">© 2024 Bawa Jewellers. All rights reserved.</p>
                 <p className="text-white/70 text-sm mt-1">Crafting dreams for over seven decades</p>
               </div>
             </div>

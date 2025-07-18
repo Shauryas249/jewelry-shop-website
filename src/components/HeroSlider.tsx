@@ -105,7 +105,7 @@ export default function HeroSlider() {
                     className="space-y-4"
                   >
                     <h1 className="text-4xl md:text-6xl font-playfair font-bold text-white leading-tight">
-                      Heritage Jewels
+                      Bawa Jewellers
                     </h1>
                     
                     <p className="text-lg md:text-xl text-white/90 font-inter">
@@ -140,13 +140,13 @@ export default function HeroSlider() {
                           Explore Our Collection
                         </Button>
                       </Link>
-                      <Link href="/store-location">
+                      <Link href="/contact">
                         <Button 
                           variant="outline" 
                           size="default" 
                           className="border-white text-white hover:bg-white hover:text-rose-gold px-6 py-3"
                         >
-                          Visit Our Store
+                          Contact Us
                         </Button>
                       </Link>
                     </motion.div>

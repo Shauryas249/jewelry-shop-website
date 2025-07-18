@@ -51,7 +51,7 @@ export default function Navigation() {
               <Crown className="h-10 w-10 text-rose-gold" />
               <div>
                 <span className="text-2xl font-playfair font-bold text-rose-gold block leading-tight">
-                  Heritage Jewels
+                  Bawa Jewellers
                 </span>
                 <span className="text-xs text-charcoal/70 font-inter">Since 1952</span>
               </div>
@@ -143,14 +143,6 @@ export default function Navigation() {
               >
                 Contact
               </Link>
-              
-              <Link 
-                href="/store-location" 
-                className="flex items-center space-x-1 text-charcoal hover:text-rose-gold transition-colors font-medium"
-              >
-                <MapPin className="h-4 w-4" />
-                <span>Store Location</span>
-              </Link>
             </div>
 
             {/* CTA Button */}
@@ -172,7 +164,7 @@ export default function Navigation() {
               <Crown className="h-8 w-8 text-rose-gold" />
               <div>
                 <span className="text-lg font-playfair font-bold text-rose-gold block leading-tight">
-                  Heritage Jewels
+                  Bawa Jewellers
                 </span>
                 <span className="text-xs text-charcoal/70 font-inter">Since 1952</span>
               </div>
@@ -254,15 +246,6 @@ export default function Navigation() {
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Contact
-                    </Link>
-                    
-                    <Link 
-                      href="/store-location" 
-                      className="flex items-center space-x-2 text-lg font-medium text-charcoal hover:text-rose-gold transition-colors"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      <MapPin className="h-5 w-5" />
-                      <span>Store Location</span>
                     </Link>
 
                     {/* Mobile CTA */}
