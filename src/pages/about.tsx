@@ -165,22 +165,24 @@ export default function About() {
               </p>
             </motion.div>
 
-            <div className="flex flex-col lg:flex-row gap-12 items-start mb-20">
+            <div className="flex flex-col lg:flex-row gap-16 items-start mb-20">
               {/* Left Side - Image Container */}
               <motion.div
                 initial={{ opacity: 0, x: -60 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="w-full lg:w-1/2 mb-8 lg:mb-0"
+                className="w-full lg:w-1/2 mb-12 lg:mb-0 relative z-10"
               >
-                <OptimizedImage
-                  src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Bawa Jewellers founder working on traditional jewelry"
-                  width={800}
-                  height={600}
-                  className="rounded-2xl w-full shadow-lg"
-                />
+                <div className="relative">
+                  <OptimizedImage
+                    src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Bawa Jewellers founder working on traditional jewelry"
+                    width={800}
+                    height={600}
+                    className="rounded-2xl w-full shadow-lg"
+                  />
+                </div>
               </motion.div>
 
               {/* Right Side - Timeline Content in Box */}
@@ -189,10 +191,10 @@ export default function About() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="w-full lg:w-1/2"
+                className="w-full lg:w-1/2 relative z-20"
               >
-                <Card className="bg-white border border-rose-gold/20 shadow-xl">
-                  <CardContent className="p-8">
+                <Card className="bg-white border border-rose-gold/20 shadow-xl relative z-30">
+                  <CardContent className="p-8 relative z-40">
                     <div className="space-y-8">
                       {[
                         {
