@@ -96,7 +96,7 @@ export default function HeroSlider() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 h-full flex items-center py-10">
+            <div className="relative z-30 h-full flex items-center py-10">
               <div className="max-w-7xl mx-auto px-6 w-full">
                 <div className="max-w-2xl">
                   <motion.div
@@ -105,11 +105,11 @@ export default function HeroSlider() {
                     transition={{ duration: 0.6, delay: 0.1 }}
                     className="space-y-4"
                   >
-                    <h1 className="text-4xl md:text-6xl font-playfair font-bold text-white leading-tight">
+                    <h1 className="text-4xl md:text-6xl font-playfair font-bold text-white leading-tight drop-shadow-lg">
                       Bawa Jewellers
                     </h1>
                     
-                    <p className="text-lg md:text-xl text-white/90 font-inter">
+                    <p className="text-lg md:text-xl text-white/90 font-inter drop-shadow-md">
                       Exquisite Traditional Indian Jewelry Since 1952
                     </p>
                     
@@ -119,10 +119,10 @@ export default function HeroSlider() {
                       transition={{ duration: 0.6, delay: 0.2 }}
                       className="space-y-2"
                     >
-                      <h2 className="text-xl md:text-2xl font-playfair font-semibold text-gold">
+                      <h2 className="text-xl md:text-2xl font-playfair font-semibold text-gold drop-shadow-md">
                         {heroSlides[currentSlide].title}
                       </h2>
-                      <p className="text-base text-white/80">
+                      <p className="text-base text-white/80 drop-shadow-sm">
                         {heroSlides[currentSlide].subtitle}
                       </p>
                     </motion.div>
@@ -131,12 +131,12 @@ export default function HeroSlider() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.3 }}
-                      className="flex flex-col sm:flex-row gap-3 pt-2"
+                      className="flex flex-col sm:flex-row gap-3 pt-2 relative z-40"
                     >
                       <Link href="/dashboard">
                         <Button 
                           size="default" 
-                          className="bg-rose-gold hover:bg-rose-gold/90 text-white font-semibold px-6 py-3"
+                          className="bg-rose-gold hover:bg-rose-gold/90 text-white font-semibold px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300"
                         >
                           Explore Our Collection
                         </Button>
@@ -145,7 +145,7 @@ export default function HeroSlider() {
                         <Button 
                           variant="outline" 
                           size="default" 
-                          className="border-white text-white hover:bg-white hover:text-rose-gold px-6 py-3"
+                          className="border-white text-white hover:bg-white hover:text-rose-gold px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300"
                         >
                           Contact Us
                         </Button>
@@ -160,7 +160,7 @@ export default function HeroSlider() {
       </AnimatePresence>
 
       {/* Navigation Controls */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-50">
         <div className="flex items-center space-x-6">
           {/* Slide Indicators */}
           <div className="flex space-x-2">
@@ -168,7 +168,7 @@ export default function HeroSlider() {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-3 h-3 rounded-full transition-all duration-300 shadow-lg ${
                   index === currentSlide 
                     ? 'bg-rose-gold scale-125' 
                     : 'bg-white/50 hover:bg-white/70'
@@ -180,7 +180,7 @@ export default function HeroSlider() {
           {/* Play/Pause Button */}
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+            className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors shadow-lg"
           >
             {isPlaying ? (
               <Pause className="h-4 w-4 text-white" />
@@ -194,20 +194,20 @@ export default function HeroSlider() {
       {/* Arrow Navigation */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 hover:bg-white/30 transition-colors group"
+        className="absolute left-6 top-1/2 transform -translate-y-1/2 z-50 p-3 rounded-full bg-white/20 hover:bg-white/30 transition-colors group shadow-lg"
       >
         <ChevronLeft className="h-6 w-6 text-white group-hover:scale-110 transition-transform" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 hover:bg-white/30 transition-colors group"
+        className="absolute right-6 top-1/2 transform -translate-y-1/2 z-50 p-3 rounded-full bg-white/20 hover:bg-white/30 transition-colors group shadow-lg"
       >
         <ChevronRight className="h-6 w-6 text-white group-hover:scale-110 transition-transform" />
       </button>
 
       {/* Slide Progress Bar */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20 z-20">
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20 z-50">
         <motion.div
           className="h-full bg-rose-gold"
           initial={{ width: "0%" }}
