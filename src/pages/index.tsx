@@ -107,7 +107,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-burgundy mb-4">
+              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-rose-gold mb-4">
                 Featured Collections
               </h2>
               <p className="text-xl text-charcoal/80 max-w-2xl mx-auto">
@@ -160,9 +160,9 @@ export default function Home() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                       
                       {/* Hover Overlay */}
-                      <div className="absolute inset-0 bg-burgundy/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="absolute inset-0 bg-rose-gold/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <Button 
-                          className="bg-gold hover:bg-gold/90 text-charcoal font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                          className="bg-white hover:bg-white/90 text-rose-gold border border-rose-gold font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
                         >
                           View Collection
                           <ArrowRight className="ml-2 h-4 w-4" />
@@ -190,7 +190,7 @@ export default function Home() {
         </section>
 
         {/* Trust Indicators */}
-        <section className="py-20 bg-cream/20">
+        <section className="py-20" style={{ background: 'linear-gradient(135deg, hsl(350, 35%, 95%) 0%, hsl(45, 95%, 96%) 100%)' }}>
           <div className="max-w-7xl mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -199,7 +199,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-burgundy mb-4">
+              <h2 className="text-4xl md:text-5xl font-playfair font-bold text-rose-gold mb-4">
                 Why Choose Heritage Jewels
               </h2>
               <p className="text-xl text-charcoal/80 max-w-2xl mx-auto">
@@ -220,7 +220,7 @@ export default function Home() {
                   icon: Award,
                   title: "70+ Years",
                   subtitle: "of Excellence",
-                  color: "text-burgundy"
+                  color: "text-rose-gold"
                 },
                 {
                   icon: Shield,
@@ -232,7 +232,7 @@ export default function Home() {
                   icon: Users,
                   title: "10,000+",
                   subtitle: "Happy Customers",
-                  color: "text-burgundy"
+                  color: "text-rose-gold"
                 },
                 {
                   icon: Sparkles,
@@ -268,8 +268,8 @@ export default function Home() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                   <div className="flex items-center space-x-3 mb-6">
-                    <Sparkles className="h-8 w-8 text-burgundy" />
-                    <h3 className="text-3xl font-playfair font-bold text-burgundy">
+                    <Sparkles className="h-8 w-8 text-rose-gold" />
+                    <h3 className="text-3xl font-playfair font-bold text-rose-gold">
                       Handcrafted Excellence Promise
                     </h3>
                   </div>
@@ -290,7 +290,7 @@ export default function Home() {
                         viewport={{ once: true }}
                         className="flex items-center space-x-3"
                       >
-                        <CheckCircle className="h-5 w-5 text-gold flex-shrink-0" />
+                        <CheckCircle className="h-5 w-5 text-rose-gold flex-shrink-0" />
                         <span className="text-charcoal/80">{promise}</span>
                       </motion.div>
                     ))}
@@ -306,7 +306,7 @@ export default function Home() {
                     className="w-full rounded-xl"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 rounded-xl border-2 border-gold/30"></div>
+                  <div className="absolute inset-0 rounded-xl border-2 border-rose-gold/30"></div>
                 </div>
               </div>
             </motion.div>
@@ -335,10 +335,10 @@ export default function Home() {
                   className="w-full rounded-2xl"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 rounded-2xl border-2 border-gold/30"></div>
+                <div className="absolute inset-0 rounded-2xl border-2 border-rose-gold/30"></div>
                 
                 {/* Floating Badge */}
-                <div className="absolute -bottom-6 -right-6 bg-burgundy text-cream p-6 rounded-2xl">
+                <div className="absolute -bottom-6 -right-6 bg-rose-gold text-white p-6 rounded-2xl">
                   <div className="text-center">
                     <div className="text-3xl font-playfair font-bold">1952</div>
                     <div className="text-sm">Established</div>
@@ -352,7 +352,7 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
               >
-                <h2 className="text-4xl md:text-5xl font-playfair font-bold text-burgundy mb-6">
+                <h2 className="text-4xl md:text-5xl font-playfair font-bold text-rose-gold mb-6">
                   A Legacy of Excellence
                 </h2>
                 
@@ -380,7 +380,7 @@ export default function Home() {
                   <Link href="/about">
                     <Button 
                       size="lg" 
-                      className="bg-burgundy hover:bg-burgundy/90 text-cream px-8"
+                      className="bg-rose-gold hover:bg-rose-gold/90 text-white px-8"
                     >
                       Learn More About Our Heritage
                       <ArrowRight className="ml-2 h-5 w-5" />
@@ -435,9 +435,9 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="bg-cream/10 border-cream/20 text-center h-full">
+                  <Card className="bg-cream/10 border-rose-gold text-center h-full">
                     <CardContent className="luxury-spacing">
-                      <contact.icon className="h-12 w-12 text-gold mx-auto mb-4" />
+                      <contact.icon className="h-12 w-12 text-rose-gold mx-auto mb-4" />
                       <h3 className="text-xl font-playfair font-semibold mb-4">
                         {contact.title}
                       </h3>
@@ -485,7 +485,7 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="bg-burgundy text-cream py-12">
+        <footer className="bg-rose-gold text-white py-12">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="flex items-center space-x-3 mb-4 md:mb-0">
@@ -494,12 +494,12 @@ export default function Home() {
                   <span className="text-2xl font-playfair font-bold block leading-tight">
                     Heritage Jewels
                   </span>
-                  <span className="text-sm text-cream/70">Since 1952</span>
+                  <span className="text-sm text-white/70">Since 1952</span>
                 </div>
               </div>
               <div className="text-center md:text-right">
-                <p className="text-cream/90">© 2024 Heritage Jewels. All rights reserved.</p>
-                <p className="text-cream/70 text-sm mt-1">Crafting dreams for over seven decades</p>
+                <p className="text-white/90">© 2024 Heritage Jewels. All rights reserved.</p>
+                <p className="text-white/70 text-sm mt-1">Crafting dreams for over seven decades</p>
               </div>
             </div>
           </div>

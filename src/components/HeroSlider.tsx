@@ -68,7 +68,8 @@ export default function HeroSlider() {
       <div 
         className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23800020' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          background: 'linear-gradient(135deg, hsl(350, 35%, 95%) 0%, hsl(45, 95%, 96%) 100%)',
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23E8B4B8' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }}
       />
 
@@ -90,7 +91,7 @@ export default function HeroSlider() {
                 alt={heroSlides[currentSlide].title}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-burgundy/80 via-burgundy/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-rose-gold/80 via-rose-gold/60 to-transparent" />
             </div>
 
             {/* Content */}
@@ -103,11 +104,11 @@ export default function HeroSlider() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="space-y-6"
                   >
-                    <h1 className="text-5xl md:text-7xl font-playfair font-bold text-cream leading-tight">
+                    <h1 className="text-5xl md:text-7xl font-playfair font-bold text-white leading-tight">
                       Heritage Jewels
                     </h1>
                     
-                    <p className="text-xl md:text-2xl text-cream/90 font-inter">
+                    <p className="text-xl md:text-2xl text-white/90 font-inter">
                       Exquisite Traditional Indian Jewelry Since 1952
                     </p>
                     
@@ -120,7 +121,7 @@ export default function HeroSlider() {
                       <h2 className="text-2xl md:text-3xl font-playfair font-semibold text-gold">
                         {heroSlides[currentSlide].title}
                       </h2>
-                      <p className="text-lg text-cream/80">
+                      <p className="text-lg text-white/80">
                         {heroSlides[currentSlide].subtitle}
                       </p>
                     </motion.div>
@@ -134,7 +135,7 @@ export default function HeroSlider() {
                       <Link href="/dashboard">
                         <Button 
                           size="lg" 
-                          className="bg-gold hover:bg-gold/90 text-charcoal font-semibold px-8 py-4 text-lg"
+                          className="bg-rose-gold hover:bg-rose-gold/90 text-white font-semibold px-8 py-4 text-lg"
                         >
                           Explore Our Collection
                         </Button>
@@ -143,7 +144,7 @@ export default function HeroSlider() {
                         <Button 
                           variant="outline" 
                           size="lg" 
-                          className="border-cream text-cream hover:bg-cream hover:text-charcoal px-8 py-4 text-lg"
+                          className="border-white text-white hover:bg-white hover:text-rose-gold px-8 py-4 text-lg"
                         >
                           Visit Our Store
                         </Button>
@@ -168,8 +169,8 @@ export default function HeroSlider() {
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide 
-                    ? 'bg-gold scale-125' 
-                    : 'bg-cream/50 hover:bg-cream/70'
+                    ? 'bg-rose-gold scale-125' 
+                    : 'bg-white/50 hover:bg-white/70'
                 }`}
               />
             ))}
@@ -178,12 +179,12 @@ export default function HeroSlider() {
           {/* Play/Pause Button */}
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="p-2 rounded-full bg-cream/20 hover:bg-cream/30 transition-colors"
+            className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
           >
             {isPlaying ? (
-              <Pause className="h-4 w-4 text-cream" />
+              <Pause className="h-4 w-4 text-white" />
             ) : (
-              <Play className="h-4 w-4 text-cream" />
+              <Play className="h-4 w-4 text-white" />
             )}
           </button>
         </div>
@@ -192,22 +193,22 @@ export default function HeroSlider() {
       {/* Arrow Navigation */}
       <button
         onClick={prevSlide}
-        className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-cream/20 hover:bg-cream/30 transition-colors group"
+        className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 hover:bg-white/30 transition-colors group"
       >
-        <ChevronLeft className="h-6 w-6 text-cream group-hover:scale-110 transition-transform" />
+        <ChevronLeft className="h-6 w-6 text-white group-hover:scale-110 transition-transform" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-cream/20 hover:bg-cream/30 transition-colors group"
+        className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 p-3 rounded-full bg-white/20 hover:bg-white/30 transition-colors group"
       >
-        <ChevronRight className="h-6 w-6 text-cream group-hover:scale-110 transition-transform" />
+        <ChevronRight className="h-6 w-6 text-white group-hover:scale-110 transition-transform" />
       </button>
 
       {/* Slide Progress Bar */}
-      <div className="absolute bottom-0 left-0 w-full h-1 bg-cream/20 z-20">
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-white/20 z-20">
         <motion.div
-          className="h-full bg-gold"
+          className="h-full bg-rose-gold"
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
           transition={{ 

@@ -152,7 +152,7 @@ const ContactPage = () => {
               <Card>
                 <CardHeader>
                   <CardTitle className="font-playfair text-2xl text-charcoal flex items-center gap-3">
-                    <MapPin className="h-6 w-6 text-burgundy" />
+                    <MapPin className="h-6 w-6 text-rose-gold" />
                     Our Showroom
                   </CardTitle>
                 </CardHeader>
@@ -180,7 +180,7 @@ const ContactPage = () => {
                     />
                   </div>
 
-                  <Button className="w-full bg-burgundy hover:bg-burgundy/90 text-cream">
+                  <Button className="w-full bg-rose-gold hover:bg-rose-gold/90 text-white">
                     <NavigationIcon className="h-4 w-4 mr-2" />
                     Get Directions
                   </Button>
@@ -197,7 +197,7 @@ const ContactPage = () => {
               <Card>
                 <CardHeader>
                   <CardTitle className="font-playfair text-xl text-charcoal flex items-center gap-3">
-                    <Clock className="h-5 w-5 text-burgundy" />
+                    <Clock className="h-5 w-5 text-rose-gold" />
                     Business Hours
                   </CardTitle>
                 </CardHeader>
@@ -237,8 +237,8 @@ const ContactPage = () => {
                   <div className="space-y-6">
                     {contactMethods.map((method, index) => (
                       <div key={index} className="flex items-start gap-4">
-                        <div className="bg-burgundy/10 p-3 rounded-lg">
-                          <method.icon className="h-5 w-5 text-burgundy" />
+                        <div className="bg-rose-gold/10 p-3 rounded-lg">
+                          <method.icon className="h-5 w-5 text-rose-gold" />
                         </div>
                         <div className="flex-1">
                           <h4 className="font-semibold text-charcoal mb-1">{method.title}</h4>
@@ -269,7 +269,7 @@ const ContactPage = () => {
                   <div className="grid grid-cols-1 gap-4">
                     {certifications.map((cert, index) => (
                       <div key={index} className="flex items-center gap-4 p-3 bg-cream rounded-lg">
-                        <cert.icon className="h-6 w-6 text-burgundy" />
+                        <cert.icon className="h-6 w-6 text-rose-gold" />
                         <div>
                           <h4 className="font-semibold text-charcoal">{cert.title}</h4>
                           <p className="text-sm text-charcoal/70">{cert.description}</p>
@@ -345,7 +345,7 @@ const ContactPage = () => {
                         value={inquiryForm.subject}
                         onValueChange={(value) => setInquiryForm({...inquiryForm, subject: value})}
                       >
-                        <SelectTrigger className="border-charcoal/20 focus:border-burgundy">
+                        <SelectTrigger className="border-charcoal/20 focus:border-rose-gold">
                           <SelectValue placeholder="Select inquiry type" />
                         </SelectTrigger>
                         <SelectContent>

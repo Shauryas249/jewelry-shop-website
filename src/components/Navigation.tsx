@@ -43,14 +43,14 @@ export default function Navigation() {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden lg:block sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-rose-gold/20">
+      <nav className="hidden lg:block sticky top-0 z-50 bg-white backdrop-blur-sm border-b-2 border-rose-gold">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3">
-              <Crown className="h-10 w-10 text-burgundy" />
+              <Crown className="h-10 w-10 text-rose-gold" />
               <div>
-                <span className="text-2xl font-playfair font-bold text-burgundy block leading-tight">
+                <span className="text-2xl font-playfair font-bold text-rose-gold block leading-tight">
                   Heritage Jewels
                 </span>
                 <span className="text-xs text-charcoal/70 font-inter">Since 1952</span>
@@ -61,7 +61,7 @@ export default function Navigation() {
             <div className="flex items-center space-x-8">
               <Link 
                 href="/" 
-                className="text-charcoal hover:text-burgundy transition-colors font-medium"
+                className="text-charcoal hover:text-rose-gold transition-colors font-medium"
               >
                 Home
               </Link>
@@ -72,7 +72,7 @@ export default function Navigation() {
                 onMouseEnter={() => setActiveMenu("collections")}
                 onMouseLeave={() => setActiveMenu(null)}
               >
-                <button className="flex items-center space-x-1 text-charcoal hover:text-burgundy transition-colors font-medium">
+                <button className="flex items-center space-x-1 text-charcoal hover:text-rose-gold transition-colors font-medium">
                   <span>Collections</span>
                   <ChevronDown className="h-4 w-4" />
                 </button>
@@ -84,7 +84,7 @@ export default function Navigation() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-[800px] bg-white rounded-xl border border-rose-gold/20 shadow-2xl p-8"
+                      className="absolute top-full left-0 mt-2 w-[800px] bg-white rounded-xl border border-rose-gold shadow-2xl p-8"
                     >
                       <div className="grid grid-cols-4 gap-8">
                         <div>
@@ -92,8 +92,8 @@ export default function Navigation() {
                             href="/collections" 
                             className="block p-4 rounded-lg hover:bg-cream/50 transition-colors group"
                           >
-                            <Star className="h-6 w-6 text-burgundy mb-2" />
-                            <h3 className="font-playfair font-semibold text-charcoal group-hover:text-burgundy">
+                            <Star className="h-6 w-6 text-rose-gold mb-2" />
+                            <h3 className="font-playfair font-semibold text-charcoal group-hover:text-rose-gold">
                               All Jewelry
                             </h3>
                             <p className="text-sm text-charcoal/70 mt-1">
@@ -108,8 +108,8 @@ export default function Navigation() {
                               href={`/collections/${category.toLowerCase().replace(' ', '-')}`}
                               className="block p-4 rounded-lg hover:bg-cream/50 transition-colors group"
                             >
-                              <data.icon className="h-6 w-6 text-burgundy mb-2" />
-                              <h3 className="font-playfair font-semibold text-charcoal group-hover:text-burgundy mb-3">
+                              <data.icon className="h-6 w-6 text-rose-gold mb-2" />
+                              <h3 className="font-playfair font-semibold text-charcoal group-hover:text-rose-gold mb-3">
                                 {category}
                               </h3>
                               <ul className="space-y-2">
@@ -132,21 +132,21 @@ export default function Navigation() {
 
               <Link 
                 href="/about" 
-                className="text-charcoal hover:text-burgundy transition-colors font-medium"
+                className="text-charcoal hover:text-rose-gold transition-colors font-medium"
               >
                 About Us
               </Link>
               
               <Link 
                 href="/contact" 
-                className="text-charcoal hover:text-burgundy transition-colors font-medium"
+                className="text-charcoal hover:text-rose-gold transition-colors font-medium"
               >
                 Contact
               </Link>
               
               <Link 
                 href="/store-location" 
-                className="flex items-center space-x-1 text-charcoal hover:text-burgundy transition-colors font-medium"
+                className="flex items-center space-x-1 text-charcoal hover:text-rose-gold transition-colors font-medium"
               >
                 <MapPin className="h-4 w-4" />
                 <span>Store Location</span>
@@ -155,7 +155,7 @@ export default function Navigation() {
 
             {/* CTA Button */}
             <Link href="/dashboard">
-              <Button className="bg-burgundy hover:bg-burgundy/90 text-cream px-6">
+              <Button className="bg-rose-gold hover:bg-rose-gold/90 text-white px-6">
                 View Catalog
               </Button>
             </Link>
@@ -164,14 +164,14 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile Navigation */}
-      <nav className="lg:hidden sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-rose-gold/20">
+      <nav className="lg:hidden sticky top-0 z-50 bg-white backdrop-blur-sm border-b-2 border-rose-gold">
         <div className="px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Mobile Logo */}
             <Link href="/" className="flex items-center space-x-2">
-              <Crown className="h-8 w-8 text-burgundy" />
+              <Crown className="h-8 w-8 text-rose-gold" />
               <div>
-                <span className="text-lg font-playfair font-bold text-burgundy block leading-tight">
+                <span className="text-lg font-playfair font-bold text-rose-gold block leading-tight">
                   Heritage Jewels
                 </span>
                 <span className="text-xs text-charcoal/70 font-inter">Since 1952</span>
@@ -193,7 +193,7 @@ export default function Navigation() {
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-charcoal/50" />
                     <Input 
                       placeholder="Search jewelry..." 
-                      className="pl-10 border-rose-gold/30"
+                      className="pl-10 border-rose-gold"
                     />
                   </div>
 
@@ -201,7 +201,7 @@ export default function Navigation() {
                   <div className="space-y-4">
                     <Link 
                       href="/" 
-                      className="block text-lg font-medium text-charcoal hover:text-burgundy transition-colors"
+                      className="block text-lg font-medium text-charcoal hover:text-rose-gold transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Home
@@ -209,11 +209,11 @@ export default function Navigation() {
 
                     {/* Mobile Collections */}
                     <div className="space-y-3">
-                      <h3 className="text-lg font-playfair font-semibold text-burgundy">Collections</h3>
+                      <h3 className="text-lg font-playfair font-semibold text-rose-gold">Collections</h3>
                       
                       <Link 
                         href="/collections" 
-                        className="block pl-4 text-charcoal hover:text-burgundy transition-colors"
+                        className="block pl-4 text-charcoal hover:text-rose-gold transition-colors"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         All Jewelry
@@ -223,7 +223,7 @@ export default function Navigation() {
                         <div key={category} className="space-y-2">
                           <Link 
                             href={`/collections/${category.toLowerCase().replace(' ', '-')}`}
-                            className="block pl-4 font-medium text-charcoal hover:text-burgundy transition-colors"
+                            className="block pl-4 font-medium text-charcoal hover:text-rose-gold transition-colors"
                             onClick={() => setMobileMenuOpen(false)}
                           >
                             {category}
@@ -242,7 +242,7 @@ export default function Navigation() {
 
                     <Link 
                       href="/about" 
-                      className="block text-lg font-medium text-charcoal hover:text-burgundy transition-colors"
+                      className="block text-lg font-medium text-charcoal hover:text-rose-gold transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       About Us
@@ -250,7 +250,7 @@ export default function Navigation() {
                     
                     <Link 
                       href="/contact" 
-                      className="block text-lg font-medium text-charcoal hover:text-burgundy transition-colors"
+                      className="block text-lg font-medium text-charcoal hover:text-rose-gold transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       Contact
@@ -258,7 +258,7 @@ export default function Navigation() {
                     
                     <Link 
                       href="/store-location" 
-                      className="flex items-center space-x-2 text-lg font-medium text-charcoal hover:text-burgundy transition-colors"
+                      className="flex items-center space-x-2 text-lg font-medium text-charcoal hover:text-rose-gold transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       <MapPin className="h-5 w-5" />
@@ -266,9 +266,9 @@ export default function Navigation() {
                     </Link>
 
                     {/* Mobile CTA */}
-                    <div className="pt-4 border-t border-rose-gold/20">
+                    <div className="pt-4 border-t border-rose-gold">
                       <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)}>
-                        <Button className="w-full bg-burgundy hover:bg-burgundy/90 text-cream">
+                        <Button className="w-full bg-rose-gold hover:bg-rose-gold/90 text-white">
                           View Catalog
                         </Button>
                       </Link>
