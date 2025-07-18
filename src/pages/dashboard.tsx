@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Filter, Grid, List, Heart, Eye, X, ChevronDown, ChevronUp, SlidersHorizontal } from 'lucide-react';
+import { Search, Filter, Grid, List, Heart, Eye, X, ChevronDown, ChevronUp, SlidersHorizontal, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -12,6 +12,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/components/ui/use-toast';
 import Navigation from '@/components/Navigation';
 
 // Mock data for jewelry items
@@ -129,6 +132,7 @@ const jewelryTypes = ['Traditional', 'Modern', 'Antique'];
 
 const Dashboard = () => {
   const router = useRouter();
+  const { toast } = useToast();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedMetalTypes, setSelectedMetalTypes] = useState<string[]>([]);
@@ -141,6 +145,15 @@ const Dashboard = () => {
   const [wishlist, setWishlist] = useState<number[]>([]);
   const [selectedItem, setSelectedItem] = useState<any>(null);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [inquiryModalOpen, setInquiryModalOpen] = useState(false);
+  const [inquiryItem, setInquiryItem] = useState<any>(null);
+  const [inquiryForm, setInquiryForm] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    itemCode: '',
+    message: ''
+  });
   const [expandedFilters, setExpandedFilters] = useState({
     category: true,
     metalType: true,
@@ -148,6 +161,19 @@ const Dashboard = () => {
     type: true,
     price: true
   });
+
+  // Load wishlist from localStorage
+  useEffect(() => {
+    const savedWishlist = localStorage.getItem('heritage-wishlist');
+    if (savedWishlist) {
+      setWishlist(JSON.parse(savedWishlist));
+    }
+  }, []);
+
+  // Save wishlist to localStorage
+  useEffect(() => {
+    localStorage.setItem('heritage-wishlist', JSON.stringify(wishlist));
+  }, [wishlist]);
 
   // Search suggestions
   const [searchSuggestions, setSearchSuggestions] = useState<string[]>([]);
@@ -220,6 +246,49 @@ const Dashboard = () => {
     );
   };
 
+  const openInquiryModal = (item: any) => {
+    setInquiryItem(item);
+    setInquiryForm({
+      name: '',
+      phone: '',
+      email: '',
+      itemCode: item.code,
+      message: ''
+    });
+    setInquiryModalOpen(true);
+  };
+
+  const handleInquirySubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Basic validation
+    if (!inquiryForm.name || !inquiryForm.phone || !inquiryForm.email) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    // Simulate form submission
+    console.log('Inquiry submitted:', inquiryForm);
+    
+    toast({
+      title: "Inquiry Sent Successfully!",
+      description: "We'll contact you within 24 hours regarding your inquiry.",
+    });
+
+    setInquiryModalOpen(false);
+    setInquiryForm({
+      name: '',
+      phone: '',
+      email: '',
+      itemCode: '',
+      message: ''
+    });
+  };
+
   const toggleFilter = (filterType: string, value: string) => {
     switch (filterType) {
       case 'category':
@@ -259,7 +328,7 @@ const Dashboard = () => {
     <div className="space-y-3">
       <button
         onClick={() => onToggle(filterType)}
-        className="flex items-center justify-between w-full text-left font-medium text-charcoal hover:text-burgundy transition-colors"
+        className="flex items-center justify-between w-full text-left font-medium text-charcoal hover:text-rose-gold transition-colors"
       >
         {title}
         {expanded ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
@@ -279,11 +348,11 @@ const Dashboard = () => {
                   id={`${filterType}-${item}`}
                   checked={selectedItems.includes(item)}
                   onCheckedChange={() => toggleFilter(filterType, item)}
-                  className="border-charcoal data-[state=checked]:bg-burgundy data-[state=checked]:border-burgundy"
+                  className="border-charcoal data-[state=checked]:bg-rose-gold data-[state=checked]:border-rose-gold"
                 />
                 <label
                   htmlFor={`${filterType}-${item}`}
-                  className="text-sm text-charcoal cursor-pointer hover:text-burgundy transition-colors"
+                  className="text-sm text-charcoal cursor-pointer hover:text-rose-gold transition-colors"
                 >
                   {item}
                 </label>
@@ -303,7 +372,7 @@ const Dashboard = () => {
           variant="ghost"
           size="sm"
           onClick={clearAllFilters}
-          className="text-burgundy hover:text-burgundy/80 hover:bg-burgundy/10"
+          className="text-rose-gold hover:text-rose-gold/80 hover:bg-rose-gold/10"
         >
           Clear All
         </Button>
@@ -324,8 +393,8 @@ const Dashboard = () => {
               size="sm"
               onClick={() => setQuickFilter(quickFilter === filter.key ? null : filter.key)}
               className={quickFilter === filter.key 
-                ? "bg-burgundy hover:bg-burgundy/90 text-cream" 
-                : "border-charcoal text-charcoal hover:bg-burgundy/10"
+                ? "bg-rose-gold hover:bg-rose-gold/90 text-white" 
+                : "border-charcoal text-charcoal hover:bg-rose-gold/10"
               }
             >
               {filter.label}
@@ -384,7 +453,7 @@ const Dashboard = () => {
       <div className="space-y-3">
         <button
           onClick={() => setExpandedFilters(prev => ({ ...prev, price: !prev.price }))}
-          className="flex items-center justify-between w-full text-left font-medium text-charcoal hover:text-burgundy transition-colors"
+          className="flex items-center justify-between w-full text-left font-medium text-charcoal hover:text-rose-gold transition-colors"
         >
           Price Range (Optional)
           {expandedFilters.price ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
@@ -423,7 +492,7 @@ const Dashboard = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.3 }}
-      className={`group relative bg-cream rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 ${
+      className={`group relative bg-white rounded-lg overflow-hidden border border-rose-gold/20 hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(232,180,184,0.3)] transition-all duration-300 ${
         viewMode === 'list' ? 'flex h-40' : 'h-80'
       }`}
     >
@@ -434,84 +503,75 @@ const Dashboard = () => {
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
         
-        {/* Item Code Badge */}
-        <div className="absolute top-1 right-1 bg-burgundy text-cream px-1.5 py-0.5 rounded text-xs font-mono">
+        {/* Item Code Badge - Top Right */}
+        <div className="absolute top-2 right-2 bg-rose-gold text-white px-2 py-1 rounded text-xs font-bold">
           {item.code}
         </div>
 
-        {/* Status Badges */}
-        <div className="absolute top-1 left-1 flex flex-col gap-0.5">
-          {item.isNew && (
-            <Badge className="bg-gold text-charcoal text-xs px-1.5 py-0.5">New</Badge>
-          )}
-          {item.isPopular && (
-            <Badge className="bg-rose-gold text-charcoal text-xs px-1.5 py-0.5">Popular</Badge>
-          )}
-        </div>
-
-        {/* Wishlist Button */}
+        {/* Wishlist Button - Top Left */}
         <button
-          onClick={() => toggleWishlist(item.id)}
-          className="absolute top-1 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-cream/90 p-1.5 rounded-full hover:bg-cream"
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleWishlist(item.id);
+          }}
+          className="absolute top-2 left-2 p-1.5 rounded-full bg-white/90 hover:bg-white transition-colors"
         >
           <Heart
-            className={`h-3 w-3 ${
-              wishlist.includes(item.id) ? 'fill-burgundy text-burgundy' : 'text-charcoal'
+            className={`h-4 w-4 ${
+              wishlist.includes(item.id) ? 'fill-rose-gold text-rose-gold' : 'text-charcoal hover:text-rose-gold'
             }`}
           />
         </button>
 
-        {/* Hover Overlay */}
-        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button
-                variant="secondary"
-                size="sm"
-                className="bg-cream/90 text-charcoal hover:bg-cream text-xs px-2 py-1"
-                onClick={() => setSelectedItem(item)}
-              >
-                <Eye className="h-3 w-3 mr-1" />
-                View Details
-              </Button>
-            </DialogTrigger>
-          </Dialog>
+        {/* Status Badges - Top Left Below Wishlist */}
+        <div className="absolute top-12 left-2 flex flex-col gap-1">
+          {item.isNew && (
+            <Badge className="bg-gold text-charcoal text-xs px-2 py-0.5 font-semibold">New</Badge>
+          )}
+          {item.isPopular && (
+            <Badge className="bg-green-500 text-white text-xs px-2 py-0.5 font-semibold">Popular</Badge>
+          )}
         </div>
       </div>
 
-      <div className={`p-2 ${viewMode === 'list' ? 'flex-1' : 'h-24'}`}>
-        <h3 className="font-playfair text-sm font-semibold text-charcoal mb-1 group-hover:text-burgundy transition-colors line-clamp-2">
+      <div className={`p-3 ${viewMode === 'list' ? 'flex-1' : 'h-24'}`}>
+        <h3 className="font-playfair text-sm font-semibold text-charcoal mb-2 group-hover:text-rose-gold transition-colors line-clamp-2">
           {item.title}
         </h3>
         
-        <div className="flex flex-wrap gap-1 mb-2">
-          <Badge variant="outline" className="text-xs border-charcoal text-charcoal px-1 py-0">
+        <div className="flex flex-wrap gap-1 mb-3">
+          <Badge variant="outline" className="text-xs border-rose-gold/30 text-charcoal px-2 py-0.5">
             {item.category}
           </Badge>
-          <Badge variant="outline" className="text-xs border-charcoal text-charcoal px-1 py-0">
+          <Badge variant="outline" className="text-xs border-rose-gold/30 text-charcoal px-2 py-0.5">
             {item.metalType}
           </Badge>
         </div>
 
-        <div className="flex items-center justify-between">
+        {/* Buttons Side by Side */}
+        <div className="flex gap-2">
           <Button
+            variant="outline"
             size="sm"
-            onClick={() => router.push(`/product/${item.id}`)}
-            className="bg-burgundy hover:bg-burgundy/90 text-cream text-xs px-2 py-1 h-6"
+            onClick={(e) => {
+              e.stopPropagation();
+              router.push(`/product/${item.id}`);
+            }}
+            className="flex-1 border-rose-gold text-rose-gold hover:bg-rose-gold hover:text-white text-xs h-8"
           >
             View Details
           </Button>
           
-          <button
-            onClick={() => toggleWishlist(item.id)}
-            className="p-1 hover:bg-burgundy/10 rounded-full transition-colors"
+          <Button
+            size="sm"
+            onClick={(e) => {
+              e.stopPropagation();
+              openInquiryModal(item);
+            }}
+            className="flex-1 bg-rose-gold hover:bg-rose-gold/90 text-white text-xs h-8"
           >
-            <Heart
-              className={`h-3 w-3 ${
-                wishlist.includes(item.id) ? 'fill-burgundy text-burgundy' : 'text-charcoal'
-              }`}
-            />
-          </button>
+            Inquire Now
+          </Button>
         </div>
       </div>
     </motion.div>
@@ -543,7 +603,7 @@ const Dashboard = () => {
                       placeholder="Search by item code, type, or metal..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="pl-10 border-charcoal/20 focus:border-burgundy"
+                      className="pl-10 border-charcoal/20 focus:border-rose-gold"
                     />
                   </div>
                   
@@ -563,7 +623,7 @@ const Dashboard = () => {
                               setSearchTerm(suggestion);
                               setShowSuggestions(false);
                             }}
-                            className="w-full text-left px-4 py-2 hover:bg-burgundy/10 text-charcoal transition-colors"
+                            className="w-full text-left px-4 py-2 hover:bg-rose-gold/10 text-charcoal transition-colors"
                           >
                             {suggestion}
                           </button>
@@ -611,7 +671,7 @@ const Dashboard = () => {
                       variant={viewMode === 'grid' ? 'default' : 'ghost'}
                       size="sm"
                       onClick={() => setViewMode('grid')}
-                      className={viewMode === 'grid' ? 'bg-burgundy text-cream' : 'text-charcoal hover:bg-burgundy/10'}
+                      className={viewMode === 'grid' ? 'bg-rose-gold text-white' : 'text-charcoal hover:bg-rose-gold/10'}
                     >
                       <Grid className="h-4 w-4" />
                     </Button>
@@ -619,7 +679,7 @@ const Dashboard = () => {
                       variant={viewMode === 'list' ? 'default' : 'ghost'}
                       size="sm"
                       onClick={() => setViewMode('list')}
-                      className={viewMode === 'list' ? 'bg-burgundy text-cream' : 'text-charcoal hover:bg-burgundy/10'}
+                      className={viewMode === 'list' ? 'bg-rose-gold text-white' : 'text-charcoal hover:bg-rose-gold/10'}
                     >
                       <List className="h-4 w-4" />
                     </Button>
@@ -636,33 +696,33 @@ const Dashboard = () => {
               {(selectedCategories.length > 0 || selectedMetalTypes.length > 0 || selectedOccasions.length > 0 || selectedTypes.length > 0 || quickFilter) && (
                 <div className="mt-4 flex flex-wrap gap-2">
                   {selectedCategories.map(category => (
-                    <Badge key={category} variant="secondary" className="bg-burgundy/10 text-burgundy">
+                    <Badge key={category} variant="secondary" className="bg-rose-gold/10 text-rose-gold">
                       {category}
                       <button
                         onClick={() => toggleFilter('category', category)}
-                        className="ml-2 hover:text-burgundy/70"
+                        className="ml-2 hover:text-rose-gold/70"
                       >
                         <X className="h-3 w-3" />
                       </button>
                     </Badge>
                   ))}
                   {selectedMetalTypes.map(metal => (
-                    <Badge key={metal} variant="secondary" className="bg-burgundy/10 text-burgundy">
+                    <Badge key={metal} variant="secondary" className="bg-rose-gold/10 text-rose-gold">
                       {metal}
                       <button
                         onClick={() => toggleFilter('metalType', metal)}
-                        className="ml-2 hover:text-burgundy/70"
+                        className="ml-2 hover:text-rose-gold/70"
                       >
                         <X className="h-3 w-3" />
                       </button>
                     </Badge>
                   ))}
                   {quickFilter && (
-                    <Badge variant="secondary" className="bg-burgundy/10 text-burgundy">
+                    <Badge variant="secondary" className="bg-rose-gold/10 text-rose-gold">
                       {quickFilter === 'new' ? 'New Arrivals' : quickFilter === 'popular' ? 'Most Popular' : 'Bridal'}
                       <button
                         onClick={() => setQuickFilter(null)}
-                        className="ml-2 hover:text-burgundy/70"
+                        className="ml-2 hover:text-rose-gold/70"
                       >
                         <X className="h-3 w-3" />
                       </button>
@@ -717,7 +777,7 @@ const Dashboard = () => {
                               setSelectedCategories([category]);
                               setSearchTerm('');
                             }}
-                            className="border-charcoal text-charcoal hover:bg-burgundy/10"
+                            className="border-charcoal text-charcoal hover:bg-rose-gold/10"
                           >
                             {category}
                           </Button>
@@ -753,7 +813,7 @@ const Dashboard = () => {
                 <div className="space-y-4">
                   <div>
                     <p className="text-sm text-charcoal/70">Item Code</p>
-                    <p className="font-mono text-lg font-semibold text-burgundy">
+                    <p className="font-mono text-lg font-semibold text-rose-gold">
                       {selectedItem.code}
                     </p>
                   </div>
@@ -778,17 +838,23 @@ const Dashboard = () => {
                   </div>
 
                   <div className="flex gap-3 pt-4">
-                    <Button className="flex-1 bg-burgundy hover:bg-burgundy/90 text-cream">
+                    <Button 
+                      className="flex-1 bg-rose-gold hover:bg-rose-gold/90 text-white"
+                      onClick={() => {
+                        setSelectedItem(null);
+                        openInquiryModal(selectedItem);
+                      }}
+                    >
                       Inquire Now
                     </Button>
                     <Button
                       variant="outline"
                       onClick={() => toggleWishlist(selectedItem.id)}
-                      className="border-charcoal text-charcoal hover:bg-burgundy/10"
+                      className="border-rose-gold text-rose-gold hover:bg-rose-gold/10"
                     >
                       <Heart
                         className={`h-4 w-4 ${
-                          wishlist.includes(selectedItem.id) ? 'fill-burgundy text-burgundy' : ''
+                          wishlist.includes(selectedItem.id) ? 'fill-rose-gold text-rose-gold' : ''
                         }`}
                       />
                     </Button>
@@ -796,6 +862,128 @@ const Dashboard = () => {
                 </div>
               </div>
             </>
+          )}
+        </DialogContent>
+      </Dialog>
+
+      {/* Inquiry Modal */}
+      <Dialog open={inquiryModalOpen} onOpenChange={setInquiryModalOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="font-playfair text-xl text-rose-gold">
+              Inquire About This Piece
+            </DialogTitle>
+          </DialogHeader>
+          
+          {inquiryItem && (
+            <div className="space-y-4">
+              {/* Product Preview */}
+              <div className="flex items-center space-x-3 p-3 bg-rose-gold/5 rounded-lg">
+                <img
+                  src={inquiryItem.image}
+                  alt={inquiryItem.title}
+                  className="w-16 h-16 object-cover rounded"
+                />
+                <div>
+                  <h4 className="font-playfair font-semibold text-charcoal">
+                    {inquiryItem.title}
+                  </h4>
+                  <p className="text-sm text-rose-gold font-mono font-bold">
+                    {inquiryItem.code}
+                  </p>
+                </div>
+              </div>
+
+              {/* Inquiry Form */}
+              <form onSubmit={handleInquirySubmit} className="space-y-4">
+                <div className="grid grid-cols-1 gap-4">
+                  <div>
+                    <Label htmlFor="name" className="text-sm font-medium text-charcoal">
+                      Customer Name *
+                    </Label>
+                    <Input
+                      id="name"
+                      value={inquiryForm.name}
+                      onChange={(e) => setInquiryForm(prev => ({ ...prev, name: e.target.value }))}
+                      className="mt-1 border-rose-gold/30 focus:border-rose-gold"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="phone" className="text-sm font-medium text-charcoal">
+                      Phone Number *
+                    </Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      value={inquiryForm.phone}
+                      onChange={(e) => setInquiryForm(prev => ({ ...prev, phone: e.target.value }))}
+                      className="mt-1 border-rose-gold/30 focus:border-rose-gold"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="email" className="text-sm font-medium text-charcoal">
+                      Email Address *
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={inquiryForm.email}
+                      onChange={(e) => setInquiryForm(prev => ({ ...prev, email: e.target.value }))}
+                      className="mt-1 border-rose-gold/30 focus:border-rose-gold"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="itemCode" className="text-sm font-medium text-charcoal">
+                      Item Code
+                    </Label>
+                    <Input
+                      id="itemCode"
+                      value={inquiryForm.itemCode}
+                      readOnly
+                      className="mt-1 bg-rose-gold/5 border-rose-gold/30 font-mono"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="message" className="text-sm font-medium text-charcoal">
+                      Message (Optional)
+                    </Label>
+                    <Textarea
+                      id="message"
+                      value={inquiryForm.message}
+                      onChange={(e) => setInquiryForm(prev => ({ ...prev, message: e.target.value }))}
+                      className="mt-1 border-rose-gold/30 focus:border-rose-gold"
+                      rows={3}
+                      placeholder="Any specific questions or requirements..."
+                    />
+                  </div>
+                </div>
+
+                <div className="flex gap-3 pt-4">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setInquiryModalOpen(false)}
+                    className="flex-1 border-rose-gold/30 text-charcoal hover:bg-rose-gold/5"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    type="submit"
+                    className="flex-1 bg-rose-gold hover:bg-rose-gold/90 text-white"
+                  >
+                    <Send className="h-4 w-4 mr-2" />
+                    Send Inquiry
+                  </Button>
+                </div>
+              </form>
+            </div>
           )}
         </DialogContent>
       </Dialog>
