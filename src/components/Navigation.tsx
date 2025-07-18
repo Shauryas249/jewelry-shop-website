@@ -188,12 +188,12 @@ export default function Navigation() {
               
               <SheetContent side="right" className="w-80 p-0">
                 <div className="p-6 space-y-6">
-                  {/* Mobile Search */}
+                  {/* Mobile Search - More Prominent */}
                   <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-charcoal/50" />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-rose-gold" />
                     <Input 
-                      placeholder="Search jewelry..." 
-                      className="pl-10 border-rose-gold"
+                      placeholder="Search jewelry, item codes..." 
+                      className="pl-12 h-12 border-2 border-rose-gold focus:border-rose-gold text-base"
                     />
                   </div>
 

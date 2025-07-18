@@ -167,7 +167,7 @@ const ContactPage = () => {
                   </div>
 
                   {/* Google Maps Embed */}
-                  <div className="h-80 rounded-lg overflow-hidden bg-charcoal/10 border-2 border-rose-gold">
+                  <div className="h-64 md:h-80 rounded-lg overflow-hidden bg-charcoal/10 border-2 border-rose-gold">
                     <iframe
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.674665!2d77.1906!3d28.6519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM5JzA2LjgiTiA3N8KwMTEnMjYuMiJF!5e0!3m2!1sen!2sin!4v1234567890"
                       width="100%"
@@ -180,7 +180,7 @@ const ContactPage = () => {
                     />
                   </div>
 
-                  <Button className="w-full bg-rose-gold hover:bg-rose-gold/90 text-white">
+                  <Button className="w-full bg-rose-gold hover:bg-rose-gold/90 text-white min-h-[44px]">
                     <NavigationIcon className="h-4 w-4 mr-2" />
                     Get Directions
                   </Button>
@@ -220,7 +220,7 @@ const ContactPage = () => {
 
                   <Separator />
 
-                  {/* Contact Methods */}
+                  {/* Contact Methods - Mobile Friendly */}
                   <div className="space-y-3">
                     {contactMethods.map((method, index) => (
                       <div key={index} className="flex items-start gap-3">
@@ -229,7 +229,32 @@ const ContactPage = () => {
                         </div>
                         <div className="flex-1">
                           <h4 className="font-semibold text-charcoal text-sm mb-0.5">{method.title}</h4>
-                          <p className="text-charcoal font-medium text-sm">{method.primary}</p>
+                          {method.title === 'Phone' ? (
+                            <a 
+                              href={`tel:${method.primary}`}
+                              className="text-charcoal font-medium text-sm hover:text-rose-gold transition-colors"
+                            >
+                              {method.primary}
+                            </a>
+                          ) : method.title === 'WhatsApp' ? (
+                            <a 
+                              href={`https://wa.me/${method.primary.replace(/[^0-9]/g, '')}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-charcoal font-medium text-sm hover:text-rose-gold transition-colors"
+                            >
+                              {method.primary}
+                            </a>
+                          ) : method.title === 'Email' ? (
+                            <a 
+                              href={`mailto:${method.primary}`}
+                              className="text-charcoal font-medium text-sm hover:text-rose-gold transition-colors"
+                            >
+                              {method.primary}
+                            </a>
+                          ) : (
+                            <p className="text-charcoal font-medium text-sm">{method.primary}</p>
+                          )}
                           <p className="text-charcoal/70 text-xs">{method.secondary}</p>
                         </div>
                       </div>

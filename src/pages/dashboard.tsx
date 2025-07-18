@@ -548,7 +548,7 @@ const Dashboard = () => {
           </Badge>
         </div>
 
-        {/* Buttons Side by Side */}
+        {/* Buttons Side by Side - Touch Friendly */}
         <div className="flex gap-2">
           <Button
             variant="outline"
@@ -557,7 +557,7 @@ const Dashboard = () => {
               e.stopPropagation();
               router.push(`/product/${item.id}`);
             }}
-            className="flex-1 border-rose-gold text-rose-gold hover:bg-rose-gold hover:text-white text-xs h-8"
+            className="flex-1 border-rose-gold text-rose-gold hover:bg-rose-gold hover:text-white text-xs min-h-[44px] md:h-8"
           >
             View Details
           </Button>
@@ -568,7 +568,7 @@ const Dashboard = () => {
               e.stopPropagation();
               openInquiryModal(item);
             }}
-            className="flex-1 bg-rose-gold hover:bg-rose-gold/90 text-white text-xs h-8"
+            className="flex-1 bg-rose-gold hover:bg-rose-gold/90 text-white text-xs min-h-[44px] md:h-8"
           >
             Inquire Now
           </Button>
@@ -638,14 +638,14 @@ const Dashboard = () => {
                   {/* Mobile Filter Button */}
                   <Sheet open={isFilterOpen} onOpenChange={setIsFilterOpen}>
                     <SheetTrigger asChild>
-                      <Button variant="outline" size="sm" className="lg:hidden border-charcoal text-charcoal">
-                        <SlidersHorizontal className="h-4 w-4 mr-2" />
+                      <Button variant="outline" size="sm" className="lg:hidden border-rose-gold text-rose-gold hover:bg-rose-gold/10 min-h-[44px] px-4">
+                        <SlidersHorizontal className="h-5 w-5 mr-2" />
                         Filters
                       </Button>
                     </SheetTrigger>
-                    <SheetContent side="left" className="w-80">
+                    <SheetContent side="left" className="w-80 overflow-y-auto">
                       <SheetHeader>
-                        <SheetTitle>Filters</SheetTitle>
+                        <SheetTitle className="text-rose-gold font-playfair">Filters</SheetTitle>
                       </SheetHeader>
                       <div className="mt-6">
                         <FiltersContent />
@@ -742,7 +742,7 @@ const Dashboard = () => {
                   exit={{ opacity: 0 }}
                   className={
                     viewMode === 'grid'
-                      ? 'grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2'
+                      ? 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2'
                       : 'space-y-2'
                   }
                 >

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, PanInfo } from "framer-motion";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
@@ -64,6 +64,16 @@ export default function TestimonialsCarousel() {
     setCurrentTestimonial(index);
   };
 
+  // Handle swipe gestures
+  const handleDragEnd = (event: any, info: PanInfo) => {
+    const swipeThreshold = 50;
+    if (info.offset.x > swipeThreshold) {
+      prevTestimonial();
+    } else if (info.offset.x < -swipeThreshold) {
+      nextTestimonial();
+    }
+  };
+
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
       <Star
@@ -106,7 +116,11 @@ export default function TestimonialsCarousel() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.4, ease: "easeInOut" }}
-              className="p-4"
+              className="p-4 cursor-grab active:cursor-grabbing"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              onDragEnd={handleDragEnd}
+              whileDrag={{ scale: 0.95 }}
             >
               <div className="flex items-start space-x-3">
                 {/* Customer Image */}

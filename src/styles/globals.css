@@ -389,6 +389,44 @@
   .responsive-heading {
     font-size: clamp(1.5rem, 6vw, 3rem);
   }
+  
+  /* Ensure text is readable without zooming */
+  body {
+    font-size: 16px !important;
+    line-height: 1.5;
+  }
+  
+  /* Better spacing for mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Improve form elements on mobile */
+  input,
+  textarea,
+  select {
+    font-size: 16px !important; /* Prevents zoom on iOS */
+    border-radius: 8px;
+  }
+  
+  /* Better button sizing */
+  .btn-mobile {
+    min-height: 48px;
+    padding: 12px 16px;
+    font-size: 16px;
+  }
+  
+  /* Improve card spacing */
+  .jewelry-card {
+    margin-bottom: 1rem;
+  }
+  
+  /* Better image loading */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 /* Touch Device Optimizations */
@@ -410,4 +448,38 @@
     min-height: 44px;
     min-width: 44px;
   }
+  
+  /* Better touch feedback */
+  button:active,
+  .touch-feedback:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+  
+  /* Improve scrolling on mobile */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Better tap highlighting */
+  * {
+    -webkit-tap-highlight-color: rgba(232, 180, 184, 0.3);
+  }
+}
+
+/* Swipe gesture support */
+.swipeable {
+  touch-action: pan-x;
+  user-select: none;
+}
+
+/* Loading states for mobile */
+.mobile-loading {
+  background: linear-gradient(90deg, 
+    hsl(var(--cream)) 25%, 
+    hsl(var(--cream) / 0.5) 50%, 
+    hsl(var(--cream)) 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
 }

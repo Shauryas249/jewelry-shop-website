@@ -63,7 +63,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <div className="relative h-[60vh] overflow-hidden">
+    <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
       {/* Background Pattern */}
       <div 
         className="absolute inset-0 opacity-10"
