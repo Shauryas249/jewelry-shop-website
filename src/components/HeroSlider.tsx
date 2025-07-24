@@ -106,11 +106,11 @@ export default function HeroSlider() {
                     className="space-y-4"
                   >
                     <h1 className="text-4xl md:text-6xl font-playfair font-bold text-white leading-tight drop-shadow-lg">
-                      Bawa Jewellers
+                      Manu Bawa Jewellers
                     </h1>
                     
                     <p className="text-lg md:text-xl text-white/90 font-inter drop-shadow-md">
-                      Exquisite Traditional Indian Jewelry Since 1952
+                      Exquisite Traditional Indian Jewelry Since 1925
                     </p>
                     
                     <motion.div
