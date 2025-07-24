@@ -59,9 +59,9 @@ export default function About() {
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "123 Heritage Street",
-        "addressLocality": "Mumbai",
-        "addressRegion": "Maharashtra",
-        "postalCode": "400001",
+        "addressLocality": "Rohtak",
+        "addressRegion": "Haryana",
+        "postalCode": "124001",
         "addressCountry": "IN"
       },
       "telephone": "+91-98765-43210",
@@ -109,7 +109,7 @@ export default function About() {
       <SEO
         title="About Manu Bawa Jewellers - 99+ Years of Traditional Indian Jewelry Excellence"
         description="Learn about Manu Bawa Jewellers' rich history since 1925. Discover our commitment to traditional Indian craftsmanship, quality, and authentic jewelry making. Family-owned business with nearly 100 years of excellence."
-        keywords="manu bawa jewellers history, traditional indian jewelry, family jewelry business, handcrafted jewelry mumbai, jewelry craftsmanship, BIS certified jewelry, authentic indian jewelry"
+        keywords="manu bawa jewellers history, traditional indian jewelry, family jewelry business, handcrafted jewelry rohtak, jewelry craftsmanship, BIS certified jewelry, authentic indian jewelry"
         structuredData={structuredData}
       />
 
@@ -161,7 +161,7 @@ export default function About() {
                 A Journey Through Time
               </h2>
               <p className="text-xl text-charcoal/80 max-w-2xl mx-auto">
-                From humble beginnings to becoming Mumbai's trusted jewelry destination
+                From humble beginnings to becoming Rohtak's trusted jewelry destination
               </p>
             </motion.div>
 
@@ -200,14 +200,14 @@ export default function About() {
                         {
                           icon: Clock,
                           year: "1925 - The Beginning",
-                          description: "Founded by a master craftsman with a vision to preserve traditional Indian jewelry techniques. Started with a small workshop in Mumbai's jewelry district, focusing on authentic handcrafted pieces.",
+                          description: "Founded by a master craftsman with a vision to preserve traditional Indian jewelry techniques. Started with a small workshop in Rohtak's jewelry district, focusing on authentic handcrafted pieces.",
                           bgColor: "bg-rose-gold",
                           textColor: "text-white"
                         },
                         {
                           icon: Award,
                           year: "1970s - Recognition",
-                          description: "Gained recognition for exceptional craftsmanship and authentic designs. Became the preferred choice for traditional bridal jewelry among Mumbai's families.",
+                          description: "Gained recognition for exceptional craftsmanship and authentic designs. Became the preferred choice for traditional bridal jewelry among Rohtak's families.",
                           bgColor: "bg-gold",
                           textColor: "text-charcoal"
                         },

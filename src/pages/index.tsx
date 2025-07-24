@@ -59,9 +59,9 @@ export default function Home() {
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "123 Heritage Street",
-        "addressLocality": "Mumbai",
-        "addressRegion": "Maharashtra",
-        "postalCode": "400001",
+        "addressLocality": "Rohtak",
+        "addressRegion": "Haryana",
+        "postalCode": "124001",
         "addressCountry": "IN"
       },
       "telephone": "+91-98765-43210",
@@ -86,7 +86,7 @@ export default function Home() {
       <SEO
         title="Manu Bawa Jewellers - Exquisite Traditional Indian Jewelry Since 1925"
         description="Discover our heritage collection of handcrafted gold, diamond, and precious stone jewelry. Traditional Indian craftsmanship meets timeless elegance. Trusted for nearly 100 years."
-        keywords="manu bawa jewellers, indian jewelry, gold jewelry, diamond jewelry, bridal jewelry, traditional jewelry, handcrafted jewelry, mumbai jewelry store, BIS hallmark jewelry"
+        keywords="manu bawa jewellers, indian jewelry, gold jewelry, diamond jewelry, bridal jewelry, traditional jewelry, handcrafted jewelry, rohtak jewelry store, BIS hallmark jewelry"
         structuredData={structuredData}
       />
 
@@ -440,7 +440,7 @@ export default function Home() {
                 {
                   icon: MapPin,
                   title: "Showroom Location",
-                  details: ["123 Heritage Street", "Jewelry District, Mumbai", "Maharashtra - 400001"]
+                  details: ["123 Heritage Street", "Jewelry District, Rohtak", "Haryana - 124001"]
                 },
                 {
                   icon: Phone,
