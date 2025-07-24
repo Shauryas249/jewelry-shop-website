@@ -2,6 +2,8 @@ import { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { AuthContext } from '@/contexts/AuthContext';
 
+// Updated to allow public access to catalog and collections
+
 const publicRoutes = [
   '/', 
   '/login', 
