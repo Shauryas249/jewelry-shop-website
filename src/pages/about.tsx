@@ -49,12 +49,12 @@ export default function About() {
     "@type": "AboutPage",
     "mainEntity": {
       "@type": "JewelryStore",
-      "name": "Bawa Jewellers",
-      "description": "A family-owned jewelry business established in 1952, specializing in traditional Indian jewelry with over 70 years of craftsmanship excellence.",
-      "foundingDate": "1952",
+      "name": "Manu Bawa Jewellers",
+      "description": "A family-owned jewelry business established in 1925, specializing in traditional Indian jewelry with nearly 100 years of craftsmanship excellence.",
+      "foundingDate": "1925",
       "founder": {
         "@type": "Person",
-        "name": "Bawa Jewellers Founder"
+        "name": "Manu Bawa Jewellers Founder"
       },
       "address": {
         "@type": "PostalAddress",
@@ -65,15 +65,15 @@ export default function About() {
         "addressCountry": "IN"
       },
       "telephone": "+91-98765-43210",
-      "email": "info@bawajewellers.com",
-      "url": "https://bawajewellers.com",
+      "email": "info@manubawajewellers.com",
+      "url": "https://manubawajewellers.com",
       "sameAs": [
-        "https://www.facebook.com/bawajewellers",
-        "https://www.instagram.com/bawajewellers"
+        "https://www.facebook.com/manubawajewellers",
+        "https://www.instagram.com/manubawajewellers"
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Bawa Jewellers Collection",
+        "name": "Manu Bawa Jewellers Collection",
         "itemListElement": [
           {
             "@type": "Offer",
@@ -107,9 +107,9 @@ export default function About() {
   return (
     <>
       <SEO
-        title="About Bawa Jewellers - 70+ Years of Traditional Indian Jewelry Excellence"
-        description="Learn about Bawa Jewellers' rich history since 1952. Discover our commitment to traditional Indian craftsmanship, quality, and authentic jewelry making. Family-owned business with over 70 years of excellence."
-        keywords="bawa jewellers history, traditional indian jewelry, family jewelry business, handcrafted jewelry mumbai, jewelry craftsmanship, BIS certified jewelry, authentic indian jewelry"
+        title="About Manu Bawa Jewellers - 99+ Years of Traditional Indian Jewelry Excellence"
+        description="Learn about Manu Bawa Jewellers' rich history since 1925. Discover our commitment to traditional Indian craftsmanship, quality, and authentic jewelry making. Family-owned business with nearly 100 years of excellence."
+        keywords="manu bawa jewellers history, traditional indian jewelry, family jewelry business, handcrafted jewelry mumbai, jewelry craftsmanship, BIS certified jewelry, authentic indian jewelry"
         structuredData={structuredData}
       />
 
@@ -135,13 +135,13 @@ export default function About() {
               className="text-center"
             >
               <Badge className="bg-white/20 text-white border-white/30 mb-6 text-lg px-6 py-2 shadow-lg backdrop-blur-sm">
-                Established 1952
+                Established 1925
               </Badge>
               <h1 className="text-5xl md:text-7xl font-playfair font-bold mb-6 text-white drop-shadow-lg">
                 Our Heritage Story
               </h1>
               <p className="text-xl md:text-2xl text-white/95 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-                Seven decades of preserving traditional Indian jewelry craftsmanship while creating timeless pieces that celebrate life's most precious moments
+                Nearly a century of preserving traditional Indian jewelry craftsmanship while creating timeless pieces that celebrate life's most precious moments
               </p>
             </motion.div>
           </div>
@@ -199,7 +199,7 @@ export default function About() {
                       {[
                         {
                           icon: Clock,
-                          year: "1952 - The Beginning",
+                          year: "1925 - The Beginning",
                           description: "Founded by a master craftsman with a vision to preserve traditional Indian jewelry techniques. Started with a small workshop in Mumbai's jewelry district, focusing on authentic handcrafted pieces.",
                           bgColor: "bg-rose-gold",
                           textColor: "text-white"
@@ -331,7 +331,7 @@ export default function About() {
                 The Art of Creation
               </h2>
               <p className="text-xl text-charcoal/80 max-w-2xl mx-auto">
-                Discover the meticulous process behind every Bawa Jewellers masterpiece
+                Discover the meticulous process behind every Manu Bawa Jewellers masterpiece
               </p>
             </motion.div>
 
@@ -442,9 +442,9 @@ export default function About() {
                   description: "Diamonds certified by Gemological Institute of America"
                 },
                 {
-                  title: "70+ Years",
+                  title: "99+ Years",
                   subtitle: "Industry Experience",
-                  description: "Seven decades of trusted jewelry craftsmanship"
+                  description: "Nearly a century of trusted jewelry craftsmanship"
                 },
                 {
                   title: "10,000+",
@@ -522,14 +522,14 @@ export default function About() {
                 <Crown className="h-10 w-10 text-gold" />
                 <div>
                   <span className="text-2xl font-playfair font-bold block leading-tight">
-                    Bawa Jewellers
+                    Manu Bawa Jewellers
                   </span>
-                  <span className="text-sm text-white/70">Since 1952</span>
+                  <span className="text-sm text-white/70">Since 1925</span>
                 </div>
               </div>
               <div className="text-center md:text-right">
-                <p className="text-white/90">© 2024 Bawa Jewellers. All rights reserved.</p>
-                <p className="text-white/70 text-sm mt-1">Crafting dreams for over seven decades</p>
+                <p className="text-white/90">© 2024 Manu Bawa Jewellers. All rights reserved.</p>
+                <p className="text-white/70 text-sm mt-1">Crafting dreams for nearly a century</p>
               </div>
             </div>
           </div>

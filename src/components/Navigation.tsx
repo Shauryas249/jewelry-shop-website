@@ -51,9 +51,9 @@ export default function Navigation() {
               <Crown className="h-10 w-10 text-rose-gold" />
               <div>
                 <span className="text-2xl font-playfair font-bold text-rose-gold block leading-tight">
-                  Bawa Jewellers
+                  Manu Bawa Jewellers
                 </span>
-                <span className="text-xs text-charcoal/70 font-inter">Since 1952</span>
+                <span className="text-xs text-charcoal/70 font-inter">Since 1925</span>
               </div>
             </Link>
 
@@ -164,9 +164,9 @@ export default function Navigation() {
               <Crown className="h-8 w-8 text-rose-gold" />
               <div>
                 <span className="text-lg font-playfair font-bold text-rose-gold block leading-tight">
-                  Bawa Jewellers
+                  Manu Bawa Jewellers
                 </span>
-                <span className="text-xs text-charcoal/70 font-inter">Since 1952</span>
+                <span className="text-xs text-charcoal/70 font-inter">Since 1925</span>
               </div>
             </Link>
 

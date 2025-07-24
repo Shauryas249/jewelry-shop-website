@@ -49,12 +49,12 @@ export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Bawa Jewellers - Traditional Indian Jewelry",
+    "name": "Manu Bawa Jewellers - Traditional Indian Jewelry",
     "description": "Discover our heritage collection of handcrafted gold, diamond, and precious stone jewelry. Traditional Indian craftsmanship meets timeless elegance.",
-    "url": "https://bawajewellers.com",
+    "url": "https://manubawajewellers.com",
     "mainEntity": {
       "@type": "JewelryStore",
-      "name": "Bawa Jewellers",
+      "name": "Manu Bawa Jewellers",
       "image": "https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
       "address": {
         "@type": "PostalAddress",
@@ -75,7 +75,7 @@ export default function Home() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "item": "https://bawajewellers.com"
+          "item": "https://manubawajewellers.com"
         }
       ]
     }
@@ -84,9 +84,9 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Bawa Jewellers - Exquisite Traditional Indian Jewelry Since 1952"
-        description="Discover our heritage collection of handcrafted gold, diamond, and precious stone jewelry. Traditional Indian craftsmanship meets timeless elegance. Trusted for over 70 years."
-        keywords="bawa jewellers, indian jewelry, gold jewelry, diamond jewelry, bridal jewelry, traditional jewelry, handcrafted jewelry, mumbai jewelry store, BIS hallmark jewelry"
+        title="Manu Bawa Jewellers - Exquisite Traditional Indian Jewelry Since 1925"
+        description="Discover our heritage collection of handcrafted gold, diamond, and precious stone jewelry. Traditional Indian craftsmanship meets timeless elegance. Trusted for nearly 100 years."
+        keywords="manu bawa jewellers, indian jewelry, gold jewelry, diamond jewelry, bridal jewelry, traditional jewelry, handcrafted jewelry, mumbai jewelry store, BIS hallmark jewelry"
         structuredData={structuredData}
       />
 
@@ -205,10 +205,10 @@ export default function Home() {
               className="text-center mb-8"
             >
               <h2 className="text-3xl md:text-4xl font-playfair font-bold text-rose-gold mb-3">
-                Why Choose Bawa Jewellers
+                Why Choose Manu Bawa Jewellers
               </h2>
               <p className="text-lg text-charcoal/80 max-w-2xl mx-auto">
-                Seven decades of trust, quality, and exceptional craftsmanship
+                Nearly a century of trust, quality, and exceptional craftsmanship
               </p>
             </motion.div>
 
@@ -224,8 +224,8 @@ export default function Home() {
                 {[
                   {
                     icon: Award,
-                    title: "70+ Years Experience",
-                    description: "Seven decades of traditional craftsmanship",
+                    title: "99+ Years Experience",
+                    description: "Nearly a century of traditional craftsmanship",
                     color: "text-rose-gold"
                   },
                   {
@@ -370,7 +370,7 @@ export default function Home() {
                 {/* Floating Badge - Fixed positioning */}
                 <div className="absolute -bottom-4 -right-4 bg-rose-gold text-white p-4 rounded-xl shadow-lg z-10">
                   <div className="text-center">
-                    <div className="text-2xl font-playfair font-bold">1952</div>
+                    <div className="text-2xl font-playfair font-bold">1925</div>
                     <div className="text-xs">Established</div>
                   </div>
                 </div>
@@ -389,8 +389,8 @@ export default function Home() {
                 
                 <div className="space-y-4 text-base text-charcoal/80 leading-relaxed mb-8">
                   <p>
-                    For over seven decades, Bawa Jewellers has been synonymous with exceptional 
-                    craftsmanship and authentic Indian jewelry. Founded in 1952, our family business 
+                    For nearly a century, Manu Bawa Jewellers has been synonymous with exceptional 
+                    craftsmanship and authentic Indian jewelry. Founded in 1925, our family business 
                     has preserved traditional techniques while embracing contemporary elegance.
                   </p>
                   
@@ -517,14 +517,14 @@ export default function Home() {
                 <Crown className="h-10 w-10 text-gold" />
                 <div>
                   <span className="text-2xl font-playfair font-bold block leading-tight">
-                    Bawa Jewellers
+                    Manu Bawa Jewellers
                   </span>
-                  <span className="text-sm text-white/70">Since 1952</span>
+                  <span className="text-sm text-white/70">Since 1925</span>
                 </div>
               </div>
               <div className="text-center md:text-right">
-                <p className="text-white/90">© 2024 Bawa Jewellers. All rights reserved.</p>
-                <p className="text-white/70 text-sm mt-1">Crafting dreams for over seven decades</p>
+                <p className="text-white/90">© 2024 Manu Bawa Jewellers. All rights reserved.</p>
+                <p className="text-white/70 text-sm mt-1">Crafting dreams for nearly a century</p>
               </div>
             </div>
           </div>
