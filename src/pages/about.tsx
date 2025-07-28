@@ -284,13 +284,7 @@ export default function About() {
                     alt="Manu Bawa Jewellers Heritage Collection Pamphlet - Traditional Indian Jewelry Showcase"
                     width={2000}
                     height={1500}
-                    className="max-w-full h-auto rounded-lg"
-                    style={{ 
-                      width: 'auto',
-                      height: 'auto',
-                      maxWidth: '100%',
-                      objectFit: 'contain'
-                    }}
+                    className="max-w-full h-auto rounded-lg object-contain"
                   />
                 </div>
                 <div className="absolute top-8 right-8 bg-rose-gold text-white px-3 py-1 rounded-lg shadow-lg backdrop-blur-sm">
