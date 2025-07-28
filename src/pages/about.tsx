@@ -275,19 +275,19 @@ export default function About() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="max-w-4xl mx-auto"
+              className="max-w-6xl mx-auto"
             >
               <Card className="overflow-hidden shadow-2xl border-rose-gold/20">
-                <CardContent className="p-0">
+                <CardContent className="p-4">
                   <div className="relative">
                     <OptimizedImage
                       src="https://assets.co.dev/39c721f8-c578-41cf-bd78-6033041a65ba/whatsapp-image-2025-07-28-at-23.31.16-ac5db24.jpeg"
                       alt="Manu Bawa Jewellers Heritage Collection Pamphlet - Traditional Indian Jewelry Showcase"
-                      width={1200}
-                      height={800}
-                      className="w-full h-auto"
+                      width={1600}
+                      height={1200}
+                      className="w-full h-auto object-contain rounded-lg"
                     />
-                    <div className="absolute top-4 right-4 bg-rose-gold text-white px-4 py-2 rounded-lg shadow-lg backdrop-blur-sm">
+                    <div className="absolute top-6 right-6 bg-rose-gold text-white px-4 py-2 rounded-lg shadow-lg backdrop-blur-sm">
                       <p className="text-sm font-medium">Heritage Collection</p>
                     </div>
                   </div>
