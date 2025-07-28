@@ -176,12 +176,16 @@ export default function About() {
               >
                 <div className="relative">
                   <OptimizedImage
-                    src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                    alt="Bawa Jewellers founder working on traditional jewelry"
+                    src="https://assets.co.dev/39c721f8-c578-41cf-bd78-6033041a65ba/whatsapp-image-2025-07-28-at-23.31.15-ef16b47.jpeg"
+                    alt="Owner of Manu Bawa Jewellers - Continuing the family legacy since 1925"
                     width={800}
                     height={600}
                     className="rounded-2xl w-full shadow-lg"
                   />
+                  <div className="absolute bottom-4 left-4 bg-black/70 text-white px-4 py-2 rounded-lg backdrop-blur-sm">
+                    <p className="text-sm font-medium">Owner, Manu Bawa Jewellers</p>
+                    <p className="text-xs text-white/80">Continuing the family legacy</p>
+                  </div>
                 </div>
               </motion.div>
 
