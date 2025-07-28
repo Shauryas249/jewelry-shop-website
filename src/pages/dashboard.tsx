@@ -493,10 +493,14 @@ const Dashboard = () => {
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.3 }}
       className={`group relative bg-white rounded-lg overflow-hidden border border-rose-gold/20 hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(232,180,184,0.3)] transition-all duration-300 ${
-        viewMode === 'list' ? 'flex min-h-[160px]' : 'flex flex-col'
+        viewMode === 'list' ? 'flex min-h-[180px] sm:min-h-[160px]' : 'flex flex-col'
       }`}
     >
-      <div className={`relative overflow-hidden ${viewMode === 'list' ? 'w-40 h-40' : 'h-56 w-full'}`}>
+      <div className={`relative overflow-hidden ${
+        viewMode === 'list' 
+          ? 'w-32 sm:w-40 h-32 sm:h-40 flex-shrink-0' 
+          : 'h-48 sm:h-56 w-full'
+      }`}>
         <img
           src={item.image}
           alt={item.title}
@@ -504,7 +508,7 @@ const Dashboard = () => {
         />
         
         {/* Item Code Badge - Top Right */}
-        <div className="absolute top-2 right-2 bg-rose-gold text-white px-2 py-1 rounded text-xs font-bold">
+        <div className="absolute top-1.5 sm:top-2 right-1.5 sm:right-2 bg-rose-gold text-white px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-xs font-bold">
           {item.code}
         </div>
 
@@ -514,44 +518,44 @@ const Dashboard = () => {
             e.stopPropagation();
             toggleWishlist(item.id);
           }}
-          className="absolute top-2 left-2 p-1.5 rounded-full bg-white/90 hover:bg-white transition-colors"
+          className="absolute top-1.5 sm:top-2 left-1.5 sm:left-2 p-1.5 rounded-full bg-white/90 hover:bg-white transition-colors min-h-[32px] min-w-[32px] flex items-center justify-center"
         >
           <Heart
-            className={`h-4 w-4 ${
+            className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${
               wishlist.includes(item.id) ? 'fill-rose-gold text-rose-gold' : 'text-charcoal hover:text-rose-gold'
             }`}
           />
         </button>
 
         {/* Status Badges - Top Left Below Wishlist */}
-        <div className="absolute top-12 left-2 flex flex-col gap-1">
+        <div className="absolute top-10 sm:top-12 left-1.5 sm:left-2 flex flex-col gap-1">
           {item.isNew && (
-            <Badge className="bg-gold text-charcoal text-xs px-2 py-0.5 font-semibold">New</Badge>
+            <Badge className="bg-gold text-charcoal text-xs px-1.5 sm:px-2 py-0.5 font-semibold">New</Badge>
           )}
           {item.isPopular && (
-            <Badge className="bg-green-500 text-white text-xs px-2 py-0.5 font-semibold">Popular</Badge>
+            <Badge className="bg-green-500 text-white text-xs px-1.5 sm:px-2 py-0.5 font-semibold">Popular</Badge>
           )}
         </div>
       </div>
 
-      <div className={`p-3 flex flex-col ${viewMode === 'list' ? 'flex-1 justify-between' : 'flex-1'}`}>
+      <div className={`p-2.5 sm:p-3 flex flex-col ${viewMode === 'list' ? 'flex-1 justify-between' : 'flex-1'}`}>
         <div className="flex-1">
-          <h3 className="font-playfair text-sm font-semibold text-charcoal mb-2 group-hover:text-rose-gold transition-colors line-clamp-2">
+          <h3 className="font-playfair text-sm sm:text-base font-semibold text-charcoal mb-2 group-hover:text-rose-gold transition-colors line-clamp-2">
             {item.title}
           </h3>
           
-          <div className="flex flex-wrap gap-1 mb-3">
-            <Badge variant="outline" className="text-xs border-rose-gold/30 text-charcoal px-2 py-0.5">
+          <div className="flex flex-wrap gap-1 mb-2 sm:mb-3">
+            <Badge variant="outline" className="text-xs border-rose-gold/30 text-charcoal px-1.5 sm:px-2 py-0.5">
               {item.category}
             </Badge>
-            <Badge variant="outline" className="text-xs border-rose-gold/30 text-charcoal px-2 py-0.5">
+            <Badge variant="outline" className="text-xs border-rose-gold/30 text-charcoal px-1.5 sm:px-2 py-0.5">
               {item.metalType}
             </Badge>
           </div>
         </div>
 
         {/* Buttons Side by Side - Touch Friendly */}
-        <div className="flex gap-2 mt-auto">
+        <div className="flex gap-1.5 sm:gap-2 mt-auto">
           <Button
             variant="outline"
             size="sm"
@@ -559,9 +563,10 @@ const Dashboard = () => {
               e.stopPropagation();
               router.push(`/product/${item.id}`);
             }}
-            className="flex-1 border-rose-gold text-rose-gold hover:bg-rose-gold hover:text-white text-xs min-h-[36px] px-2"
+            className="flex-1 border-rose-gold text-rose-gold hover:bg-rose-gold hover:text-white text-xs min-h-[40px] sm:min-h-[36px] px-1.5 sm:px-2"
           >
-            View Details
+            <span className="hidden xs:inline">View Details</span>
+            <span className="xs:hidden">View</span>
           </Button>
           
           <Button
@@ -570,9 +575,10 @@ const Dashboard = () => {
               e.stopPropagation();
               openInquiryModal(item);
             }}
-            className="flex-1 bg-rose-gold hover:bg-rose-gold/90 text-white text-xs min-h-[36px] px-2"
+            className="flex-1 bg-rose-gold hover:bg-rose-gold/90 text-white text-xs min-h-[40px] sm:min-h-[36px] px-1.5 sm:px-2"
           >
-            Inquire Now
+            <span className="hidden xs:inline">Inquire Now</span>
+            <span className="xs:hidden">Inquire</span>
           </Button>
         </div>
       </div>
@@ -583,8 +589,8 @@ const Dashboard = () => {
     <div className="min-h-screen bg-cream">
       <Navigation />
       
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex gap-8">
+      <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-8">
+        <div className="flex gap-4 lg:gap-8">
           {/* Desktop Sidebar */}
           <div className="hidden lg:block w-80 flex-shrink-0">
             <div className="sticky top-8 bg-white rounded-lg p-6 shadow-sm">
@@ -593,19 +599,19 @@ const Dashboard = () => {
           </div>
 
           {/* Main Content */}
-          <div className="flex-1">
+          <div className="flex-1 min-w-0">
             {/* Top Bar */}
-            <div className="bg-white rounded-lg p-4 mb-6 shadow-sm">
-              <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
+            <div className="bg-white rounded-lg p-3 sm:p-4 mb-4 sm:mb-6 shadow-sm">
+              <div className="flex flex-col gap-3 sm:gap-4">
                 {/* Search */}
-                <div className="relative flex-1 max-w-md">
+                <div className="relative w-full">
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-charcoal/60" />
                     <Input
                       placeholder="Search by item code, type, or metal..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="pl-10 border-charcoal/20 focus:border-rose-gold"
+                      className="pl-10 pr-4 h-11 sm:h-10 text-base border-charcoal/20 focus:border-rose-gold"
                     />
                   </div>
                   
@@ -636,16 +642,16 @@ const Dashboard = () => {
                 </div>
 
                 {/* Controls */}
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                   {/* Mobile Filter Button */}
                   <Sheet open={isFilterOpen} onOpenChange={setIsFilterOpen}>
                     <SheetTrigger asChild>
-                      <Button variant="outline" size="sm" className="lg:hidden border-rose-gold text-rose-gold hover:bg-rose-gold/10 min-h-[44px] px-4">
+                      <Button variant="outline" size="sm" className="lg:hidden border-rose-gold text-rose-gold hover:bg-rose-gold/10 min-h-[44px] px-4 w-full sm:w-auto">
                         <SlidersHorizontal className="h-5 w-5 mr-2" />
                         Filters
                       </Button>
                     </SheetTrigger>
-                    <SheetContent side="left" className="w-80 overflow-y-auto">
+                    <SheetContent side="left" className="w-[85vw] sm:w-80 overflow-y-auto">
                       <SheetHeader>
                         <SheetTitle className="text-rose-gold font-playfair">Filters</SheetTitle>
                       </SheetHeader>
@@ -655,76 +661,78 @@ const Dashboard = () => {
                     </SheetContent>
                   </Sheet>
 
-                  {/* Sort */}
-                  <Select value={sortBy} onValueChange={setSortBy}>
-                    <SelectTrigger className="w-40 border-charcoal/20">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="newest">Newest First</SelectItem>
-                      <SelectItem value="popular">Most Popular</SelectItem>
-                      <SelectItem value="name">Name A-Z</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <div className="flex gap-3 sm:gap-4">
+                    {/* Sort */}
+                    <Select value={sortBy} onValueChange={setSortBy}>
+                      <SelectTrigger className="flex-1 sm:w-40 border-charcoal/20 min-h-[44px]">
+                        <SelectValue />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="newest">Newest First</SelectItem>
+                        <SelectItem value="popular">Most Popular</SelectItem>
+                        <SelectItem value="name">Name A-Z</SelectItem>
+                      </SelectContent>
+                    </Select>
 
-                  {/* View Toggle */}
-                  <div className="flex border border-charcoal/20 rounded-md">
-                    <Button
-                      variant={viewMode === 'grid' ? 'default' : 'ghost'}
-                      size="sm"
-                      onClick={() => setViewMode('grid')}
-                      className={viewMode === 'grid' ? 'bg-rose-gold text-white' : 'text-charcoal hover:bg-rose-gold/10'}
-                    >
-                      <Grid className="h-4 w-4" />
-                    </Button>
-                    <Button
-                      variant={viewMode === 'list' ? 'default' : 'ghost'}
-                      size="sm"
-                      onClick={() => setViewMode('list')}
-                      className={viewMode === 'list' ? 'bg-rose-gold text-white' : 'text-charcoal hover:bg-rose-gold/10'}
-                    >
-                      <List className="h-4 w-4" />
-                    </Button>
+                    {/* View Toggle */}
+                    <div className="flex border border-charcoal/20 rounded-md">
+                      <Button
+                        variant={viewMode === 'grid' ? 'default' : 'ghost'}
+                        size="sm"
+                        onClick={() => setViewMode('grid')}
+                        className={`min-h-[44px] px-3 ${viewMode === 'grid' ? 'bg-rose-gold text-white' : 'text-charcoal hover:bg-rose-gold/10'}`}
+                      >
+                        <Grid className="h-4 w-4" />
+                      </Button>
+                      <Button
+                        variant={viewMode === 'list' ? 'default' : 'ghost'}
+                        size="sm"
+                        onClick={() => setViewMode('list')}
+                        className={`min-h-[44px] px-3 ${viewMode === 'list' ? 'bg-rose-gold text-white' : 'text-charcoal hover:bg-rose-gold/10'}`}
+                      >
+                        <List className="h-4 w-4" />
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Results Count */}
-              <div className="mt-4 text-sm text-charcoal/70">
+              <div className="mt-3 sm:mt-4 text-sm text-charcoal/70">
                 Showing {filteredJewelry.length} of {mockJewelry.length} items
               </div>
 
               {/* Active Filters */}
               {(selectedCategories.length > 0 || selectedMetalTypes.length > 0 || selectedOccasions.length > 0 || selectedTypes.length > 0 || quickFilter) && (
-                <div className="mt-4 flex flex-wrap gap-2">
+                <div className="mt-3 sm:mt-4 flex flex-wrap gap-1.5 sm:gap-2">
                   {selectedCategories.map(category => (
-                    <Badge key={category} variant="secondary" className="bg-rose-gold/10 text-rose-gold">
+                    <Badge key={category} variant="secondary" className="bg-rose-gold/10 text-rose-gold text-xs sm:text-sm">
                       {category}
                       <button
                         onClick={() => toggleFilter('category', category)}
-                        className="ml-2 hover:text-rose-gold/70"
+                        className="ml-1.5 sm:ml-2 hover:text-rose-gold/70"
                       >
                         <X className="h-3 w-3" />
                       </button>
                     </Badge>
                   ))}
                   {selectedMetalTypes.map(metal => (
-                    <Badge key={metal} variant="secondary" className="bg-rose-gold/10 text-rose-gold">
+                    <Badge key={metal} variant="secondary" className="bg-rose-gold/10 text-rose-gold text-xs sm:text-sm">
                       {metal}
                       <button
                         onClick={() => toggleFilter('metalType', metal)}
-                        className="ml-2 hover:text-rose-gold/70"
+                        className="ml-1.5 sm:ml-2 hover:text-rose-gold/70"
                       >
                         <X className="h-3 w-3" />
                       </button>
                     </Badge>
                   ))}
                   {quickFilter && (
-                    <Badge variant="secondary" className="bg-rose-gold/10 text-rose-gold">
+                    <Badge variant="secondary" className="bg-rose-gold/10 text-rose-gold text-xs sm:text-sm">
                       {quickFilter === 'new' ? 'New Arrivals' : quickFilter === 'popular' ? 'Most Popular' : 'Bridal'}
                       <button
                         onClick={() => setQuickFilter(null)}
-                        className="ml-2 hover:text-rose-gold/70"
+                        className="ml-1.5 sm:ml-2 hover:text-rose-gold/70"
                       >
                         <X className="h-3 w-3" />
                       </button>
@@ -744,8 +752,8 @@ const Dashboard = () => {
                   exit={{ opacity: 0 }}
                   className={
                     viewMode === 'grid'
-                      ? 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2'
-                      : 'space-y-2'
+                      ? 'grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4'
+                      : 'space-y-3 sm:space-y-4'
                   }
                 >
                   {filteredJewelry.map(item => (
@@ -796,15 +804,15 @@ const Dashboard = () => {
 
       {/* Quick View Modal */}
       <Dialog open={!!selectedItem} onOpenChange={() => setSelectedItem(null)}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-2xl mx-4 sm:mx-auto">
           {selectedItem && (
             <>
               <DialogHeader>
-                <DialogTitle className="font-playfair text-xl">
+                <DialogTitle className="font-playfair text-lg sm:text-xl">
                   {selectedItem.title}
                 </DialogTitle>
               </DialogHeader>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <div className="aspect-square overflow-hidden rounded-lg">
                   <img
                     src={selectedItem.image}
@@ -812,36 +820,36 @@ const Dashboard = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   <div>
                     <p className="text-sm text-charcoal/70">Item Code</p>
-                    <p className="font-mono text-lg font-semibold text-rose-gold">
+                    <p className="font-mono text-base sm:text-lg font-semibold text-rose-gold">
                       {selectedItem.code}
                     </p>
                   </div>
                   
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     <div>
                       <p className="text-sm text-charcoal/70">Category</p>
-                      <p className="font-medium">{selectedItem.category}</p>
+                      <p className="font-medium text-sm sm:text-base">{selectedItem.category}</p>
                     </div>
                     <div>
                       <p className="text-sm text-charcoal/70">Metal Type</p>
-                      <p className="font-medium">{selectedItem.metalType}</p>
+                      <p className="font-medium text-sm sm:text-base">{selectedItem.metalType}</p>
                     </div>
                     <div>
                       <p className="text-sm text-charcoal/70">Occasion</p>
-                      <p className="font-medium">{selectedItem.occasion}</p>
+                      <p className="font-medium text-sm sm:text-base">{selectedItem.occasion}</p>
                     </div>
                     <div>
                       <p className="text-sm text-charcoal/70">Type</p>
-                      <p className="font-medium">{selectedItem.type}</p>
+                      <p className="font-medium text-sm sm:text-base">{selectedItem.type}</p>
                     </div>
                   </div>
 
-                  <div className="flex gap-3 pt-4">
+                  <div className="flex gap-2 sm:gap-3 pt-3 sm:pt-4">
                     <Button 
-                      className="flex-1 bg-rose-gold hover:bg-rose-gold/90 text-white"
+                      className="flex-1 bg-rose-gold hover:bg-rose-gold/90 text-white min-h-[44px]"
                       onClick={() => {
                         setSelectedItem(null);
                         openInquiryModal(selectedItem);
@@ -852,7 +860,7 @@ const Dashboard = () => {
                     <Button
                       variant="outline"
                       onClick={() => toggleWishlist(selectedItem.id)}
-                      className="border-rose-gold text-rose-gold hover:bg-rose-gold/10"
+                      className="border-rose-gold text-rose-gold hover:bg-rose-gold/10 min-h-[44px] px-3"
                     >
                       <Heart
                         className={`h-4 w-4 ${
@@ -870,9 +878,9 @@ const Dashboard = () => {
 
       {/* Inquiry Modal */}
       <Dialog open={inquiryModalOpen} onOpenChange={setInquiryModalOpen}>
-        <DialogContent className="max-w-md">
+        <DialogContent className="max-w-md mx-4 sm:mx-auto max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="font-playfair text-xl text-rose-gold">
+            <DialogTitle className="font-playfair text-lg sm:text-xl text-rose-gold">
               Inquire About This Piece
             </DialogTitle>
           </DialogHeader>
