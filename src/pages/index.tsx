@@ -347,30 +347,30 @@ export default function Home() {
         {/* About Preview */}
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-5">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <motion.div
                 initial={{ opacity: 0, x: -60 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="relative mb-8 lg:mb-0"
+                className="relative mb-12 lg:mb-0 order-2 lg:order-1"
               >
-                <div className="relative">
+                <div className="relative overflow-hidden">
                   <OptimizedImage
                     src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                    alt="Bawa Jewellers legacy - Traditional Indian gold jewelry showcasing 70+ years of craftsmanship excellence"
+                    alt="Manu Bawa Jewellers legacy - Traditional Indian gold jewelry showcasing nearly 100 years of craftsmanship excellence"
                     width={800}
                     height={600}
-                    className="w-full rounded-2xl shadow-lg"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover rounded-2xl shadow-lg"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 50vw"
                   />
                   <div className="absolute inset-0 rounded-2xl border-2 border-rose-gold/30"></div>
                 </div>
                 
-                {/* Floating Badge - Fixed positioning */}
-                <div className="absolute -bottom-4 -right-4 bg-rose-gold text-white p-4 rounded-xl shadow-lg z-10">
+                {/* Floating Badge - Mobile optimized positioning */}
+                <div className="absolute -bottom-3 -right-3 sm:-bottom-4 sm:-right-4 bg-rose-gold text-white p-3 sm:p-4 rounded-xl shadow-lg z-10">
                   <div className="text-center">
-                    <div className="text-2xl font-playfair font-bold">1925</div>
+                    <div className="text-xl sm:text-2xl font-playfair font-bold">1925</div>
                     <div className="text-xs">Established</div>
                   </div>
                 </div>
@@ -381,13 +381,13 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
-                className="relative z-20"
+                className="relative z-20 order-1 lg:order-2"
               >
-                <h2 className="text-3xl md:text-4xl font-playfair font-bold text-rose-gold mb-6">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-playfair font-bold text-rose-gold mb-4 sm:mb-6">
                   A Legacy of Excellence
                 </h2>
                 
-                <div className="space-y-4 text-base text-charcoal/80 leading-relaxed mb-8">
+                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-charcoal/80 leading-relaxed mb-6 sm:mb-8">
                   <p>
                     For nearly a century, Manu Bawa Jewellers has been synonymous with exceptional 
                     craftsmanship and authentic Indian jewelry. Founded in 1925, our family business 
@@ -405,7 +405,7 @@ export default function Home() {
                   <Link href="/about">
                     <Button 
                       size="default" 
-                      className="bg-rose-gold hover:bg-rose-gold/90 text-white px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300"
+                      className="bg-rose-gold hover:bg-rose-gold/90 text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
                     >
                       Learn More About Our Heritage
                       <ArrowRight className="ml-2 h-4 w-4" />
