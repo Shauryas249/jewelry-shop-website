@@ -493,10 +493,10 @@ const Dashboard = () => {
       exit={{ opacity: 0, y: 20 }}
       transition={{ duration: 0.3 }}
       className={`group relative bg-white rounded-lg overflow-hidden border border-rose-gold/20 hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(232,180,184,0.3)] transition-all duration-300 ${
-        viewMode === 'list' ? 'flex h-40' : 'h-80'
+        viewMode === 'list' ? 'flex min-h-[160px]' : 'flex flex-col'
       }`}
     >
-      <div className={`relative overflow-hidden ${viewMode === 'list' ? 'w-40 h-40' : 'h-56'}`}>
+      <div className={`relative overflow-hidden ${viewMode === 'list' ? 'w-40 h-40' : 'h-56 w-full'}`}>
         <img
           src={item.image}
           alt={item.title}
@@ -534,22 +534,24 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className={`p-3 ${viewMode === 'list' ? 'flex-1' : 'h-24'}`}>
-        <h3 className="font-playfair text-sm font-semibold text-charcoal mb-2 group-hover:text-rose-gold transition-colors line-clamp-2">
-          {item.title}
-        </h3>
-        
-        <div className="flex flex-wrap gap-1 mb-3">
-          <Badge variant="outline" className="text-xs border-rose-gold/30 text-charcoal px-2 py-0.5">
-            {item.category}
-          </Badge>
-          <Badge variant="outline" className="text-xs border-rose-gold/30 text-charcoal px-2 py-0.5">
-            {item.metalType}
-          </Badge>
+      <div className={`p-3 flex flex-col ${viewMode === 'list' ? 'flex-1 justify-between' : 'flex-1'}`}>
+        <div className="flex-1">
+          <h3 className="font-playfair text-sm font-semibold text-charcoal mb-2 group-hover:text-rose-gold transition-colors line-clamp-2">
+            {item.title}
+          </h3>
+          
+          <div className="flex flex-wrap gap-1 mb-3">
+            <Badge variant="outline" className="text-xs border-rose-gold/30 text-charcoal px-2 py-0.5">
+              {item.category}
+            </Badge>
+            <Badge variant="outline" className="text-xs border-rose-gold/30 text-charcoal px-2 py-0.5">
+              {item.metalType}
+            </Badge>
+          </div>
         </div>
 
         {/* Buttons Side by Side - Touch Friendly */}
-        <div className="flex gap-2">
+        <div className="flex gap-2 mt-auto">
           <Button
             variant="outline"
             size="sm"
@@ -557,7 +559,7 @@ const Dashboard = () => {
               e.stopPropagation();
               router.push(`/product/${item.id}`);
             }}
-            className="flex-1 border-rose-gold text-rose-gold hover:bg-rose-gold hover:text-white text-xs min-h-[44px] md:h-8"
+            className="flex-1 border-rose-gold text-rose-gold hover:bg-rose-gold hover:text-white text-xs min-h-[36px] px-2"
           >
             View Details
           </Button>
@@ -568,7 +570,7 @@ const Dashboard = () => {
               e.stopPropagation();
               openInquiryModal(item);
             }}
-            className="flex-1 bg-rose-gold hover:bg-rose-gold/90 text-white text-xs min-h-[44px] md:h-8"
+            className="flex-1 bg-rose-gold hover:bg-rose-gold/90 text-white text-xs min-h-[36px] px-2"
           >
             Inquire Now
           </Button>

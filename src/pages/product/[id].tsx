@@ -88,6 +88,175 @@ const mockProducts = {
     isPopular: true,
     isBridal: false,
     has360View: false
+  },
+  3: {
+    id: 3,
+    code: 'GR003',
+    title: 'Antique Gold Ring',
+    category: 'Ring',
+    metalType: 'Gold',
+    occasion: 'Traditional',
+    type: 'Antique',
+    description: 'Beautiful antique gold ring featuring traditional Indian motifs and intricate craftsmanship. This piece represents the timeless elegance of vintage jewelry design.',
+    images: [
+      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800&h=800&fit=crop'
+    ],
+    specifications: {
+      metal: '18K Gold',
+      weight: '8.5 grams',
+      dimensions: 'Size 6 (adjustable)',
+      purity: '75% Gold',
+      certification: 'BIS Hallmark Certified',
+      occasion: 'Traditional, Festive',
+      care: 'Store separately, avoid moisture'
+    },
+    isNew: false,
+    isPopular: true,
+    isBridal: false,
+    has360View: true
+  },
+  4: {
+    id: 4,
+    code: 'DB004',
+    title: 'Bridal Diamond Set',
+    category: 'Set',
+    metalType: 'Diamond',
+    occasion: 'Bridal',
+    type: 'Traditional',
+    description: 'Complete bridal diamond jewelry set including necklace, earrings, and maang tikka. Crafted with premium diamonds and gold, perfect for your special day.',
+    images: [
+      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=800&h=800&fit=crop'
+    ],
+    specifications: {
+      metal: '18K Gold with Diamonds',
+      weight: '125 grams (complete set)',
+      dimensions: 'Necklace: 16", Earrings: 2.5"',
+      purity: '75% Gold, VVS Diamonds',
+      certification: 'GIA Certified Diamonds, BIS Hallmark',
+      occasion: 'Bridal, Wedding',
+      care: 'Professional cleaning recommended'
+    },
+    isNew: true,
+    isPopular: true,
+    isBridal: true,
+    has360View: true
+  },
+  5: {
+    id: 5,
+    code: 'GB005',
+    title: 'Gold Bangles Set',
+    category: 'Bangles',
+    metalType: 'Gold',
+    occasion: 'Festive',
+    type: 'Traditional',
+    description: 'Set of traditional gold bangles with intricate patterns and designs. Perfect for festive occasions and traditional ceremonies.',
+    images: [
+      'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=800&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop'
+    ],
+    specifications: {
+      metal: '22K Gold',
+      weight: '65 grams (set of 4)',
+      dimensions: '2.5" diameter',
+      purity: '91.6% Gold',
+      certification: 'BIS Hallmark Certified',
+      occasion: 'Festive, Traditional',
+      care: 'Store in soft pouch, avoid chemicals'
+    },
+    isNew: false,
+    isPopular: false,
+    isBridal: false,
+    has360View: false
+  },
+  6: {
+    id: 6,
+    code: 'SP006',
+    title: 'Silver Pearl Necklace',
+    category: 'Necklace',
+    metalType: 'Silver',
+    occasion: 'Daily wear',
+    type: 'Modern',
+    description: 'Elegant silver necklace adorned with natural pearls. Perfect for daily wear and formal occasions, combining classic elegance with modern design.',
+    images: [
+      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=800&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop'
+    ],
+    specifications: {
+      metal: '925 Sterling Silver',
+      weight: '25 grams',
+      dimensions: '18" length',
+      purity: '92.5% Silver',
+      certification: 'Sterling Silver Certified',
+      occasion: 'Daily wear, Formal',
+      care: 'Clean with silver cloth, store dry'
+    },
+    isNew: true,
+    isPopular: false,
+    isBridal: false,
+    has360View: false
+  },
+  7: {
+    id: 7,
+    code: 'PE007',
+    title: 'Platinum Engagement Ring',
+    category: 'Ring',
+    metalType: 'Platinum',
+    occasion: 'Bridal',
+    type: 'Modern',
+    description: 'Stunning platinum engagement ring featuring a brilliant cut diamond. Crafted for the most special moment in your life with exceptional quality and design.',
+    images: [
+      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=800&h=800&fit=crop'
+    ],
+    specifications: {
+      metal: '950 Platinum',
+      weight: '4.5 grams',
+      dimensions: 'Size 6 (resizable)',
+      purity: '95% Platinum',
+      certification: 'GIA Certified Diamond',
+      occasion: 'Engagement, Bridal',
+      care: 'Professional cleaning recommended'
+    },
+    isNew: false,
+    isPopular: true,
+    isBridal: true,
+    has360View: true
+  },
+  8: {
+    id: 8,
+    code: 'GC008',
+    title: 'Gold Chain Collection',
+    category: 'Chain',
+    metalType: 'Gold',
+    occasion: 'Daily wear',
+    type: 'Modern',
+    description: 'Versatile gold chain perfect for daily wear. Can be worn alone or paired with pendants. Crafted with precision for durability and style.',
+    images: [
+      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=800&h=800&fit=crop'
+    ],
+    specifications: {
+      metal: '18K Gold',
+      weight: '15 grams',
+      dimensions: '20" length',
+      purity: '75% Gold',
+      certification: 'BIS Hallmark Certified',
+      occasion: 'Daily wear, Casual',
+      care: 'Store flat, avoid tangling'
+    },
+    isNew: true,
+    isPopular: false,
+    isBridal: false,
+    has360View: false
   }
 };
 
@@ -148,7 +317,7 @@ const ProductPage = () => {
             <h1 className="font-playfair text-2xl font-semibold text-charcoal mb-4">
               Product not found
             </h1>
-            <Button onClick={() => router.push('/dashboard')} className="bg-burgundy text-cream">
+            <Button onClick={() => router.push('/dashboard')} className="bg-rose-gold text-white">
               Back to Catalog
             </Button>
           </div>
@@ -202,11 +371,11 @@ const ProductPage = () => {
         {/* Breadcrumb */}
         <nav className="mb-6">
           <div className="flex items-center space-x-2 text-sm text-charcoal/70">
-            <button onClick={() => router.push('/')} className="hover:text-burgundy">
+            <button onClick={() => router.push('/')} className="hover:text-rose-gold">
               Home
             </button>
             <span>/</span>
-            <button onClick={() => router.push('/dashboard')} className="hover:text-burgundy">
+            <button onClick={() => router.push('/dashboard')} className="hover:text-rose-gold">
               Catalog
             </button>
             <span>/</span>
@@ -255,7 +424,7 @@ const ProductPage = () => {
                   >
                     <Heart
                       className={`h-5 w-5 ${
-                        isWishlisted ? 'fill-burgundy text-burgundy' : 'text-charcoal'
+                        isWishlisted ? 'fill-rose-gold text-rose-gold' : 'text-charcoal'
                       }`}
                     />
                   </button>
