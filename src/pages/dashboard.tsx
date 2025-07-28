@@ -21,22 +21,22 @@ import Navigation from '@/components/Navigation';
 const mockJewelry = [
   {
     id: 1,
-    code: 'GN001',
-    title: 'Traditional Gold Necklace',
-    category: 'Necklace',
+    code: 'GR001',
+    title: 'Traditional Gold Ring',
+    category: 'Ring',
     metalType: 'Gold',
     occasion: 'Bridal',
     type: 'Traditional',
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=500&h=500&fit=crop',
+    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&h=500&fit=crop',
     isNew: true,
     isPopular: false,
     isBridal: true
   },
   {
     id: 2,
-    code: 'DE002',
-    title: 'Diamond Solitaire Earrings',
-    category: 'Earrings',
+    code: 'JE002',
+    title: 'Diamond Jhumke Earrings',
+    category: 'Jhumke',
     metalType: 'Diamond',
     occasion: 'Daily wear',
     type: 'Modern',
@@ -47,22 +47,22 @@ const mockJewelry = [
   },
   {
     id: 3,
-    code: 'GR003',
-    title: 'Antique Gold Ring',
-    category: 'Ring',
+    code: 'GC003',
+    title: 'Antique Gold Chain',
+    category: 'Chain',
     metalType: 'Gold',
     occasion: 'Traditional',
     type: 'Antique',
-    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&h=500&fit=crop',
+    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=500&h=500&fit=crop',
     isNew: false,
     isPopular: true,
     isBridal: false
   },
   {
     id: 4,
-    code: 'DB004',
-    title: 'Bridal Diamond Set',
-    category: 'Set',
+    code: 'TS004',
+    title: 'Bridal Turkey Set',
+    category: 'Turkey set',
     metalType: 'Diamond',
     occasion: 'Bridal',
     type: 'Traditional',
@@ -86,9 +86,9 @@ const mockJewelry = [
   },
   {
     id: 6,
-    code: 'SP006',
-    title: 'Silver Pearl Necklace',
-    category: 'Necklace',
+    code: 'NT006',
+    title: 'Silver Pearl Nath',
+    category: 'Nath',
     metalType: 'Silver',
     occasion: 'Daily wear',
     type: 'Modern',
@@ -99,9 +99,9 @@ const mockJewelry = [
   },
   {
     id: 7,
-    code: 'PE007',
-    title: 'Platinum Engagement Ring',
-    category: 'Ring',
+    code: 'KD007',
+    title: 'Platinum KADA',
+    category: 'KADA',
     metalType: 'Platinum',
     occasion: 'Bridal',
     type: 'Modern',
@@ -112,9 +112,9 @@ const mockJewelry = [
   },
   {
     id: 8,
-    code: 'GC008',
-    title: 'Gold Chain Collection',
-    category: 'Chain',
+    code: 'MT008',
+    title: 'Gold Mangtika Collection',
+    category: 'Mangtika',
     metalType: 'Gold',
     occasion: 'Daily wear',
     type: 'Modern',
@@ -125,7 +125,7 @@ const mockJewelry = [
   }
 ];
 
-const categories = ['Necklace', 'Earrings', 'Ring', 'Bangles', 'Chain', 'Set'];
+const categories = ['Ring', 'Ear-chain', 'Chain', 'Tops', 'Kante', 'Ghumke', 'Jhumke', 'Bali', 'KADA', 'Bangles', 'Bracelet', 'Locket', 'chain set', 'Mala', 'Pendent set', 'Ranihar', 'Turkey set', 'FUSION set', 'Turkey ring', 'Mangtika', 'Nath', 'koka', 'Couple Ring'];
 const metalTypes = ['Gold', 'Diamond', 'Silver', 'Platinum'];
 const occasions = ['Daily wear', 'Bridal', 'Festive', 'Traditional'];
 const jewelryTypes = ['Traditional', 'Modern', 'Antique'];

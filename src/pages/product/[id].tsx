@@ -32,28 +32,28 @@ import Navigation from '@/components/Navigation';
 const mockProducts = {
   1: {
     id: 1,
-    code: 'GN001',
-    title: 'Traditional Gold Necklace',
-    category: 'Necklace',
+    code: 'GR001',
+    title: 'Traditional Gold Ring',
+    category: 'Ring',
     metalType: 'Gold',
     occasion: 'Bridal',
     type: 'Traditional',
-    description: 'Exquisite traditional gold necklace crafted with intricate designs, perfect for bridal occasions and special ceremonies. This piece showcases the finest Indian craftsmanship with detailed work that reflects our heritage.',
+    description: 'Exquisite traditional gold ring crafted with intricate designs, perfect for bridal occasions and special ceremonies. This piece showcases the finest Indian craftsmanship with detailed work that reflects our heritage.',
     images: [
+      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop',
       'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop',
       'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800&h=800&fit=crop',
       'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=800&h=800&fit=crop',
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop',
-      'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=800&h=800&fit=crop'
+      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop'
     ],
     specifications: {
       metal: '22K Gold',
-      weight: '45.5 grams',
-      dimensions: '18" x 2.5"',
+      weight: '8.5 grams',
+      dimensions: 'Size 6 (adjustable)',
       purity: '91.6% Gold',
       certification: 'BIS Hallmark Certified',
       occasion: 'Bridal, Traditional',
-      care: 'Store in soft cloth, avoid chemicals'
+      care: 'Store separately, avoid moisture'
     },
     isNew: true,
     isPopular: false,
@@ -62,13 +62,13 @@ const mockProducts = {
   },
   2: {
     id: 2,
-    code: 'DE002',
-    title: 'Diamond Solitaire Earrings',
-    category: 'Earrings',
+    code: 'JE002',
+    title: 'Diamond Jhumke Earrings',
+    category: 'Jhumke',
     metalType: 'Diamond',
     occasion: 'Daily wear',
     type: 'Modern',
-    description: 'Elegant diamond solitaire earrings featuring brilliant cut diamonds set in premium platinum. Perfect for daily wear or special occasions, these earrings add a touch of sophistication to any outfit.',
+    description: 'Elegant diamond jhumke earrings featuring brilliant cut diamonds set in premium gold. Perfect for daily wear or special occasions, these earrings add a touch of traditional sophistication to any outfit.',
     images: [
       'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=800&h=800&fit=crop',
       'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop',
@@ -76,11 +76,11 @@ const mockProducts = {
       'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800&h=800&fit=crop'
     ],
     specifications: {
-      metal: 'Platinum',
-      weight: '3.2 grams',
-      dimensions: '8mm diameter',
-      purity: '95% Platinum',
-      certification: 'GIA Certified Diamonds',
+      metal: '18K Gold with Diamonds',
+      weight: '12.2 grams',
+      dimensions: '2.5" length',
+      purity: '75% Gold, VVS Diamonds',
+      certification: 'GIA Certified Diamonds, BIS Hallmark',
       occasion: 'Daily wear, Formal',
       care: 'Clean with soft brush, professional cleaning recommended'
     },
@@ -91,26 +91,26 @@ const mockProducts = {
   },
   3: {
     id: 3,
-    code: 'GR003',
-    title: 'Antique Gold Ring',
-    category: 'Ring',
+    code: 'GC003',
+    title: 'Antique Gold Chain',
+    category: 'Chain',
     metalType: 'Gold',
     occasion: 'Traditional',
     type: 'Antique',
-    description: 'Beautiful antique gold ring featuring traditional Indian motifs and intricate craftsmanship. This piece represents the timeless elegance of vintage jewelry design.',
+    description: 'Beautiful antique gold chain featuring traditional Indian motifs and intricate craftsmanship. This piece represents the timeless elegance of vintage jewelry design.',
     images: [
-      'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop',
       'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop',
-      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800&h=800&fit=crop'
+      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800&h=800&fit=crop',
+      'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=800&h=800&fit=crop'
     ],
     specifications: {
       metal: '18K Gold',
-      weight: '8.5 grams',
-      dimensions: 'Size 6 (adjustable)',
+      weight: '25.5 grams',
+      dimensions: '20" length',
       purity: '75% Gold',
       certification: 'BIS Hallmark Certified',
       occasion: 'Traditional, Festive',
-      care: 'Store separately, avoid moisture'
+      care: 'Store flat, avoid tangling'
     },
     isNew: false,
     isPopular: true,
@@ -119,13 +119,13 @@ const mockProducts = {
   },
   4: {
     id: 4,
-    code: 'DB004',
-    title: 'Bridal Diamond Set',
-    category: 'Set',
+    code: 'TS004',
+    title: 'Bridal Turkey Set',
+    category: 'Turkey set',
     metalType: 'Diamond',
     occasion: 'Bridal',
     type: 'Traditional',
-    description: 'Complete bridal diamond jewelry set including necklace, earrings, and maang tikka. Crafted with premium diamonds and gold, perfect for your special day.',
+    description: 'Complete bridal Turkey jewelry set including necklace, earrings, and maang tikka. Crafted with premium diamonds and gold, perfect for your special day.',
     images: [
       'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800&h=800&fit=crop',
       'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop',
@@ -176,13 +176,13 @@ const mockProducts = {
   },
   6: {
     id: 6,
-    code: 'SP006',
-    title: 'Silver Pearl Necklace',
-    category: 'Necklace',
+    code: 'NT006',
+    title: 'Silver Pearl Nath',
+    category: 'Nath',
     metalType: 'Silver',
     occasion: 'Daily wear',
     type: 'Modern',
-    description: 'Elegant silver necklace adorned with natural pearls. Perfect for daily wear and formal occasions, combining classic elegance with modern design.',
+    description: 'Elegant silver nath adorned with natural pearls. Perfect for daily wear and formal occasions, combining classic elegance with modern design.',
     images: [
       'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&h=800&fit=crop',
       'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=800&h=800&fit=crop',
@@ -190,8 +190,8 @@ const mockProducts = {
     ],
     specifications: {
       metal: '925 Sterling Silver',
-      weight: '25 grams',
-      dimensions: '18" length',
+      weight: '15 grams',
+      dimensions: '2" diameter',
       purity: '92.5% Silver',
       certification: 'Sterling Silver Certified',
       occasion: 'Daily wear, Formal',
@@ -204,13 +204,13 @@ const mockProducts = {
   },
   7: {
     id: 7,
-    code: 'PE007',
-    title: 'Platinum Engagement Ring',
-    category: 'Ring',
+    code: 'KD007',
+    title: 'Platinum KADA',
+    category: 'KADA',
     metalType: 'Platinum',
     occasion: 'Bridal',
     type: 'Modern',
-    description: 'Stunning platinum engagement ring featuring a brilliant cut diamond. Crafted for the most special moment in your life with exceptional quality and design.',
+    description: 'Stunning platinum KADA featuring intricate designs. Crafted for special occasions with exceptional quality and traditional appeal.',
     images: [
       'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&h=800&fit=crop',
       'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop',
@@ -218,11 +218,11 @@ const mockProducts = {
     ],
     specifications: {
       metal: '950 Platinum',
-      weight: '4.5 grams',
-      dimensions: 'Size 6 (resizable)',
+      weight: '45 grams',
+      dimensions: '2.5" diameter',
       purity: '95% Platinum',
-      certification: 'GIA Certified Diamond',
-      occasion: 'Engagement, Bridal',
+      certification: 'Platinum Guild Certified',
+      occasion: 'Bridal, Traditional',
       care: 'Professional cleaning recommended'
     },
     isNew: false,
@@ -232,13 +232,13 @@ const mockProducts = {
   },
   8: {
     id: 8,
-    code: 'GC008',
-    title: 'Gold Chain Collection',
-    category: 'Chain',
+    code: 'MT008',
+    title: 'Gold Mangtika Collection',
+    category: 'Mangtika',
     metalType: 'Gold',
     occasion: 'Daily wear',
     type: 'Modern',
-    description: 'Versatile gold chain perfect for daily wear. Can be worn alone or paired with pendants. Crafted with precision for durability and style.',
+    description: 'Versatile gold mangtika perfect for daily wear and special occasions. Crafted with precision for durability and traditional style.',
     images: [
       'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&h=800&fit=crop',
       'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=800&h=800&fit=crop',
@@ -246,12 +246,12 @@ const mockProducts = {
     ],
     specifications: {
       metal: '18K Gold',
-      weight: '15 grams',
-      dimensions: '20" length',
+      weight: '12 grams',
+      dimensions: '4" length',
       purity: '75% Gold',
       certification: 'BIS Hallmark Certified',
-      occasion: 'Daily wear, Casual',
-      care: 'Store flat, avoid tangling'
+      occasion: 'Daily wear, Traditional',
+      care: 'Store carefully, avoid bending'
     },
     isNew: true,
     isPopular: false,
@@ -263,17 +263,17 @@ const mockProducts = {
 const relatedProducts = [
   {
     id: 3,
-    code: 'GR003',
-    title: 'Antique Gold Ring',
-    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=300&h=300&fit=crop',
-    category: 'Ring'
+    code: 'GC003',
+    title: 'Antique Gold Chain',
+    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=300&h=300&fit=crop',
+    category: 'Chain'
   },
   {
     id: 4,
-    code: 'DB004',
-    title: 'Bridal Diamond Set',
+    code: 'TS004',
+    title: 'Bridal Turkey Set',
     image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=300&h=300&fit=crop',
-    category: 'Set'
+    category: 'Turkey set'
   },
   {
     id: 5,
