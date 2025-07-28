@@ -275,24 +275,28 @@ export default function About() {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="max-w-6xl mx-auto"
+              className="w-full mx-auto"
             >
-              <Card className="overflow-hidden shadow-2xl border-rose-gold/20">
-                <CardContent className="p-4">
-                  <div className="relative">
-                    <OptimizedImage
-                      src="https://assets.co.dev/39c721f8-c578-41cf-bd78-6033041a65ba/whatsapp-image-2025-07-28-at-23.31.16-ac5db24.jpeg"
-                      alt="Manu Bawa Jewellers Heritage Collection Pamphlet - Traditional Indian Jewelry Showcase"
-                      width={1600}
-                      height={1200}
-                      className="w-full h-auto object-contain rounded-lg"
-                    />
-                    <div className="absolute top-6 right-6 bg-rose-gold text-white px-4 py-2 rounded-lg shadow-lg backdrop-blur-sm">
-                      <p className="text-sm font-medium">Heritage Collection</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <div className="relative bg-white rounded-lg shadow-2xl border border-rose-gold/20 p-6 overflow-hidden">
+                <div className="w-full flex justify-center">
+                  <OptimizedImage
+                    src="https://assets.co.dev/39c721f8-c578-41cf-bd78-6033041a65ba/whatsapp-image-2025-07-28-at-23.31.16-ac5db24.jpeg"
+                    alt="Manu Bawa Jewellers Heritage Collection Pamphlet - Traditional Indian Jewelry Showcase"
+                    width={2000}
+                    height={1500}
+                    className="max-w-full h-auto rounded-lg"
+                    style={{ 
+                      width: 'auto',
+                      height: 'auto',
+                      maxWidth: '100%',
+                      objectFit: 'contain'
+                    }}
+                  />
+                </div>
+                <div className="absolute top-8 right-8 bg-rose-gold text-white px-3 py-1 rounded-lg shadow-lg backdrop-blur-sm">
+                  <p className="text-xs font-medium">Heritage Collection</p>
+                </div>
+              </div>
               
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
